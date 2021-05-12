@@ -368,12 +368,15 @@ instance HasSeverityAnnotation (TracePeerSelection addr) where
       TracePromoteWarmPeers      {} -> Info
       TracePromoteWarmFailed     {} -> Error
       TracePromoteWarmDone       {} -> Info
+      TracePromoteWarmLocalPeers {} -> Info
       TraceDemoteWarmPeers       {} -> Info
       TraceDemoteWarmFailed      {} -> Error
       TraceDemoteWarmDone        {} -> Info
       TraceDemoteHotPeers        {} -> Info
       TraceDemoteHotFailed       {} -> Error
       TraceDemoteHotDone         {} -> Info
+      TracePromoteColdLocalPeers {} -> Info
+      TraceDemoteLocalHotPeers   {} -> Info
       TraceDemoteAsynchronous    {} -> Info
       TraceGovernorWakeup        {} -> Info
       TraceChurnWait             {} -> Info
