@@ -129,7 +129,7 @@ Change the working directory to the downloaded source code folder:
     cd cardano-node
 
 
-Checkout the latest version of cardano-node (choose the tag with the highest version number: ``TAGGED-VERSION``):
+Check out the latest version of cardano-node (choose the tag with the highest version number: ``TAGGED-VERSION``):
 
     git fetch --all --recurse-submodules --tags
     git tag
@@ -139,13 +139,7 @@ Checkout the latest version of cardano-node (choose the tag with the highest ver
 
 We explicitly use the GHC version that we installed earlier.  This avoids defaulting to a system version of GHC that might be older than the one you have installed.
 
-    cabal configure --with-compiler=ghc-8.10.2
-
-Update the local project file to use the VRF library that you installed earlier.
-
-    echo "package cardano-crypto-praos" >>  cabal.project.local
-    echo "  flags: -external-libsodium-vrf" >>  cabal.project.local
-
+    cabal configure --with-compiler=ghc-8.10.4
 
 #### Building and installing the node
 
