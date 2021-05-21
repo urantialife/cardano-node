@@ -71,8 +71,8 @@ import           Numeric.Natural
 
 import           Control.Monad
 
-import           Data.Aeson (FromJSON (..), ToJSON (..), object, withObject,
-                   withText, (.!=), (.:), (.:?), (.=))
+import           Data.Aeson (FromJSON (..), ToJSON (..), object, withObject, withText, (.!=), (.:),
+                   (.:?), (.=))
 import qualified Data.Aeson as Aeson
 import           Data.Bifunctor (bimap)
 
@@ -1031,11 +1031,25 @@ toAlonzoCostModels =
   . map (bimap toAlonzoScriptLanguage toAlonzoCostModel)
   . Map.toList
 
+fromAlonzoCostModels
+  :: Map Alonzo.Language Alonzo.CostModel
+  -> Map AnyPlutusScriptVersion CostModel
+fromAlonzoCostModels mdls =
+  Map.fromList
+    $ map (bimap fromAlonzoScriptLanguage fromAlonzoCostModel)
+    $ Map.toList mdls
+
 toAlonzoScriptLanguage :: AnyPlutusScriptVersion -> Alonzo.Language
 toAlonzoScriptLanguage (AnyPlutusScriptVersion PlutusScriptV1) = Alonzo.PlutusV1
 
+fromAlonzoScriptLanguage :: Alonzo.Language -> AnyPlutusScriptVersion
+fromAlonzoScriptLanguage Alonzo.PlutusV1 = AnyPlutusScriptVersion PlutusScriptV1
+
 toAlonzoCostModel :: CostModel -> Alonzo.CostModel
 toAlonzoCostModel (CostModel m) = Alonzo.CostModel m
+
+fromAlonzoCostModel :: Alonzo.CostModel -> CostModel
+fromAlonzoCostModel (Alonzo.CostModel m) = CostModel m
 
 fromShelleyPParams :: Shelley.PParams ledgerera
                    -> ProtocolParameters
