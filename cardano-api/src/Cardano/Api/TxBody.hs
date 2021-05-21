@@ -148,6 +148,8 @@ import qualified Cardano.Ledger.Core as Ledger
 import qualified Cardano.Ledger.Era as Ledger
 import qualified Cardano.Ledger.SafeHash as SafeHash
 import qualified Cardano.Ledger.Shelley.Constraints as Ledger
+import           Ouroboros.Consensus.Shelley.Eras (StandardAllegra, StandardAlonzo, StandardMary,
+                   StandardShelley)
 
 import           Cardano.Ledger.BaseTypes (StrictMaybe (..), maybeToStrictMaybe)
 import qualified Cardano.Ledger.Keys as Shelley
@@ -173,9 +175,6 @@ import qualified Cardano.Ledger.Alonzo.Scripts as Alonzo
 import qualified Cardano.Ledger.Alonzo.Tx as Alonzo
 import qualified Cardano.Ledger.Alonzo.TxBody as Alonzo
 import qualified Cardano.Ledger.Alonzo.TxWitness as Alonzo
-
-import           Ouroboros.Consensus.Shelley.Eras (StandardAllegra, StandardAlonzo, StandardMary,
-                   StandardShelley)
 
 import           Cardano.Api.Address
 import           Cardano.Api.Certificate

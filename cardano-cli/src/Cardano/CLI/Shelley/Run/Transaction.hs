@@ -46,10 +46,10 @@ import qualified Ouroboros.Network.Protocol.LocalTxSubmission.Client as Net.Tx
 import           Cardano.CLI.Environment (EnvSocketError, readEnvSocketPath, renderEnvSocketError)
 import           Cardano.CLI.Run.Friendly (friendlyTxBodyBS)
 import           Cardano.CLI.Shelley.Key (InputDecodeError, readSigningKeyFileAnyOf)
-import           Cardano.CLI.Shelley.Script
 import           Cardano.CLI.Shelley.Parsers
 import           Cardano.CLI.Shelley.Run.Genesis (ShelleyGenesisCmdError (..), readShelleyGenesis,
                    renderShelleyGenesisCmdError)
+import           Cardano.CLI.Shelley.Script
 import           Cardano.CLI.Types
 
 import qualified System.IO as IO
@@ -716,10 +716,12 @@ runTxCalculateMinValue protocolParamsSourceSpec value = do
       fromShelleyPParams . sgProtocolParams <$>
         firstExceptT ShelleyTxCmdGenesisCmdError (readShelleyGenesis f identity)
     ParamsFromFile f -> readProtocolParameters f
-
-  let minValues = calcMinimumDeposit value (protocolParamMinUTxOValue pp)
-
-  liftIO $ IO.print minValues
+  case protocolParamMinUTxOValue pp of
+    Just minV -> let minValues = calcMinimumDeposit value minV
+                 in liftIO $ IO.print minValues
+    -- TODO: Alonzo - error via ExceptT and this should  be era dependent
+    -- as minUTxoValue only exists pre-Alonzo
+    Nothing -> panic "runTxCalculateMinValue: minUTxoValue not specified"
 
 runTxCreatePolicyId :: ScriptFile -> ExceptT ShelleyTxCmdError IO ()
 runTxCreatePolicyId (ScriptFile sFile) = do

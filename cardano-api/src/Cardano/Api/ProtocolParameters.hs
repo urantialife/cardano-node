@@ -44,9 +44,12 @@ module Cardano.Api.ProtocolParameters (
     toShelleyProposedPPUpdates,
     toShelleyUpdate,
     toLedgerPParams,
+    fromLedgerParams,
     fromShelleyPParams,
     fromShelleyPParamsUpdate,
     fromShelleyProposedPPUpdates,
+    toShelleyPParams,
+    fromLedgerProposedPPUpdates,
     fromShelleyUpdate,
     fromShelleyGenesis,
     toAlonzoPrices,
@@ -87,10 +90,12 @@ import           Ouroboros.Consensus.Shelley.Eras (StandardShelley)
 
 import           Cardano.Ledger.BaseTypes (maybeToStrictMaybe, strictMaybeToMaybe)
 import qualified Cardano.Ledger.BaseTypes as Shelley
-import qualified Shelley.Spec.Ledger.Genesis as Shelley
+import qualified Cardano.Ledger.Core as Core
 import qualified Cardano.Ledger.Keys as Shelley
+import qualified Shelley.Spec.Ledger.Genesis as Shelley
 import qualified Shelley.Spec.Ledger.PParams as Shelley
 
+import qualified Cardano.Ledger.Alonzo as Alonzo
 import qualified Cardano.Ledger.Alonzo.Language as Alonzo
 import qualified Cardano.Ledger.Alonzo.PParams as Alonzo
 import qualified Cardano.Ledger.Alonzo.Scripts as Alonzo
@@ -192,7 +197,7 @@ data ProtocolParameters =
        -- | The minimum permitted value for new UTxO entries, ie for
        -- transaction outputs.
        --
-       protocolParamMinUTxOValue :: Lovelace,
+       protocolParamMinUTxOValue :: Maybe Lovelace,
 
        -- | The deposit required to register a stake address.
        --
@@ -265,7 +270,18 @@ data ProtocolParameters =
        -- | Max size of a Value in a tx ouput.
        --
        -- /Introduced in Alonzo/
-       protocolParamMaxValueSize :: Maybe Natural
+       protocolParamMaxValueSize :: Maybe Natural,
+
+       -- | Percentage of the txfee provided as collateral when
+       -- including Plutus scripts
+       --
+       -- /Introduced in Alonzo/
+       protocolCollateralPercentage :: Maybe Natural,
+
+       -- | Max number of collateral inputs allowed in a transaction
+       --
+       -- /Introduced in Alonzo/
+       protocolMaxCollateralInputs :: Maybe Natural
     }
   deriving (Eq, Generic, Show)
 
@@ -296,6 +312,8 @@ instance FromJSON ProtocolParameters where
                         <*> o .:? "maxTxExecUnits"
                         <*> o .:? "maxBlockExecUnits"
                         <*> o .:? "maxValueSize"
+                        <*> o .:? "collateralPercentage"
+                        <*> o .:? "maxCollateralInputs"
 
 instance ToJSON ProtocolParameters where
   toJSON pp = object [ "extraPraosEntropy" .= protocolParamExtraPraosEntropy pp
@@ -472,37 +490,50 @@ data ProtocolParametersUpdate =
        -- | Max size of a 'Value' in a tx output.
        --
        -- /Introduced in Alonzo/
-       protocolUpdateParamMaxValueSize :: Maybe Natural
+       protocolUpdateParamMaxValueSize :: Maybe Natural,
+
+       -- | Percentage of the txfee provided as collateral when
+       -- including Plutus scripts
+       --
+       -- /Introduced in Alonzo/
+       protocolUpdateCollateralPercentage :: Maybe Natural,
+
+       -- | Max number of collateral inputs allowed in a transaction
+       --
+       -- /Introduced in Alonzo/
+       protocolUpdateMaxCollateralInputs :: Maybe Natural
     }
   deriving (Eq, Show)
 
 instance Semigroup ProtocolParametersUpdate where
     ppu1 <> ppu2 =
       ProtocolParametersUpdate {
-        protocolUpdateProtocolVersion     = merge protocolUpdateProtocolVersion
-      , protocolUpdateDecentralization    = merge protocolUpdateDecentralization
-      , protocolUpdateExtraPraosEntropy   = merge protocolUpdateExtraPraosEntropy
-      , protocolUpdateMaxBlockHeaderSize  = merge protocolUpdateMaxBlockHeaderSize
-      , protocolUpdateMaxBlockBodySize    = merge protocolUpdateMaxBlockBodySize
-      , protocolUpdateMaxTxSize           = merge protocolUpdateMaxTxSize
-      , protocolUpdateTxFeeFixed          = merge protocolUpdateTxFeeFixed
-      , protocolUpdateTxFeePerByte        = merge protocolUpdateTxFeePerByte
-      , protocolUpdateMinUTxOValue        = merge protocolUpdateMinUTxOValue
-      , protocolUpdateStakeAddressDeposit = merge protocolUpdateStakeAddressDeposit
-      , protocolUpdateStakePoolDeposit    = merge protocolUpdateStakePoolDeposit
-      , protocolUpdateMinPoolCost         = merge protocolUpdateMinPoolCost
-      , protocolUpdatePoolRetireMaxEpoch  = merge protocolUpdatePoolRetireMaxEpoch
-      , protocolUpdateStakePoolTargetNum  = merge protocolUpdateStakePoolTargetNum
-      , protocolUpdatePoolPledgeInfluence = merge protocolUpdatePoolPledgeInfluence
-      , protocolUpdateMonetaryExpansion   = merge protocolUpdateMonetaryExpansion
-      , protocolUpdateTreasuryCut         = merge protocolUpdateTreasuryCut
+        protocolUpdateProtocolVersion      = merge protocolUpdateProtocolVersion
+      , protocolUpdateDecentralization     = merge protocolUpdateDecentralization
+      , protocolUpdateExtraPraosEntropy    = merge protocolUpdateExtraPraosEntropy
+      , protocolUpdateMaxBlockHeaderSize   = merge protocolUpdateMaxBlockHeaderSize
+      , protocolUpdateMaxBlockBodySize     = merge protocolUpdateMaxBlockBodySize
+      , protocolUpdateMaxTxSize            = merge protocolUpdateMaxTxSize
+      , protocolUpdateTxFeeFixed           = merge protocolUpdateTxFeeFixed
+      , protocolUpdateTxFeePerByte         = merge protocolUpdateTxFeePerByte
+      , protocolUpdateMinUTxOValue         = merge protocolUpdateMinUTxOValue
+      , protocolUpdateStakeAddressDeposit  = merge protocolUpdateStakeAddressDeposit
+      , protocolUpdateStakePoolDeposit     = merge protocolUpdateStakePoolDeposit
+      , protocolUpdateMinPoolCost          = merge protocolUpdateMinPoolCost
+      , protocolUpdatePoolRetireMaxEpoch   = merge protocolUpdatePoolRetireMaxEpoch
+      , protocolUpdateStakePoolTargetNum   = merge protocolUpdateStakePoolTargetNum
+      , protocolUpdatePoolPledgeInfluence  = merge protocolUpdatePoolPledgeInfluence
+      , protocolUpdateMonetaryExpansion    = merge protocolUpdateMonetaryExpansion
+      , protocolUpdateTreasuryCut          = merge protocolUpdateTreasuryCut
       -- Intoduced in Alonzo below.
-      , protocolUpdateUTxOCostPerWord     = merge protocolUpdateUTxOCostPerWord
-      , protocolUpdateCostModels          = mergeMap protocolUpdateCostModels
-      , protocolUpdatePrices              = merge protocolUpdatePrices
-      , protocolUpdateMaxTxExUnits        = merge protocolUpdateMaxTxExUnits
-      , protocolUpdateMaxBlockExUnits     = merge protocolUpdateMaxBlockExUnits
-      , protocolUpdateParamMaxValueSize   = merge protocolUpdateParamMaxValueSize
+      , protocolUpdateUTxOCostPerWord      = merge protocolUpdateUTxOCostPerWord
+      , protocolUpdateCostModels           = mergeMap protocolUpdateCostModels
+      , protocolUpdatePrices               = merge protocolUpdatePrices
+      , protocolUpdateMaxTxExUnits         = merge protocolUpdateMaxTxExUnits
+      , protocolUpdateMaxBlockExUnits      = merge protocolUpdateMaxBlockExUnits
+      , protocolUpdateParamMaxValueSize    = merge protocolUpdateParamMaxValueSize
+      , protocolUpdateCollateralPercentage = merge protocolUpdateCollateralPercentage
+      , protocolUpdateMaxCollateralInputs  = merge protocolUpdateMaxCollateralInputs
       }
       where
         -- prefer the right hand side:
@@ -516,29 +547,31 @@ instance Semigroup ProtocolParametersUpdate where
 instance Monoid ProtocolParametersUpdate where
     mempty =
       ProtocolParametersUpdate {
-        protocolUpdateProtocolVersion     = Nothing
-      , protocolUpdateDecentralization    = Nothing
-      , protocolUpdateExtraPraosEntropy   = Nothing
-      , protocolUpdateMaxBlockHeaderSize  = Nothing
-      , protocolUpdateMaxBlockBodySize    = Nothing
-      , protocolUpdateMaxTxSize           = Nothing
-      , protocolUpdateTxFeeFixed          = Nothing
-      , protocolUpdateTxFeePerByte        = Nothing
-      , protocolUpdateMinUTxOValue        = Nothing
-      , protocolUpdateStakeAddressDeposit = Nothing
-      , protocolUpdateStakePoolDeposit    = Nothing
-      , protocolUpdateMinPoolCost         = Nothing
-      , protocolUpdatePoolRetireMaxEpoch  = Nothing
-      , protocolUpdateStakePoolTargetNum  = Nothing
-      , protocolUpdatePoolPledgeInfluence = Nothing
-      , protocolUpdateMonetaryExpansion   = Nothing
-      , protocolUpdateTreasuryCut         = Nothing
-      , protocolUpdateUTxOCostPerWord     = Nothing
-      , protocolUpdateCostModels          = mempty
-      , protocolUpdatePrices              = Nothing
-      , protocolUpdateMaxTxExUnits        = Nothing
-      , protocolUpdateMaxBlockExUnits     = Nothing
-      , protocolUpdateParamMaxValueSize   = Nothing
+        protocolUpdateProtocolVersion      = Nothing
+      , protocolUpdateDecentralization     = Nothing
+      , protocolUpdateExtraPraosEntropy    = Nothing
+      , protocolUpdateMaxBlockHeaderSize   = Nothing
+      , protocolUpdateMaxBlockBodySize     = Nothing
+      , protocolUpdateMaxTxSize            = Nothing
+      , protocolUpdateTxFeeFixed           = Nothing
+      , protocolUpdateTxFeePerByte         = Nothing
+      , protocolUpdateMinUTxOValue         = Nothing
+      , protocolUpdateStakeAddressDeposit  = Nothing
+      , protocolUpdateStakePoolDeposit     = Nothing
+      , protocolUpdateMinPoolCost          = Nothing
+      , protocolUpdatePoolRetireMaxEpoch   = Nothing
+      , protocolUpdateStakePoolTargetNum   = Nothing
+      , protocolUpdatePoolPledgeInfluence  = Nothing
+      , protocolUpdateMonetaryExpansion    = Nothing
+      , protocolUpdateTreasuryCut          = Nothing
+      , protocolUpdateUTxOCostPerWord      = Nothing
+      , protocolUpdateCostModels           = mempty
+      , protocolUpdatePrices               = Nothing
+      , protocolUpdateMaxTxExUnits         = Nothing
+      , protocolUpdateMaxBlockExUnits      = Nothing
+      , protocolUpdateParamMaxValueSize    = Nothing
+      , protocolUpdateCollateralPercentage = Nothing
+      , protocolUpdateMaxCollateralInputs  = Nothing
       }
 
 
@@ -839,6 +872,29 @@ fromShelleyProposedPPUpdates =
   . (\(Shelley.ProposedPPUpdates ppup) -> ppup)
 
 
+fromLedgerProposedPPUpdates
+  :: ShelleyLedgerEra era ~ ledgerera
+  => ShelleyBasedEra era
+  -> Shelley.ProposedPPUpdates ledgerera
+  -> Map (Hash GenesisKey) ProtocolParametersUpdate
+fromLedgerProposedPPUpdates sbe m =
+  case sbe of
+    ShelleyBasedEraShelley ->
+      Map.map fromShelleyPParamsUpdate $ convertToApiKeys m
+    ShelleyBasedEraAllegra ->
+      Map.map fromShelleyPParamsUpdate $ convertToApiKeys m
+    ShelleyBasedEraMary ->
+      Map.map fromShelleyPParamsUpdate $ convertToApiKeys m
+    ShelleyBasedEraAlonzo ->
+      Map.map fromAlonzoPParamsUpdate $ convertToApiKeys m
+ where
+   convertToApiKeys
+     :: Ledger.Crypto ledgerera ~ StandardCrypto
+     => Shelley.ProposedPPUpdates ledgerera
+     -> Map (Hash GenesisKey) (Core.PParamsDelta ledgerera)
+   convertToApiKeys m' = Map.mapKeysMonotonic GenesisKeyHash
+                           $ (\(Shelley.ProposedPPUpdates ppup') -> ppup') m'
+
 fromShelleyPParamsUpdate :: Shelley.PParamsUpdate ledgerera
                          -> ProtocolParametersUpdate
 fromShelleyPParamsUpdate
@@ -862,38 +918,40 @@ fromShelleyPParamsUpdate
     , Shelley._minPoolCost
     } =
     ProtocolParametersUpdate {
-      protocolUpdateProtocolVersion     = (\(Shelley.ProtVer a b) -> (a,b)) <$>
-                                          strictMaybeToMaybe _protocolVersion
-    , protocolUpdateDecentralization    = Shelley.unitIntervalToRational <$>
-                                            strictMaybeToMaybe _d
-    , protocolUpdateExtraPraosEntropy   = fromPraosNonce <$>
-                                            strictMaybeToMaybe _extraEntropy
-    , protocolUpdateMaxBlockHeaderSize  = strictMaybeToMaybe _maxBHSize
-    , protocolUpdateMaxBlockBodySize    = strictMaybeToMaybe _maxBBSize
-    , protocolUpdateMaxTxSize           = strictMaybeToMaybe _maxTxSize
-    , protocolUpdateTxFeeFixed          = strictMaybeToMaybe _minfeeB
-    , protocolUpdateTxFeePerByte        = strictMaybeToMaybe _minfeeA
-    , protocolUpdateMinUTxOValue        = fromShelleyLovelace <$>
-                                            strictMaybeToMaybe _minUTxOValue
-    , protocolUpdateStakeAddressDeposit = fromShelleyLovelace <$>
-                                            strictMaybeToMaybe _keyDeposit
-    , protocolUpdateStakePoolDeposit    = fromShelleyLovelace <$>
-                                            strictMaybeToMaybe _poolDeposit
-    , protocolUpdateMinPoolCost         = fromShelleyLovelace <$>
-                                            strictMaybeToMaybe _minPoolCost
-    , protocolUpdatePoolRetireMaxEpoch  = strictMaybeToMaybe _eMax
-    , protocolUpdateStakePoolTargetNum  = strictMaybeToMaybe _nOpt
-    , protocolUpdatePoolPledgeInfluence = strictMaybeToMaybe _a0
-    , protocolUpdateMonetaryExpansion   = Shelley.unitIntervalToRational <$>
-                                            strictMaybeToMaybe _rho
-    , protocolUpdateTreasuryCut         = Shelley.unitIntervalToRational <$>
-                                            strictMaybeToMaybe _tau
-    , protocolUpdateUTxOCostPerWord     = Nothing
-    , protocolUpdateCostModels          = mempty
-    , protocolUpdatePrices              = Nothing
-    , protocolUpdateMaxTxExUnits        = Nothing
-    , protocolUpdateMaxBlockExUnits     = Nothing
-    , protocolUpdateParamMaxValueSize   = Nothing
+      protocolUpdateProtocolVersion      = (\(Shelley.ProtVer a b) -> (a,b)) <$>
+                                           strictMaybeToMaybe _protocolVersion
+    , protocolUpdateDecentralization     = Shelley.unitIntervalToRational <$>
+                                             strictMaybeToMaybe _d
+    , protocolUpdateExtraPraosEntropy    = fromPraosNonce <$>
+                                             strictMaybeToMaybe _extraEntropy
+    , protocolUpdateMaxBlockHeaderSize   = strictMaybeToMaybe _maxBHSize
+    , protocolUpdateMaxBlockBodySize     = strictMaybeToMaybe _maxBBSize
+    , protocolUpdateMaxTxSize            = strictMaybeToMaybe _maxTxSize
+    , protocolUpdateTxFeeFixed           = strictMaybeToMaybe _minfeeB
+    , protocolUpdateTxFeePerByte         = strictMaybeToMaybe _minfeeA
+    , protocolUpdateMinUTxOValue         = fromShelleyLovelace <$>
+                                             strictMaybeToMaybe _minUTxOValue
+    , protocolUpdateStakeAddressDeposit  = fromShelleyLovelace <$>
+                                             strictMaybeToMaybe _keyDeposit
+    , protocolUpdateStakePoolDeposit     = fromShelleyLovelace <$>
+                                             strictMaybeToMaybe _poolDeposit
+    , protocolUpdateMinPoolCost          = fromShelleyLovelace <$>
+                                             strictMaybeToMaybe _minPoolCost
+    , protocolUpdatePoolRetireMaxEpoch   = strictMaybeToMaybe _eMax
+    , protocolUpdateStakePoolTargetNum   = strictMaybeToMaybe _nOpt
+    , protocolUpdatePoolPledgeInfluence  = strictMaybeToMaybe _a0
+    , protocolUpdateMonetaryExpansion    = Shelley.unitIntervalToRational <$>
+                                             strictMaybeToMaybe _rho
+    , protocolUpdateTreasuryCut          = Shelley.unitIntervalToRational <$>
+                                             strictMaybeToMaybe _tau
+    , protocolUpdateUTxOCostPerWord      = Nothing
+    , protocolUpdateCostModels           = mempty
+    , protocolUpdatePrices               = Nothing
+    , protocolUpdateMaxTxExUnits         = Nothing
+    , protocolUpdateMaxBlockExUnits      = Nothing
+    , protocolUpdateParamMaxValueSize    = Nothing
+    , protocolUpdateCollateralPercentage = Nothing
+    , protocolUpdateMaxCollateralInputs = Nothing
     }
 
 
@@ -929,28 +987,26 @@ toShelleyPParams ProtocolParameters {
                    protocolParamTreasuryCut
                  } =
    Shelley.PParams
-     { Shelley._protocolVersion
-                             = let (maj, minor) = protocolParamProtocolVersion
-                                in Shelley.ProtVer maj minor
-     , Shelley._d            = Shelley.unitIntervalFromRational
-                                 protocolParamDecentralization
+     { Shelley._protocolVersion = let (maj, minor) = protocolParamProtocolVersion
+                                  in Shelley.ProtVer maj minor
+     , Shelley._d = Shelley.unitIntervalFromRational protocolParamDecentralization
      , Shelley._extraEntropy = toShelleyNonce protocolParamExtraPraosEntropy
-     , Shelley._maxBHSize    = protocolParamMaxBlockHeaderSize
-     , Shelley._maxBBSize    = protocolParamMaxBlockBodySize
-     , Shelley._maxTxSize    = protocolParamMaxTxSize
-     , Shelley._minfeeB      = protocolParamTxFeeFixed
-     , Shelley._minfeeA      = protocolParamTxFeePerByte
-     , Shelley._minUTxOValue = toShelleyLovelace protocolParamMinUTxOValue
-     , Shelley._keyDeposit   = toShelleyLovelace protocolParamStakeAddressDeposit
-     , Shelley._poolDeposit  = toShelleyLovelace protocolParamStakePoolDeposit
-     , Shelley._minPoolCost  = toShelleyLovelace protocolParamMinPoolCost
-     , Shelley._eMax         = protocolParamPoolRetireMaxEpoch
-     , Shelley._nOpt         = protocolParamStakePoolTargetNum
-     , Shelley._a0           = protocolParamPoolPledgeInfluence
-     , Shelley._rho          = Shelley.unitIntervalFromRational
-                                 protocolParamMonetaryExpansion
-     , Shelley._tau          = Shelley.unitIntervalFromRational
-                                 protocolParamTreasuryCut
+     , Shelley._maxBHSize = protocolParamMaxBlockHeaderSize
+     , Shelley._maxBBSize = protocolParamMaxBlockBodySize
+     , Shelley._maxTxSize = protocolParamMaxTxSize
+     , Shelley._minfeeB = protocolParamTxFeeFixed
+     , Shelley._minfeeA = protocolParamTxFeePerByte
+     , Shelley._minUTxOValue = case protocolParamMinUTxOValue of
+                                 Just minV -> toShelleyLovelace minV
+                                 Nothing -> error "fromProtocolParamsShelley: Missing minUTxOValue"
+     , Shelley._keyDeposit = toShelleyLovelace protocolParamStakeAddressDeposit
+     , Shelley._poolDeposit = toShelleyLovelace protocolParamStakePoolDeposit
+     , Shelley._minPoolCost = toShelleyLovelace protocolParamMinPoolCost
+     , Shelley._eMax = protocolParamPoolRetireMaxEpoch
+     , Shelley._nOpt = protocolParamStakePoolTargetNum
+     , Shelley._a0 = protocolParamPoolPledgeInfluence
+     , Shelley._rho = Shelley.unitIntervalFromRational protocolParamMonetaryExpansion
+     , Shelley._tau = Shelley.unitIntervalFromRational protocolParamTreasuryCut
      }
 
 toAlonzoPParams :: ProtocolParameters -> Alonzo.PParams ledgerera
@@ -1083,7 +1139,7 @@ fromShelleyPParams
     , protocolParamMaxTxSize           = _maxTxSize
     , protocolParamTxFeeFixed          = _minfeeB
     , protocolParamTxFeePerByte        = _minfeeA
-    , protocolParamMinUTxOValue        = fromShelleyLovelace _minUTxOValue
+    , protocolParamMinUTxOValue        = Just $ fromShelleyLovelace _minUTxOValue
     , protocolParamStakeAddressDeposit = fromShelleyLovelace _keyDeposit
     , protocolParamStakePoolDeposit    = fromShelleyLovelace _poolDeposit
     , protocolParamMinPoolCost         = fromShelleyLovelace _minPoolCost
@@ -1098,7 +1154,120 @@ fromShelleyPParams
     , protocolParamMaxTxExUnits        = Nothing
     , protocolParamMaxBlockExUnits     = Nothing
     , protocolParamMaxValueSize        = Nothing
+    , protocolCollateralPercentage     = Nothing
+    , protocolMaxCollateralInputs      = Nothing
     }
+
+fromAlonzoPParams :: Alonzo.PParams ledgerera -> ProtocolParameters
+fromAlonzoPParams pparams =
+   ProtocolParameters
+        { protocolParamProtocolVersion     = (\(Shelley.ProtVer a b) -> (a,b))
+                                               $ Alonzo._protocolVersion pparams
+        , protocolParamDecentralization    = Shelley.unitIntervalToRational $ Alonzo._d pparams
+        , protocolParamExtraPraosEntropy   = fromPraosNonce $ Alonzo._extraEntropy pparams
+        , protocolParamMaxBlockHeaderSize  = Alonzo._maxBHSize pparams
+        , protocolParamMaxBlockBodySize    = Alonzo._maxBBSize pparams
+        , protocolParamMaxTxSize           = Alonzo._maxTxSize pparams
+        , protocolParamTxFeeFixed          = Alonzo._minfeeB pparams
+        , protocolParamTxFeePerByte        = Alonzo._minfeeA pparams
+        , protocolParamMinUTxOValue        = Nothing
+        , protocolParamStakeAddressDeposit = fromShelleyLovelace $ Alonzo._keyDeposit pparams
+        , protocolParamStakePoolDeposit    = fromShelleyLovelace $ Alonzo._poolDeposit pparams
+        , protocolParamMinPoolCost         = fromShelleyLovelace $ Alonzo._minPoolCost pparams
+        , protocolParamPoolRetireMaxEpoch  = Alonzo._eMax pparams
+        , protocolParamStakePoolTargetNum  = Alonzo._nOpt pparams
+        , protocolParamPoolPledgeInfluence = Alonzo._a0 pparams
+        , protocolParamMonetaryExpansion   = Shelley.unitIntervalToRational $ Alonzo._rho pparams
+        , protocolParamTreasuryCut         = Shelley.unitIntervalToRational $ Alonzo._tau pparams
+        , protocolParamUTxOCostPerWord     = Just . fromShelleyLovelace $ Alonzo._adaPerUTxOWord pparams
+        , protocolParamCostModels          = fromAlonzoCostModels $ Alonzo._costmdls pparams
+        , protocolParamPrices              = Just . fromAlonzoPrices $ Alonzo._prices pparams
+        , protocolParamMaxTxExUnits        = Just . fromAlonzoExUnits $ Alonzo._maxTxExUnits pparams
+        , protocolParamMaxBlockExUnits     = Just . fromAlonzoExUnits $ Alonzo._maxBlockExUnits pparams
+        , protocolParamMaxValueSize        = Just $ Alonzo._maxValSize pparams
+        , protocolCollateralPercentage     = Just $ Alonzo._collateralPercentage pparams
+        , protocolMaxCollateralInputs      = Just $ Alonzo._maxCollateralInputs pparams
+        }
+
+fromAlonzoPParamsUpdate :: Alonzo.PParamsUpdate ledgerera -> ProtocolParametersUpdate
+fromAlonzoPParamsUpdate
+    Alonzo.PParams {
+      Alonzo._minfeeA
+    , Alonzo._minfeeB
+    , Alonzo._maxBBSize
+    , Alonzo._maxTxSize
+    , Alonzo._maxBHSize
+    , Alonzo._keyDeposit
+    , Alonzo._poolDeposit
+    , Alonzo._eMax
+    , Alonzo._nOpt
+    , Alonzo._a0
+    , Alonzo._rho
+    , Alonzo._tau
+    , Alonzo._d
+    , Alonzo._extraEntropy
+    , Alonzo._protocolVersion
+    , Alonzo._minPoolCost
+    , Alonzo._adaPerUTxOWord
+    , Alonzo._costmdls
+    , Alonzo._prices
+    , Alonzo._maxTxExUnits
+    , Alonzo._maxBlockExUnits
+    , Alonzo._maxValSize
+    , Alonzo._collateralPercentage
+    , Alonzo._maxCollateralInputs
+    } =
+    ProtocolParametersUpdate {
+      protocolUpdateProtocolVersion      = (\(Shelley.ProtVer a b) -> (a,b)) <$>
+                                           strictMaybeToMaybe _protocolVersion
+    , protocolUpdateDecentralization     = Shelley.unitIntervalToRational <$>
+                                             strictMaybeToMaybe _d
+    , protocolUpdateExtraPraosEntropy    = fromPraosNonce <$>
+                                             strictMaybeToMaybe _extraEntropy
+    , protocolUpdateMaxBlockHeaderSize   = strictMaybeToMaybe _maxBHSize
+    , protocolUpdateMaxBlockBodySize     = strictMaybeToMaybe _maxBBSize
+    , protocolUpdateMaxTxSize            = strictMaybeToMaybe _maxTxSize
+    , protocolUpdateTxFeeFixed           = strictMaybeToMaybe _minfeeB
+    , protocolUpdateTxFeePerByte         = strictMaybeToMaybe _minfeeA
+    , protocolUpdateMinUTxOValue         = Nothing
+    , protocolUpdateStakeAddressDeposit  = fromShelleyLovelace <$>
+                                             strictMaybeToMaybe _keyDeposit
+    , protocolUpdateStakePoolDeposit     = fromShelleyLovelace <$>
+                                             strictMaybeToMaybe _poolDeposit
+    , protocolUpdateMinPoolCost          = fromShelleyLovelace <$>
+                                             strictMaybeToMaybe _minPoolCost
+    , protocolUpdatePoolRetireMaxEpoch   = strictMaybeToMaybe _eMax
+    , protocolUpdateStakePoolTargetNum   = strictMaybeToMaybe _nOpt
+    , protocolUpdatePoolPledgeInfluence  = strictMaybeToMaybe _a0
+    , protocolUpdateMonetaryExpansion    = Shelley.unitIntervalToRational <$>
+                                             strictMaybeToMaybe _rho
+    , protocolUpdateTreasuryCut          = Shelley.unitIntervalToRational <$>
+                                             strictMaybeToMaybe _tau
+    , protocolUpdateUTxOCostPerWord      = fromShelleyLovelace <$>
+                                             strictMaybeToMaybe _adaPerUTxOWord
+    , protocolUpdateCostModels           = maybe mempty fromAlonzoCostModels (strictMaybeToMaybe _costmdls)
+    , protocolUpdatePrices               = fromAlonzoPrices <$>
+                                             strictMaybeToMaybe _prices
+    , protocolUpdateMaxTxExUnits         = fromAlonzoExUnits <$>
+                                             strictMaybeToMaybe _maxTxExUnits
+    , protocolUpdateMaxBlockExUnits      = fromAlonzoExUnits <$>
+                                             strictMaybeToMaybe _maxBlockExUnits
+    , protocolUpdateParamMaxValueSize    = strictMaybeToMaybe _maxValSize
+    , protocolUpdateCollateralPercentage = strictMaybeToMaybe _collateralPercentage
+    , protocolUpdateMaxCollateralInputs  = strictMaybeToMaybe _maxCollateralInputs
+    }
+
+
+fromLedgerParams
+  :: ShelleyBasedEra era
+  -> Core.PParams (ShelleyLedgerEra era)
+  -> ProtocolParameters
+fromLedgerParams sbe pparams =
+  case sbe of
+    ShelleyBasedEraShelley -> fromShelleyPParams pparams
+    ShelleyBasedEraAllegra -> fromShelleyPParams pparams
+    ShelleyBasedEraMary -> fromShelleyPParams pparams
+    ShelleyBasedEraAlonzo -> fromAlonzoPParams pparams
 
 
 fromShelleyGenesis :: Shelley.ShelleyGenesis era -> GenesisParameters

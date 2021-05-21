@@ -664,7 +664,7 @@ genProtocolParameters =
     <*> genNat
     <*> genNat
     <*> genNat
-    <*> genLovelace
+    <*> Gen.maybe genLovelace
     <*> genLovelace
     <*> genLovelace
     <*> genLovelace
@@ -676,6 +676,8 @@ genProtocolParameters =
     -- TODO alonzo: Add proper support for these generators.
     <*> return Nothing
     <*> return mempty
+    <*> return Nothing
+    <*> return Nothing
     <*> return Nothing
     <*> return Nothing
     <*> return Nothing
