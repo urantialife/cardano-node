@@ -67,12 +67,19 @@ import           Cardano.Tracing.Metrics (HasKESMetricsData (..), HasKESInfo (..
 
 import qualified Ouroboros.Consensus.Config as Consensus
 import           Ouroboros.Consensus.Config.SupportsNode (ConfigSupportsNode (..), getNetworkMagic)
-import           Ouroboros.Consensus.Node (DiffusionArguments (..),
-                   RunNode, RunNodeArgs (..), StdRunNodeArgs (..))
+import           Ouroboros.Consensus.Node
+                   ( RunNode
+                   , RunNodeArgs (..)
+                   , StdRunNodeArgs (..)
+                   )
 import qualified Ouroboros.Consensus.Node as Node (getChainDB, run)
 import           Ouroboros.Consensus.Node.ProtocolInfo
 import           Ouroboros.Consensus.Node.NetworkProtocolVersion
 import           Ouroboros.Consensus.Util.Orphans ()
+import           Ouroboros.Network.Diffusion
+                   ( DiffusionArguments(..)
+                   , mkDiffusionArgumentsP2P
+                   )
 import           Ouroboros.Network.Magic (NetworkMagic (..))
 import           Ouroboros.Network.NodeToNode (AcceptedConnectionsLimit (..),
                    PeerSelectionTargets (..))
@@ -459,42 +466,52 @@ createDiffusionArguments NodeConfiguration {
                          daReadPublicRootPeers
                          daReadUseLedgerAfter
                          =
-  DiffusionArguments
-    { daIPv4Address = case publicIPv4SocketsOrAddrs of
-                        Just (ActualSocket socket) -> Just (Left socket)
-                        Just (SocketInfo addr)     -> Just (Right addr)
-                        Nothing                    -> Nothing
-    , daIPv6Address = case publicIPv6SocketsOrAddrs of
-                        Just (ActualSocket socket) -> Just (Left socket)
-                        Just (SocketInfo addr)     -> Just (Right addr)
-                        Nothing                    -> Nothing
-    , daLocalAddress = case localSocketOrPath of
-                        Just (ActualSocket socket)          -> Just (Left socket)
-                        Just (SocketInfo (SocketPath path)) -> Just (Right path)
-                        Nothing                             -> Nothing
-    , daReadLocalRootPeers
-    , daReadPublicRootPeers
-    , daReadUseLedgerAfter
+  mkDiffusionArgumentsP2P
+    daIPv4Address
+    daIPv6Address
+    daLocalAddress
+    daPeerSelectionTargets
+    daReadLocalRootPeers
+    daReadPublicRootPeers
+    daReadUseLedgerAfter
+    daAcceptedConnectionsLimit
+    daDiffusionMode
+    daProtocolIdleTimeout
+    daTimeWaitTimeout
+  where
+    daIPv4Address =
+      case publicIPv4SocketsOrAddrs of
+        Just (ActualSocket socket) -> Just (Left socket)
+        Just (SocketInfo addr)     -> Just (Right addr)
+        Nothing                    -> Nothing
+    daIPv6Address =
+      case publicIPv6SocketsOrAddrs of
+        Just (ActualSocket socket) -> Just (Left socket)
+        Just (SocketInfo addr)     -> Just (Right addr)
+        Nothing                    -> Nothing
+    daLocalAddress =
+      case localSocketOrPath of  -- TODO allow expressing the Nothing case in the config
+        ActualSocket socket          -> Just $ Left socket
+        SocketInfo (SocketPath path) -> Just $ Right path
     -- TODO: these limits are arbitrary at the moment;
     -- issue: https://github.com/input-output-hk/ouroboros-network/issues/1836
-    , daAcceptedConnectionsLimit = AcceptedConnectionsLimit {
+    daAcceptedConnectionsLimit = AcceptedConnectionsLimit {
         acceptedConnectionsHardLimit = 512
       , acceptedConnectionsSoftLimit = 384
       , acceptedConnectionsDelay     = 5
-      }
-    , daDiffusionMode = ncDiffusionMode
+    }
+    daDiffusionMode = ncDiffusionMode
     -- TODO: this should be configurable; the following gives something similar
     -- to the current node setup for pool operators.  It's rather conservative,
     -- just for start.
-    , daPeerSelectionTargets = PeerSelectionTargets {
+    daPeerSelectionTargets = PeerSelectionTargets {
         targetNumberOfRootPeers        = ncTargetNumberOfRootPeers,
         targetNumberOfKnownPeers       = ncTargetNumberOfKnownPeers,
         targetNumberOfEstablishedPeers = ncTargetNumberOfEstablishedPeers,
         targetNumberOfActivePeers      = ncTargetNumberOfActivePeers
-      }
-    , daProtocolIdleTimeout   = ncProtocolIdleTimeout
-    , daTimeWaitTimeout       = ncTimeWaitTimeout
     }
+    daProtocolIdleTimeout   = ncProtocolIdleTimeout
+    daTimeWaitTimeout       = ncTimeWaitTimeout
 
 producerAddresses
   :: NetworkTopology
