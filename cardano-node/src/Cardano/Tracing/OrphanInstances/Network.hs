@@ -36,7 +36,7 @@ import qualified Network.Socket as Socket (SockAddr (..))
 import           Cardano.Tracing.ConvertTxId (ConvertTxId)
 import           Cardano.Tracing.OrphanInstances.Common
 import           Cardano.Tracing.Render
-import           Cardano.Node.Configuration.Topology (UseLedger (..))
+import           Cardano.Node.Configuration.TopologyP2P (UseLedger (..))
 
 import           Ouroboros.Consensus.Block (ConvertRawHash (..), getHeader)
 import           Ouroboros.Consensus.Ledger.SupportsMempool (GenTx, HasTxs (..), txId)
