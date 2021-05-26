@@ -70,6 +70,7 @@ testPartialYamlConfig =
     , pncTargetNumberOfKnownPeers = mempty
     , pncTargetNumberOfEstablishedPeers = mempty
     , pncTargetNumberOfActivePeers = mempty
+    , pncEnableP2P = Last (Just False)
     }
 
 -- | Example partial configuration theoretically created
@@ -102,6 +103,7 @@ testPartialCliConfig =
     , pncTargetNumberOfKnownPeers = mempty
     , pncTargetNumberOfEstablishedPeers = mempty
     , pncTargetNumberOfActivePeers = mempty
+    , pncEnableP2P = Last (Just False)
     }
 
 -- | Expected final NodeConfiguration
@@ -135,6 +137,7 @@ expectedConfig =
     , ncTargetNumberOfKnownPeers = 5
     , ncTargetNumberOfEstablishedPeers = 2
     , ncTargetNumberOfActivePeers = 1
+    , ncEnableP2P = False
     }
 
 -- -----------------------------------------------------------------------------
