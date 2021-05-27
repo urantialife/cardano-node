@@ -27,10 +27,11 @@ import           Cardano.Tracing.ConvertTxId (ConvertTxId)
 import           Cardano.Tracing.OrphanInstances.Common
 import           Cardano.Tracing.Render
 
-import           Ouroboros.Consensus.Block (ConvertRawHash (..), getHeader)
+import           Ouroboros.Consensus.Block (ConvertRawHash (..), Header, getHeader)
 import           Ouroboros.Consensus.Ledger.SupportsMempool (GenTx, HasTxs (..), txForgetValidated,
                    txId)
 import           Ouroboros.Consensus.Node.Run (RunNode, estimateBlockSize)
+import qualified Ouroboros.Network.AnchoredFragment as AF
 import           Ouroboros.Network.Block
 import           Ouroboros.Network.BlockFetch.ClientState (TraceFetchClientState,
                    TraceLabelPeer (..))
@@ -93,14 +94,8 @@ instance HasSeverityAnnotation NtN.AcceptConnectionsPolicyTrace where
 
 instance HasPrivacyAnnotation (TraceFetchClientState header)
 instance HasSeverityAnnotation (TraceFetchClientState header) where
-  getSeverityAnnotation BlockFetch.AddedFetchRequest {} = Info
-  getSeverityAnnotation BlockFetch.SendFetchRequest {} = Info
-  getSeverityAnnotation BlockFetch.AcknowledgedFetchRequest {} = Info
-  getSeverityAnnotation BlockFetch.StartedFetchBatch {} = Info
-  getSeverityAnnotation BlockFetch.CompletedBlockFetch {} = Info
-  getSeverityAnnotation BlockFetch.CompletedFetchBatch {} = Info
-  getSeverityAnnotation BlockFetch.RejectedFetchBatch {} = Info
   getSeverityAnnotation BlockFetch.ClientTerminating {} = Notice
+  getSeverityAnnotation _ = Info
 
 
 instance HasPrivacyAnnotation (TraceSendRecv a)
@@ -713,6 +708,17 @@ instance ToObject SlotNo where
     mkObject [ "kind" .= String "SlotNo"
              , "slot" .= toJSON (unSlotNo slot) ]
 
+fragmentLength :: AF.AnchoredFragment (Header blk) -> Int
+fragmentLength af = blockN - firstBlock
+  where
+    blockN = unBlockNo $ fromWithOrigin (BlockNo 1) (AF.headBlockNo af)
+    firstBlock = case unBlockNo . blockNo <$> AF.last af of
+      -- Empty fragment, no blocks. We have that @blocks = 1 - 1 = 0@
+      Left _  -> 1
+      -- The oldest block is the genesis EBB with block number 0,
+      -- don't let it contribute to the number of blocks
+      Right 0 -> 1
+      Right b -> b
 
 instance ConvertRawHash header => ToObject (TraceFetchClientState header) where
   toObject _verb BlockFetch.AddedFetchRequest {} =
@@ -721,6 +727,13 @@ instance ConvertRawHash header => ToObject (TraceFetchClientState header) where
     mkObject [ "kind" .= String "SendFetchRequest" ]
   toObject _verb BlockFetch.AcknowledgedFetchRequest {} =
     mkObject [ "kind" .= String "AcknowledgedFetchRequest" ]
+  toObject _verb BlockFetch.SendFetchRequest af =
+    mkObject $ ("kind"   .= String "SendFetchRequest")
+               :  fromMaybe [] (renderFragment <$> head (fetchRequestFragments af))
+   where
+     renderFragment f =
+       [ "block"  .= String (renderHeaderHash (Proxy @header) $ headHash f)
+       , "length" .= toJSON (fragmentLength f) ]
   toObject _verb (BlockFetch.CompletedBlockFetch pt _ _ _ _) =
     mkObject [ "kind"  .= String "CompletedBlockFetch"
              , "block" .= String
