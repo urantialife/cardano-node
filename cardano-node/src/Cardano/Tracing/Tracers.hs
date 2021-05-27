@@ -76,7 +76,7 @@ import qualified Ouroboros.Consensus.Shelley.Protocol.HotKey as HotKey
 
 import qualified Ouroboros.Network.AnchoredFragment as AF
 import           Ouroboros.Network.Block (BlockNo (..), HasHeader (..), Point, StandardHash,
-                   blockNo, pointSlot, unBlockNo)
+                   pointSlot, unBlockNo)
 import           Ouroboros.Network.BlockFetch.ClientState (TraceLabelPeer (..))
 import           Ouroboros.Network.BlockFetch.Decision (FetchDecision, FetchDecline (..))
 import qualified Ouroboros.Network.NodeToClient as NtC
@@ -93,6 +93,7 @@ import           Cardano.Tracing.Constraints (TraceConstraints)
 import           Cardano.Tracing.ConvertTxId (ConvertTxId)
 import           Cardano.Tracing.Kernel
 import           Cardano.Tracing.Metrics
+import           Cardano.Tracing.Util
 import           Cardano.Tracing.Queries
 
 import           Cardano.Node.Configuration.Logging
@@ -1087,7 +1088,7 @@ chainInformation newTipInfo frag blocksUncoupledDelta = ChainInformation
 fragmentChainDensity ::
   HasHeader (Header blk)
   => AF.AnchoredFragment (Header blk) -> Rational
-fragmentChainDensity frag = calcDensity blockD slotD
+fragmentChainDensity frag = calcDensity (fromIntegral $ fragmentLength frag) slotD
   where
     calcDensity :: Word64 -> Word64 -> Rational
     calcDensity bl sl
@@ -1098,16 +1099,6 @@ fragmentChainDensity frag = calcDensity blockD slotD
     -- includes EBBs
     slotD   = slotN
             - unSlotNo (fromWithOrigin 0 (AF.lastSlot frag))
-    -- Block numbers start at 1. We ignore the genesis EBB, which has block number 0.
-    blockD = blockN - firstBlock
-    blockN = unBlockNo $ fromWithOrigin (BlockNo 1) (AF.headBlockNo frag)
-    firstBlock = case unBlockNo . blockNo <$> AF.last frag of
-      -- Empty fragment, no blocks. We have that @blocks = 1 - 1 = 0@
-      Left _  -> 1
-      -- The oldest block is the genesis EBB with block number 0,
-      -- don't let it contribute to the number of blocks
-      Right 0 -> 1
-      Right b -> b
 
 
 --------------------------------------------------------------------------------
