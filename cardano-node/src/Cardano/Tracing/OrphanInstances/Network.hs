@@ -26,11 +26,13 @@ import           Network.Socket (SockAddr (..))
 import           Cardano.Tracing.ConvertTxId (ConvertTxId)
 import           Cardano.Tracing.OrphanInstances.Common
 import           Cardano.Tracing.Render
+import           Cardano.Tracing.Util
 
 import           Ouroboros.Consensus.Block (ConvertRawHash (..), getHeader)
 import           Ouroboros.Consensus.Ledger.SupportsMempool (GenTx, HasTxs (..), txForgetValidated,
                    txId)
 import           Ouroboros.Consensus.Node.Run (RunNode, estimateBlockSize)
+import qualified Ouroboros.Network.AnchoredFragment as AF
 import           Ouroboros.Network.Block
 import           Ouroboros.Network.BlockFetch.ClientState (TraceFetchClientState,
                    TraceLabelPeer (..))
@@ -93,13 +95,8 @@ instance HasSeverityAnnotation NtN.AcceptConnectionsPolicyTrace where
 
 instance HasPrivacyAnnotation (TraceFetchClientState header)
 instance HasSeverityAnnotation (TraceFetchClientState header) where
-  getSeverityAnnotation BlockFetch.AddedFetchRequest {} = Info
-  getSeverityAnnotation BlockFetch.AcknowledgedFetchRequest {} = Info
-  getSeverityAnnotation BlockFetch.StartedFetchBatch {} = Info
-  getSeverityAnnotation BlockFetch.CompletedBlockFetch {} = Info
-  getSeverityAnnotation BlockFetch.CompletedFetchBatch {} = Info
-  getSeverityAnnotation BlockFetch.RejectedFetchBatch {} = Info
   getSeverityAnnotation BlockFetch.ClientTerminating {} = Notice
+  getSeverityAnnotation _ = Info
 
 
 instance HasPrivacyAnnotation (TraceSendRecv a)
@@ -712,12 +709,16 @@ instance ToObject SlotNo where
     mkObject [ "kind" .= String "SlotNo"
              , "slot" .= toJSON (unSlotNo slot) ]
 
-
-instance ConvertRawHash header => ToObject (TraceFetchClientState header) where
+instance (HasHeader header, ConvertRawHash header)
+ => ToObject (TraceFetchClientState header) where
   toObject _verb BlockFetch.AddedFetchRequest {} =
     mkObject [ "kind" .= String "AddedFetchRequest" ]
   toObject _verb BlockFetch.AcknowledgedFetchRequest {} =
     mkObject [ "kind" .= String "AcknowledgedFetchRequest" ]
+  toObject _verb (BlockFetch.SendFetchRequest af) =
+    mkObject [ "kind" .= String "SendFetchRequest"
+             , "head"   .= String (renderChainHash (renderHeaderHash (Proxy @header)) $ AF.headHash af)
+             , "length" .= toJSON (fragmentLength af)]
   toObject _verb (BlockFetch.CompletedBlockFetch pt _ _ _ _) =
     mkObject [ "kind"  .= String "CompletedBlockFetch"
              , "block" .= String
