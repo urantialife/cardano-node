@@ -25,7 +25,7 @@
 forall k (cat :: k -&gt; k -&gt; *) (b :: k) (c :: k) (a :: k).
 Category cat =&gt;
 cat b c -&gt; cat a b -&gt; cat a c
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-operator hs-var">.</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; (FilePath -&gt; PropertyT IO ()) -&gt; PropertyT IO ()
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-operator hs-var">.</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; (FilePath -&gt; PropertyT IO ()) -&gt; PropertyT IO ()
 forall (m :: * -&gt; *).
 (MonadTest m, MonadIO m, HasCallStack) =&gt;
 FilePath -&gt; (FilePath -&gt; m ()) -&gt; m ()
@@ -33,18 +33,18 @@ FilePath -&gt; (FilePath -&gt; m ()) -&gt; m ()
 </span><span class="hs-string">&quot;tmp&quot;</span></span><span> </span><span class="annot"><span class="annottext">((FilePath -&gt; PropertyT IO ()) -&gt; Property)
 -&gt; (FilePath -&gt; PropertyT IO ()) -&gt; Property
 forall a b. (a -&gt; b) -&gt; a -&gt; b
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-operator hs-var">$</span></a></span><span> </span><span class="hs-glyph">\</span><span class="annot"><span class="annottext">FilePath
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-operator hs-var">$</span></a></span><span> </span><span class="hs-glyph">\</span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-identifier">_</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-keyword">do</span><span>
-</span><span id="line-20"></span><span>  </span><span id="local-6989586621679206874"><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206874"><span class="hs-identifier hs-var">allMultiSigFp</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; PropertyT IO FilePath
+</span><span id="line-20"></span><span>  </span><span id="local-6989586621679210120"><span class="annot"><span class="annottext">FilePath
+</span><a href="#local-6989586621679210120"><span class="hs-identifier hs-var">allMultiSigFp</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; PropertyT IO FilePath
 forall (m :: * -&gt; *).
 (MonadTest m, HasCallStack) =&gt;
 FilePath -&gt; m FilePath
 </span><a href="Test.OptParse.html#noteInputFile"><span class="hs-identifier hs-var">noteInputFile</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;test/data/golden/shelley/multisig/scripts/all&quot;</span></span><span>
 </span><span id="line-21"></span><span>
-</span><span id="line-22"></span><span>  </span><span id="local-6989586621679206872"><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206872"><span class="hs-identifier hs-var">allMultiSigAddress</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">[FilePath] -&gt; PropertyT IO FilePath
+</span><span id="line-22"></span><span>  </span><span id="local-6989586621679210118"><span class="annot"><span class="annottext">FilePath
+</span><a href="#local-6989586621679210118"><span class="hs-identifier hs-var">allMultiSigAddress</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">[FilePath] -&gt; PropertyT IO FilePath
 forall (m :: * -&gt; *).
 (MonadTest m, MonadCatch m, MonadIO m, HasCallStack) =&gt;
 [FilePath] -&gt; m FilePath
@@ -54,34 +54,34 @@ forall (m :: * -&gt; *).
 </span><span class="hs-string">&quot;build-script&quot;</span></span><span>
 </span><span id="line-24"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;--script-file&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206874"><span class="hs-identifier hs-var">allMultiSigFp</span></a></span><span>
+</span><a href="#local-6989586621679210120"><span class="hs-identifier hs-var">allMultiSigFp</span></a></span><span>
 </span><span id="line-25"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;--mainnet&quot;</span></span><span>
 </span><span id="line-26"></span><span>    </span><span class="hs-special">]</span><span>
 </span><span id="line-27"></span><span>
-</span><span id="line-28"></span><span>  </span><span id="local-6989586621679206870"><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206870"><span class="hs-identifier hs-var">goldenAllMultiSigAddrFp</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; PropertyT IO FilePath
+</span><span id="line-28"></span><span>  </span><span id="local-6989586621679210116"><span class="annot"><span class="annottext">FilePath
+</span><a href="#local-6989586621679210116"><span class="hs-identifier hs-var">goldenAllMultiSigAddrFp</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; PropertyT IO FilePath
 forall (m :: * -&gt; *).
 (MonadTest m, HasCallStack) =&gt;
 FilePath -&gt; m FilePath
 </span><a href="Test.OptParse.html#noteInputFile"><span class="hs-identifier hs-var">noteInputFile</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;test/data/golden/shelley/multisig/addresses/all&quot;</span></span><span>
 </span><span id="line-29"></span><span>
-</span><span id="line-30"></span><span>  </span><span id="local-6989586621679206869"><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206869"><span class="hs-identifier hs-var">goldenAllMs</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; PropertyT IO FilePath
+</span><span id="line-30"></span><span>  </span><span id="local-6989586621679210115"><span class="annot"><span class="annottext">FilePath
+</span><a href="#local-6989586621679210115"><span class="hs-identifier hs-var">goldenAllMs</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; PropertyT IO FilePath
 forall (m :: * -&gt; *).
 (MonadTest m, MonadIO m, HasCallStack) =&gt;
 FilePath -&gt; m FilePath
 </span><span class="hs-identifier hs-var">H.readFile</span></span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206870"><span class="hs-identifier hs-var">goldenAllMultiSigAddrFp</span></a></span><span>
+</span><a href="#local-6989586621679210116"><span class="hs-identifier hs-var">goldenAllMultiSigAddrFp</span></a></span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span>  </span><span class="annot"><span class="annottext">FilePath -&gt; FilePath -&gt; PropertyT IO ()
 forall (m :: * -&gt; *) a.
 (MonadTest m, Eq a, Show a, HasCallStack) =&gt;
 a -&gt; a -&gt; m ()
 </span><a href="Test.OptParse.html#equivalence"><span class="hs-identifier hs-var">equivalence</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206872"><span class="hs-identifier hs-var">allMultiSigAddress</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206869"><span class="hs-identifier hs-var">goldenAllMs</span></a></span><span>
+</span><a href="#local-6989586621679210118"><span class="hs-identifier hs-var">allMultiSigAddress</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
+</span><a href="#local-6989586621679210115"><span class="hs-identifier hs-var">goldenAllMs</span></a></span><span>
 </span><span id="line-33"></span><span>
 </span><span id="line-34"></span><span class="annot"><a href="Test.Golden.Shelley.MultiSig.Address.html#golden_shelleyAnyMultiSigAddressBuild"><span class="hs-identifier hs-type">golden_shelleyAnyMultiSigAddressBuild</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span><span>
 </span><span id="line-35"></span><span id="golden_shelleyAnyMultiSigAddressBuild"><span class="annot"><span class="annottext">golden_shelleyAnyMultiSigAddressBuild :: Property
@@ -93,7 +93,7 @@ a -&gt; a -&gt; m ()
 forall k (cat :: k -&gt; k -&gt; *) (b :: k) (c :: k) (a :: k).
 Category cat =&gt;
 cat b c -&gt; cat a b -&gt; cat a c
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-operator hs-var">.</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; (FilePath -&gt; PropertyT IO ()) -&gt; PropertyT IO ()
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-operator hs-var">.</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; (FilePath -&gt; PropertyT IO ()) -&gt; PropertyT IO ()
 forall (m :: * -&gt; *).
 (MonadTest m, MonadIO m, HasCallStack) =&gt;
 FilePath -&gt; (FilePath -&gt; m ()) -&gt; m ()
@@ -101,18 +101,18 @@ FilePath -&gt; (FilePath -&gt; m ()) -&gt; m ()
 </span><span class="hs-string">&quot;tmp&quot;</span></span><span> </span><span class="annot"><span class="annottext">((FilePath -&gt; PropertyT IO ()) -&gt; Property)
 -&gt; (FilePath -&gt; PropertyT IO ()) -&gt; Property
 forall a b. (a -&gt; b) -&gt; a -&gt; b
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-operator hs-var">$</span></a></span><span> </span><span class="hs-glyph">\</span><span class="annot"><span class="annottext">FilePath
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-operator hs-var">$</span></a></span><span> </span><span class="hs-glyph">\</span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-identifier">_</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-keyword">do</span><span>
-</span><span id="line-36"></span><span>  </span><span id="local-6989586621679206866"><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206866"><span class="hs-identifier hs-var">anyMultiSigFp</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; PropertyT IO FilePath
+</span><span id="line-36"></span><span>  </span><span id="local-6989586621679210112"><span class="annot"><span class="annottext">FilePath
+</span><a href="#local-6989586621679210112"><span class="hs-identifier hs-var">anyMultiSigFp</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; PropertyT IO FilePath
 forall (m :: * -&gt; *).
 (MonadTest m, HasCallStack) =&gt;
 FilePath -&gt; m FilePath
 </span><a href="Test.OptParse.html#noteInputFile"><span class="hs-identifier hs-var">noteInputFile</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;test/data/golden/shelley/multisig/scripts/any&quot;</span></span><span>
 </span><span id="line-37"></span><span>
-</span><span id="line-38"></span><span>  </span><span id="local-6989586621679206865"><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206865"><span class="hs-identifier hs-var">anyMultiSigAddress</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">[FilePath] -&gt; PropertyT IO FilePath
+</span><span id="line-38"></span><span>  </span><span id="local-6989586621679210111"><span class="annot"><span class="annottext">FilePath
+</span><a href="#local-6989586621679210111"><span class="hs-identifier hs-var">anyMultiSigAddress</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">[FilePath] -&gt; PropertyT IO FilePath
 forall (m :: * -&gt; *).
 (MonadTest m, MonadCatch m, MonadIO m, HasCallStack) =&gt;
 [FilePath] -&gt; m FilePath
@@ -122,34 +122,34 @@ forall (m :: * -&gt; *).
 </span><span class="hs-string">&quot;build-script&quot;</span></span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;--script-file&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206866"><span class="hs-identifier hs-var">anyMultiSigFp</span></a></span><span>
+</span><a href="#local-6989586621679210112"><span class="hs-identifier hs-var">anyMultiSigFp</span></a></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;--mainnet&quot;</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">]</span><span>
 </span><span id="line-43"></span><span>
-</span><span id="line-44"></span><span>  </span><span id="local-6989586621679206864"><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206864"><span class="hs-identifier hs-var">goldenAnyMultiSigAddrFp</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; PropertyT IO FilePath
+</span><span id="line-44"></span><span>  </span><span id="local-6989586621679210110"><span class="annot"><span class="annottext">FilePath
+</span><a href="#local-6989586621679210110"><span class="hs-identifier hs-var">goldenAnyMultiSigAddrFp</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; PropertyT IO FilePath
 forall (m :: * -&gt; *).
 (MonadTest m, HasCallStack) =&gt;
 FilePath -&gt; m FilePath
 </span><a href="Test.OptParse.html#noteInputFile"><span class="hs-identifier hs-var">noteInputFile</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;test/data/golden/shelley/multisig/addresses/any&quot;</span></span><span>
 </span><span id="line-45"></span><span>
-</span><span id="line-46"></span><span>  </span><span id="local-6989586621679206863"><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206863"><span class="hs-identifier hs-var">goldenAnyMs</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; PropertyT IO FilePath
+</span><span id="line-46"></span><span>  </span><span id="local-6989586621679210109"><span class="annot"><span class="annottext">FilePath
+</span><a href="#local-6989586621679210109"><span class="hs-identifier hs-var">goldenAnyMs</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; PropertyT IO FilePath
 forall (m :: * -&gt; *).
 (MonadTest m, MonadIO m, HasCallStack) =&gt;
 FilePath -&gt; m FilePath
 </span><span class="hs-identifier hs-var">H.readFile</span></span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206864"><span class="hs-identifier hs-var">goldenAnyMultiSigAddrFp</span></a></span><span>
+</span><a href="#local-6989586621679210110"><span class="hs-identifier hs-var">goldenAnyMultiSigAddrFp</span></a></span><span>
 </span><span id="line-47"></span><span>
 </span><span id="line-48"></span><span>  </span><span class="annot"><span class="annottext">FilePath -&gt; FilePath -&gt; PropertyT IO ()
 forall (m :: * -&gt; *) a.
 (MonadTest m, Eq a, Show a, HasCallStack) =&gt;
 a -&gt; a -&gt; m ()
 </span><a href="Test.OptParse.html#equivalence"><span class="hs-identifier hs-var">equivalence</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206865"><span class="hs-identifier hs-var">anyMultiSigAddress</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206863"><span class="hs-identifier hs-var">goldenAnyMs</span></a></span><span>
+</span><a href="#local-6989586621679210111"><span class="hs-identifier hs-var">anyMultiSigAddress</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
+</span><a href="#local-6989586621679210109"><span class="hs-identifier hs-var">goldenAnyMs</span></a></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="annot"><a href="Test.Golden.Shelley.MultiSig.Address.html#golden_shelleyAtLeastMultiSigAddressBuild"><span class="hs-identifier hs-type">golden_shelleyAtLeastMultiSigAddressBuild</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span><span>
 </span><span id="line-51"></span><span id="golden_shelleyAtLeastMultiSigAddressBuild"><span class="annot"><span class="annottext">golden_shelleyAtLeastMultiSigAddressBuild :: Property
@@ -161,7 +161,7 @@ a -&gt; a -&gt; m ()
 forall k (cat :: k -&gt; k -&gt; *) (b :: k) (c :: k) (a :: k).
 Category cat =&gt;
 cat b c -&gt; cat a b -&gt; cat a c
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-operator hs-var">.</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; (FilePath -&gt; PropertyT IO ()) -&gt; PropertyT IO ()
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-operator hs-var">.</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; (FilePath -&gt; PropertyT IO ()) -&gt; PropertyT IO ()
 forall (m :: * -&gt; *).
 (MonadTest m, MonadIO m, HasCallStack) =&gt;
 FilePath -&gt; (FilePath -&gt; m ()) -&gt; m ()
@@ -169,18 +169,18 @@ FilePath -&gt; (FilePath -&gt; m ()) -&gt; m ()
 </span><span class="hs-string">&quot;tmp&quot;</span></span><span> </span><span class="annot"><span class="annottext">((FilePath -&gt; PropertyT IO ()) -&gt; Property)
 -&gt; (FilePath -&gt; PropertyT IO ()) -&gt; Property
 forall a b. (a -&gt; b) -&gt; a -&gt; b
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-operator hs-var">$</span></a></span><span> </span><span class="hs-glyph">\</span><span class="annot"><span class="annottext">FilePath
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-operator hs-var">$</span></a></span><span> </span><span class="hs-glyph">\</span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-identifier">_</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-keyword">do</span><span>
-</span><span id="line-52"></span><span>  </span><span id="local-6989586621679206862"><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206862"><span class="hs-identifier hs-var">atLeastMultiSigFp</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; PropertyT IO FilePath
+</span><span id="line-52"></span><span>  </span><span id="local-6989586621679210108"><span class="annot"><span class="annottext">FilePath
+</span><a href="#local-6989586621679210108"><span class="hs-identifier hs-var">atLeastMultiSigFp</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; PropertyT IO FilePath
 forall (m :: * -&gt; *).
 (MonadTest m, HasCallStack) =&gt;
 FilePath -&gt; m FilePath
 </span><a href="Test.OptParse.html#noteInputFile"><span class="hs-identifier hs-var">noteInputFile</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;test/data/golden/shelley/multisig/scripts/atleast&quot;</span></span><span>
 </span><span id="line-53"></span><span>
-</span><span id="line-54"></span><span>  </span><span id="local-6989586621679206861"><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206861"><span class="hs-identifier hs-var">atLeastMultiSigAddress</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">[FilePath] -&gt; PropertyT IO FilePath
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621679210107"><span class="annot"><span class="annottext">FilePath
+</span><a href="#local-6989586621679210107"><span class="hs-identifier hs-var">atLeastMultiSigAddress</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">[FilePath] -&gt; PropertyT IO FilePath
 forall (m :: * -&gt; *).
 (MonadTest m, MonadCatch m, MonadIO m, HasCallStack) =&gt;
 [FilePath] -&gt; m FilePath
@@ -190,32 +190,32 @@ forall (m :: * -&gt; *).
 </span><span class="hs-string">&quot;build-script&quot;</span></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;--script-file&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206862"><span class="hs-identifier hs-var">atLeastMultiSigFp</span></a></span><span>
+</span><a href="#local-6989586621679210108"><span class="hs-identifier hs-var">atLeastMultiSigFp</span></a></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;--mainnet&quot;</span></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">]</span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span>  </span><span id="local-6989586621679206860"><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206860"><span class="hs-identifier hs-var">goldenAtLeastMultiSigAddrFp</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; PropertyT IO FilePath
+</span><span id="line-60"></span><span>  </span><span id="local-6989586621679210106"><span class="annot"><span class="annottext">FilePath
+</span><a href="#local-6989586621679210106"><span class="hs-identifier hs-var">goldenAtLeastMultiSigAddrFp</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; PropertyT IO FilePath
 forall (m :: * -&gt; *).
 (MonadTest m, HasCallStack) =&gt;
 FilePath -&gt; m FilePath
 </span><a href="Test.OptParse.html#noteInputFile"><span class="hs-identifier hs-var">noteInputFile</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;test/data/golden/shelley/multisig/addresses/atleast&quot;</span></span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span>  </span><span id="local-6989586621679206859"><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206859"><span class="hs-identifier hs-var">goldenAtLeastMs</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; PropertyT IO FilePath
+</span><span id="line-62"></span><span>  </span><span id="local-6989586621679210105"><span class="annot"><span class="annottext">FilePath
+</span><a href="#local-6989586621679210105"><span class="hs-identifier hs-var">goldenAtLeastMs</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; PropertyT IO FilePath
 forall (m :: * -&gt; *).
 (MonadTest m, MonadIO m, HasCallStack) =&gt;
 FilePath -&gt; m FilePath
 </span><span class="hs-identifier hs-var">H.readFile</span></span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206860"><span class="hs-identifier hs-var">goldenAtLeastMultiSigAddrFp</span></a></span><span>
+</span><a href="#local-6989586621679210106"><span class="hs-identifier hs-var">goldenAtLeastMultiSigAddrFp</span></a></span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">FilePath -&gt; FilePath -&gt; PropertyT IO ()
 forall (m :: * -&gt; *) a.
 (MonadTest m, Eq a, Show a, HasCallStack) =&gt;
 a -&gt; a -&gt; m ()
 </span><a href="Test.OptParse.html#equivalence"><span class="hs-identifier hs-var">equivalence</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206861"><span class="hs-identifier hs-var">atLeastMultiSigAddress</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206859"><span class="hs-identifier hs-var">goldenAtLeastMs</span></a></span><span>
+</span><a href="#local-6989586621679210107"><span class="hs-identifier hs-var">atLeastMultiSigAddress</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
+</span><a href="#local-6989586621679210105"><span class="hs-identifier hs-var">goldenAtLeastMs</span></a></span><span>
 </span><span id="line-65"></span></pre></body></html>

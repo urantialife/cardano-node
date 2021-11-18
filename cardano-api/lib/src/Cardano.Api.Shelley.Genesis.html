@@ -1,42 +1,50 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
-</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
-</span><span id="line-3"></span><span>
-</span><span id="line-4"></span><span class="hs-pragma">{-# OPTIONS_GHC -Wno-orphans #-}</span><span>
-</span><span id="line-5"></span><span>
-</span><span id="line-6"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Cardano.Api.Shelley.Genesis</span><span>
-</span><span id="line-7"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-identifier">ShelleyGenesis</span></span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE NumericUnderscores #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-4"></span><span>
+</span><span id="line-5"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Cardano.Api.Shelley.Genesis</span><span>
+</span><span id="line-6"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-identifier">ShelleyGenesis</span></span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span>
+</span><span id="line-7"></span><span>  </span><span class="hs-special">,</span><span> </span><span class="annot"><a href="Cardano.Api.Shelley.Genesis.html#alonzoGenesisDefaults"><span class="hs-identifier">alonzoGenesisDefaults</span></a></span><span>
 </span><span id="line-8"></span><span>  </span><span class="hs-special">,</span><span> </span><span class="annot"><a href="Cardano.Api.Shelley.Genesis.html#shelleyGenesisDefaults"><span class="hs-identifier">shelleyGenesisDefaults</span></a></span><span>
 </span><span id="line-9"></span><span>  </span><span class="hs-special">)</span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-10"></span><span>
-</span><span id="line-11"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-identifier">Prelude</span></a></span><span>
+</span><span id="line-11"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-identifier">Prelude</span></a></span><span>
 </span><span id="line-12"></span><span>
-</span><span id="line-13"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/containers-0.6.2.1/src"><span class="hs-identifier">Data.Map.Strict</span></a></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Map</span></span><span>
-</span><span id="line-14"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-identifier">Data.Maybe</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-identifier">fromMaybe</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-15"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/time-1.9.3/src"><span class="hs-identifier">Data.Time</span></a></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Time</span></span><span>
-</span><span id="line-16"></span><span>
-</span><span id="line-17"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><span class="hs-identifier">Cardano.Ledger.BaseTypes</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Ledger</span></span><span>
-</span><span id="line-18"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><span class="hs-identifier">Cardano.Slotting.Slot</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier">EpochSize</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-19"></span><span>
-</span><span id="line-20"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><span class="hs-identifier">Ouroboros.Consensus.Shelley.Node</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier">ShelleyGenesis</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier">emptyGenesisStaking</span></span><span class="hs-special">)</span><span>
-</span><span id="line-21"></span><span>
-</span><span id="line-22"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><span class="hs-identifier">Shelley.Spec.Ledger.PParams</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Ledger</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier">PParams'</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier">emptyPParams</span></span><span class="hs-special">)</span><span>
-</span><span id="line-23"></span><span>
-</span><span id="line-24"></span><span>
-</span><span id="line-25"></span><span class="hs-comment">-- | Some reasonable starting defaults for constructing a 'ShelleyGenesis'.</span><span>
-</span><span id="line-26"></span><span class="hs-comment">--</span><span>
-</span><span id="line-27"></span><span class="hs-comment">-- You must override at least the following fields for this to be useful:</span><span>
-</span><span id="line-28"></span><span class="hs-comment">--</span><span>
-</span><span id="line-29"></span><span class="hs-comment">-- * 'sgSystemStart' the time of the first block</span><span>
-</span><span id="line-30"></span><span class="hs-comment">-- * 'sgNetworkMagic' to a suitable testnet or mainnet network magic number.</span><span>
-</span><span id="line-31"></span><span class="hs-comment">-- * 'sgGenDelegs' to have some initial nodes</span><span>
-</span><span id="line-32"></span><span class="hs-comment">-- * 'sgInitialFunds' to have any money in the system</span><span>
-</span><span id="line-33"></span><span class="hs-comment">-- * 'sgMaxLovelaceSupply' must be at least the sum of the 'sgInitialFunds'</span><span>
-</span><span id="line-34"></span><span class="hs-comment">--   but more if you want to allow for rewards.</span><span>
-</span><span id="line-35"></span><span class="hs-comment">--</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679447154"><span class="annot"><a href="Cardano.Api.Shelley.Genesis.html#shelleyGenesisDefaults"><span class="hs-identifier hs-type">shelleyGenesisDefaults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">ShelleyGenesis</span></span><span> </span><span class="annot"><a href="#local-6989586621679447154"><span class="hs-identifier hs-type">crypto</span></a></span></span><span>
-</span><span id="line-37"></span><span id="shelleyGenesisDefaults"><span class="annot"><span class="annottext">shelleyGenesisDefaults :: ShelleyGenesis crypto
+</span><span id="line-13"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/containers-0.6.5.1/src"><span class="hs-identifier">Data.Map.Strict</span></a></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Map</span></span><span>
+</span><span id="line-14"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-identifier">Data.Maybe</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-identifier">fromMaybe</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-15"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-identifier">Data.Ratio</span></a></span><span>
+</span><span id="line-16"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/time-1.9.3/src"><span class="hs-identifier">Data.Time</span></a></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Time</span></span><span>
+</span><span id="line-17"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-identifier">Numeric.Natural</span></a></span><span>
+</span><span id="line-18"></span><span>
+</span><span id="line-19"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Cardano.Ledger.Alonzo.Genesis</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Alonzo</span></span><span>
+</span><span id="line-20"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Cardano.Ledger.Alonzo.Language</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Alonzo</span></span><span>
+</span><span id="line-21"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Cardano.Ledger.Alonzo.Scripts</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Alonzo</span></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><span class="hs-identifier">Cardano.Ledger.BaseTypes</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Ledger</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><span class="hs-identifier">Cardano.Ledger.Shelley.PParams</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Ledger</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier">PParams'</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier">emptyPParams</span></span><span class="hs-special">)</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><span class="hs-identifier">Cardano.Slotting.Slot</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier">EpochSize</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Plutus.V1.Ledger.Api</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Plutus</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><span class="hs-identifier">Ouroboros.Consensus.Shelley.Node</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier">ShelleyGenesis</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier">emptyGenesisStaking</span></span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><a href="Cardano.Api.ProtocolParameters.html"><span class="hs-identifier">Cardano.Api.ProtocolParameters</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><a href="Cardano.Api.Script.html"><span class="hs-identifier">Cardano.Api.Script</span></a></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><a href="Cardano.Api.Value.html"><span class="hs-identifier">Cardano.Api.Value</span></a></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- | Some reasonable starting defaults for constructing a 'ShelleyGenesis'.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- You must override at least the following fields for this to be useful:</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- * 'sgSystemStart' the time of the first block</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- * 'sgNetworkMagic' to a suitable testnet or mainnet network magic number.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- * 'sgGenDelegs' to have some initial nodes</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- * 'sgInitialFunds' to have any money in the system</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- * 'sgMaxLovelaceSupply' must be at least the sum of the 'sgInitialFunds'</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--   but more if you want to allow for rewards.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span id="local-6989586621679463963"><span class="annot"><a href="Cardano.Api.Shelley.Genesis.html#shelleyGenesisDefaults"><span class="hs-identifier hs-type">shelleyGenesisDefaults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">ShelleyGenesis</span></span><span> </span><span class="annot"><a href="#local-6989586621679463963"><span class="hs-identifier hs-type">crypto</span></a></span></span><span>
+</span><span id="line-45"></span><span id="shelleyGenesisDefaults"><span class="annot"><span class="annottext">shelleyGenesisDefaults :: ShelleyGenesis crypto
 </span><a href="Cardano.Api.Shelley.Genesis.html#shelleyGenesisDefaults"><span class="hs-identifier hs-var hs-var">shelleyGenesisDefaults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-38"></span><span>  </span><span class="annot"><span class="annottext">ShelleyGenesis :: forall era.
+</span><span id="line-46"></span><span>  </span><span class="annot"><span class="annottext">ShelleyGenesis :: forall era.
 UTCTime
 -&gt; Word32
 -&gt; Network
@@ -54,132 +62,281 @@ UTCTime
 -&gt; ShelleyGenesisStaking (Crypto era)
 -&gt; ShelleyGenesis era
 </span><span class="hs-identifier hs-type">ShelleyGenesis</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">{</span><span>
-</span><span id="line-40"></span><span>      </span><span class="hs-comment">-- parameters for this specific chain</span><span>
-</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">sgSystemStart :: UTCTime
+</span><span id="line-47"></span><span>    </span><span class="hs-special">{</span><span>
+</span><span id="line-48"></span><span>      </span><span class="hs-comment">-- parameters for this specific chain</span><span>
+</span><span id="line-49"></span><span>      </span><span class="annot"><span class="annottext">sgSystemStart :: UTCTime
 </span><span class="hs-identifier hs-var">sgSystemStart</span></span><span>           </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679447151"><span class="hs-identifier hs-var">zeroTime</span></a></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">sgNetworkMagic :: Word32
+</span><a href="#local-6989586621679463960"><span class="hs-identifier hs-var">zeroTime</span></a></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">sgNetworkMagic :: Word32
 </span><span class="hs-identifier hs-var">sgNetworkMagic</span></span><span>          </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Word32
 </span><span class="hs-number">42</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">sgNetworkId :: Network
+</span><span id="line-51"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">sgNetworkId :: Network
 </span><span class="hs-identifier hs-var">sgNetworkId</span></span><span>             </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Network
 </span><span class="hs-identifier hs-var">Ledger.Testnet</span></span><span>
-</span><span id="line-44"></span><span>
-</span><span id="line-45"></span><span>      </span><span class="hs-comment">-- consensus protocol parameters</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">sgSlotLength :: NominalDiffTime
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span>      </span><span class="hs-comment">-- consensus protocol parameters</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">sgSlotLength :: NominalDiffTime
 </span><span class="hs-identifier hs-var">sgSlotLength</span></span><span>            </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NominalDiffTime
-</span><span class="hs-number">1.0</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/time-1.9.3/src"><span class="hs-identifier hs-type">Time.NominalDiffTime</span></a></span><span> </span><span class="hs-comment">-- 1s slots</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">sgActiveSlotsCoeff :: PositiveUnitInterval
+</span><span class="hs-number">1.0</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/time-1.9.3/src"><span class="hs-identifier hs-type">Time.NominalDiffTime</span></a></span><span> </span><span class="hs-comment">-- 1s slots</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">sgActiveSlotsCoeff :: PositiveUnitInterval
 </span><span class="hs-identifier hs-var">sgActiveSlotsCoeff</span></span><span>      </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PositiveUnitInterval
 -&gt; Maybe PositiveUnitInterval -&gt; PositiveUnitInterval
 forall a. a -&gt; Maybe a -&gt; a
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-identifier hs-var">fromMaybe</span></a></span><span>
-</span><span id="line-48"></span><span>                                  </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Char] -&gt; PositiveUnitInterval
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-identifier hs-var">fromMaybe</span></a></span><span>
+</span><span id="line-56"></span><span>                                  </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Char] -&gt; PositiveUnitInterval
 forall a. HasCallStack =&gt; [Char] -&gt; a
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-identifier hs-var">error</span></a></span><span> </span><span class="annot"><span class="annottext">[Char]
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-identifier hs-var">error</span></a></span><span> </span><span class="annot"><span class="annottext">[Char]
 </span><span class="hs-string">&quot;shelleyGenesisDefaults: impossible&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-49"></span><span>                                  </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Rational -&gt; Maybe PositiveUnitInterval
+</span><span id="line-57"></span><span>                                  </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Rational -&gt; Maybe PositiveUnitInterval
 forall r. BoundedRational r =&gt; Rational -&gt; Maybe r
 </span><span class="hs-identifier hs-var">Ledger.boundRational</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Rational
 </span><span class="hs-number">1</span></span><span class="annot"><span class="annottext">Rational -&gt; Rational -&gt; Rational
 forall a. Fractional a =&gt; a -&gt; a -&gt; a
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-operator hs-var">/</span></a></span><span class="annot"><span class="annottext">Rational
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-operator hs-var">/</span></a></span><span class="annot"><span class="annottext">Rational
 </span><span class="hs-number">20</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>  </span><span class="hs-comment">-- 20s block times on average</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">sgSecurityParam :: Word64
+</span><span id="line-58"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">sgSecurityParam :: Word64
 </span><span class="hs-identifier hs-var">sgSecurityParam</span></span><span>         </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Word64
-</span><a href="#local-6989586621679447141"><span class="hs-identifier hs-var">k</span></a></span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">sgEpochLength :: EpochSize
+</span><a href="#local-6989586621679463950"><span class="hs-identifier hs-var">k</span></a></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">sgEpochLength :: EpochSize
 </span><span class="hs-identifier hs-var">sgEpochLength</span></span><span>           </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Word64 -&gt; EpochSize
 </span><span class="hs-identifier hs-var">EpochSize</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Word64
-</span><a href="#local-6989586621679447141"><span class="hs-identifier hs-var">k</span></a></span><span> </span><span class="annot"><span class="annottext">Word64 -&gt; Word64 -&gt; Word64
+</span><a href="#local-6989586621679463950"><span class="hs-identifier hs-var">k</span></a></span><span> </span><span class="annot"><span class="annottext">Word64 -&gt; Word64 -&gt; Word64
 forall a. Num a =&gt; a -&gt; a -&gt; a
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-operator hs-var">*</span></a></span><span> </span><span class="annot"><span class="annottext">Word64
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-operator hs-var">*</span></a></span><span> </span><span class="annot"><span class="annottext">Word64
 </span><span class="hs-number">10</span></span><span> </span><span class="annot"><span class="annottext">Word64 -&gt; Word64 -&gt; Word64
 forall a. Num a =&gt; a -&gt; a -&gt; a
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-operator hs-var">*</span></a></span><span> </span><span class="annot"><span class="annottext">Word64
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-operator hs-var">*</span></a></span><span> </span><span class="annot"><span class="annottext">Word64
 </span><span class="hs-number">20</span></span><span class="hs-special">)</span><span> </span><span class="hs-comment">-- 10k/f</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">sgSlotsPerKESPeriod :: Word64
+</span><span id="line-60"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">sgSlotsPerKESPeriod :: Word64
 </span><span class="hs-identifier hs-var">sgSlotsPerKESPeriod</span></span><span>     </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Word64
 </span><span class="hs-number">60</span></span><span> </span><span class="annot"><span class="annottext">Word64 -&gt; Word64 -&gt; Word64
 forall a. Num a =&gt; a -&gt; a -&gt; a
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-operator hs-var">*</span></a></span><span> </span><span class="annot"><span class="annottext">Word64
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-operator hs-var">*</span></a></span><span> </span><span class="annot"><span class="annottext">Word64
 </span><span class="hs-number">60</span></span><span> </span><span class="annot"><span class="annottext">Word64 -&gt; Word64 -&gt; Word64
 forall a. Num a =&gt; a -&gt; a -&gt; a
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-operator hs-var">*</span></a></span><span> </span><span class="annot"><span class="annottext">Word64
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-operator hs-var">*</span></a></span><span> </span><span class="annot"><span class="annottext">Word64
 </span><span class="hs-number">36</span></span><span>        </span><span class="hs-comment">-- 1.5 days with 1s slots</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">sgMaxKESEvolutions :: Word64
+</span><span id="line-61"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">sgMaxKESEvolutions :: Word64
 </span><span class="hs-identifier hs-var">sgMaxKESEvolutions</span></span><span>      </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Word64
 </span><span class="hs-number">60</span></span><span>                  </span><span class="hs-comment">-- 90 days</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">sgUpdateQuorum :: Word64
+</span><span id="line-62"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">sgUpdateQuorum :: Word64
 </span><span class="hs-identifier hs-var">sgUpdateQuorum</span></span><span>          </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Word64
 </span><span class="hs-number">5</span></span><span>                   </span><span class="hs-comment">-- assuming 7 genesis keys</span><span>
-</span><span id="line-55"></span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- ledger protocol parameters</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">sgProtocolParams :: PParams crypto
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- ledger protocol parameters</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">sgProtocolParams :: PParams crypto
 </span><span class="hs-identifier hs-var">sgProtocolParams</span></span><span>        </span><span class="hs-glyph">=</span><span>
-</span><span id="line-58"></span><span>        </span><span class="annot"><span class="annottext">PParams Any
+</span><span id="line-66"></span><span>        </span><span class="annot"><span class="annottext">PParams Any
 forall era. PParams era
 </span><span class="hs-identifier hs-var">Ledger.emptyPParams</span></span><span>
-</span><span id="line-59"></span><span>        </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">_d :: HKD Identity UnitInterval
+</span><span id="line-67"></span><span>        </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">_d :: HKD Identity UnitInterval
 </span><span class="hs-identifier hs-var">Ledger._d</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HKD Identity UnitInterval
 forall a. Bounded a =&gt; a
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-identifier hs-var">maxBound</span></a></span><span>
-</span><span id="line-60"></span><span>        </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">_maxBHSize :: HKD Identity Natural
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-identifier hs-var">maxBound</span></a></span><span>
+</span><span id="line-68"></span><span>        </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">_maxBHSize :: HKD Identity Natural
 </span><span class="hs-identifier hs-var">Ledger._maxBHSize</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HKD Identity Natural
 </span><span class="hs-number">1100</span></span><span>                  </span><span class="hs-comment">-- TODO: compute from crypto</span><span>
-</span><span id="line-61"></span><span>        </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">_maxBBSize :: HKD Identity Natural
+</span><span id="line-69"></span><span>        </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">_maxBBSize :: HKD Identity Natural
 </span><span class="hs-identifier hs-var">Ledger._maxBBSize</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
 </span><span class="hs-number">64</span></span><span> </span><span class="annot"><span class="annottext">Natural -&gt; Natural -&gt; Natural
 forall a. Num a =&gt; a -&gt; a -&gt; a
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-operator hs-var">*</span></a></span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-operator hs-var">*</span></a></span><span> </span><span class="annot"><span class="annottext">Natural
 </span><span class="hs-number">1024</span></span><span>             </span><span class="hs-comment">-- max 64kb blocks</span><span>
-</span><span id="line-62"></span><span>        </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">_maxTxSize :: HKD Identity Natural
+</span><span id="line-70"></span><span>        </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">_maxTxSize :: HKD Identity Natural
 </span><span class="hs-identifier hs-var">Ledger._maxTxSize</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
 </span><span class="hs-number">16</span></span><span> </span><span class="annot"><span class="annottext">Natural -&gt; Natural -&gt; Natural
 forall a. Num a =&gt; a -&gt; a -&gt; a
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-operator hs-var">*</span></a></span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-operator hs-var">*</span></a></span><span> </span><span class="annot"><span class="annottext">Natural
 </span><span class="hs-number">1024</span></span><span>             </span><span class="hs-comment">-- max 16kb txs</span><span>
-</span><span id="line-63"></span><span>        </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">_eMax :: HKD Identity EpochNo
+</span><span id="line-71"></span><span>        </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">_eMax :: HKD Identity EpochNo
 </span><span class="hs-identifier hs-var">Ledger._eMax</span></span><span>      </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HKD Identity EpochNo
 </span><span class="hs-number">18</span></span><span>
-</span><span id="line-64"></span><span>        </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">_minfeeA :: HKD Identity Natural
+</span><span id="line-72"></span><span>        </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">_minfeeA :: HKD Identity Natural
 </span><span class="hs-identifier hs-var">Ledger._minfeeA</span></span><span>   </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HKD Identity Natural
 </span><span class="hs-number">1</span></span><span>                     </span><span class="hs-comment">-- The linear factor for the minimum fee calculation</span><span>
-</span><span id="line-65"></span><span>        </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">_minfeeB :: HKD Identity Natural
+</span><span id="line-73"></span><span>        </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">_minfeeB :: HKD Identity Natural
 </span><span class="hs-identifier hs-var">Ledger._minfeeB</span></span><span>   </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HKD Identity Natural
 </span><span class="hs-number">0</span></span><span>                     </span><span class="hs-comment">-- The constant factor for the minimum fee calculation</span><span>
-</span><span id="line-66"></span><span>        </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span>      </span><span class="hs-comment">-- genesis keys and initial funds</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">sgGenDelegs :: Map
+</span><span id="line-74"></span><span>        </span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-comment">-- genesis keys and initial funds</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">sgGenDelegs :: Map
   (KeyHash 'Genesis (Crypto crypto)) (GenDelegPair (Crypto crypto))
 </span><span class="hs-identifier hs-var">sgGenDelegs</span></span><span>             </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Map
   (KeyHash 'Genesis (Crypto crypto)) (GenDelegPair (Crypto crypto))
 forall k a. Map k a
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/containers-0.6.2.1/src"><span class="hs-identifier hs-var">Map.empty</span></a></span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">sgStaking :: ShelleyGenesisStaking (Crypto crypto)
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/containers-0.6.5.1/src"><span class="hs-identifier hs-var">Map.empty</span></a></span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">sgStaking :: ShelleyGenesisStaking (Crypto crypto)
 </span><span class="hs-identifier hs-var">sgStaking</span></span><span>               </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ShelleyGenesisStaking (Crypto crypto)
 forall crypto. ShelleyGenesisStaking crypto
 </span><span class="hs-identifier hs-var">emptyGenesisStaking</span></span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">sgInitialFunds :: Map (Addr (Crypto crypto)) Coin
+</span><span id="line-79"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">sgInitialFunds :: Map (Addr (Crypto crypto)) Coin
 </span><span class="hs-identifier hs-var">sgInitialFunds</span></span><span>          </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Map (Addr (Crypto crypto)) Coin
 forall k a. Map k a
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/containers-0.6.2.1/src"><span class="hs-identifier hs-var">Map.empty</span></a></span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">sgMaxLovelaceSupply :: Word64
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/containers-0.6.5.1/src"><span class="hs-identifier hs-var">Map.empty</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">sgMaxLovelaceSupply :: Word64
 </span><span class="hs-identifier hs-var">sgMaxLovelaceSupply</span></span><span>     </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Word64
 </span><span class="hs-number">0</span></span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-74"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-75"></span><span>    </span><span id="local-6989586621679447141"><span class="annot"><span class="annottext">k :: Word64
-</span><a href="#local-6989586621679447141"><span class="hs-identifier hs-var hs-var">k</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Word64
+</span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>    </span><span id="local-6989586621679463950"><span class="annot"><span class="annottext">k :: Word64
+</span><a href="#local-6989586621679463950"><span class="hs-identifier hs-var hs-var">k</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Word64
 </span><span class="hs-number">2160</span></span><span>
-</span><span id="line-76"></span><span>    </span><span id="local-6989586621679447151"><span class="annot"><span class="annottext">zeroTime :: UTCTime
-</span><a href="#local-6989586621679447151"><span class="hs-identifier hs-var hs-var">zeroTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Day -&gt; DiffTime -&gt; UTCTime
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/time-1.9.3/src"><span class="hs-identifier hs-var">Time.UTCTime</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Integer -&gt; Int -&gt; Int -&gt; Day
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/time-1.9.3/src"><span class="hs-identifier hs-var">Time.fromGregorian</span></a></span><span> </span><span class="annot"><span class="annottext">Integer
+</span><span id="line-84"></span><span>    </span><span id="local-6989586621679463960"><span class="annot"><span class="annottext">zeroTime :: UTCTime
+</span><a href="#local-6989586621679463960"><span class="hs-identifier hs-var hs-var">zeroTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Day -&gt; DiffTime -&gt; UTCTime
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/time-1.9.3/src"><span class="hs-identifier hs-var">Time.UTCTime</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Integer -&gt; Int -&gt; Int -&gt; Day
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/time-1.9.3/src"><span class="hs-identifier hs-var">Time.fromGregorian</span></a></span><span> </span><span class="annot"><span class="annottext">Integer
 </span><span class="hs-number">1970</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">1</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">1</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">DiffTime
 </span><span class="hs-number">0</span></span><span> </span><span class="hs-comment">-- tradition</span><span>
-</span><span id="line-77"></span></pre></body></html>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | Reasonable starting defaults for constructing an 'AlonzoGenesis'.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Cardano.Api.Shelley.Genesis.html#alonzoGenesisDefaults"><span class="hs-identifier hs-type">alonzoGenesisDefaults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Alonzo.AlonzoGenesis</span></span><span>
+</span><span id="line-88"></span><span id="alonzoGenesisDefaults"><span class="annot"><span class="annottext">alonzoGenesisDefaults :: AlonzoGenesis
+</span><a href="Cardano.Api.Shelley.Genesis.html#alonzoGenesisDefaults"><span class="hs-identifier hs-var hs-var">alonzoGenesisDefaults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-keyword">let</span><span> </span><span id="local-6989586621679463927"><span class="annot"><span class="annottext">cModel :: Map Language CostModel
+</span><a href="#local-6989586621679463927"><span class="hs-identifier hs-var hs-var">cModel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-keyword">case</span><span> </span><span class="annot"><span class="annottext">Map Text Integer -&gt; CostModel
+</span><span class="hs-identifier hs-var">Alonzo.CostModel</span></span><span> </span><span class="annot"><span class="annottext">(Map Text Integer -&gt; CostModel)
+-&gt; Maybe (Map Text Integer) -&gt; Maybe CostModel
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-operator hs-var">&lt;$&gt;</span></a></span><span> </span><span class="annot"><span class="annottext">Maybe (Map Text Integer)
+</span><span class="hs-identifier hs-var">Plutus.defaultCostModelParams</span></span><span> </span><span class="hs-keyword">of</span><span>
+</span><span id="line-90"></span><span>                 </span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-identifier hs-type">Just</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Alonzo.CostModel</span></span><span> </span><span id="local-6989586621679463923"><span class="annot"><span class="annottext">Map Text Integer
+</span><a href="#local-6989586621679463923"><span class="hs-identifier hs-var">m</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>                   </span><span class="hs-keyword">if</span><span> </span><span class="annot"><span class="annottext">Map Text Integer -&gt; Bool
+</span><span class="hs-identifier hs-var">Alonzo.validateCostModelParams</span></span><span> </span><span class="annot"><span class="annottext">Map Text Integer
+</span><a href="#local-6989586621679463923"><span class="hs-identifier hs-var">m</span></a></span><span>
+</span><span id="line-92"></span><span>                   </span><span class="hs-keyword">then</span><span> </span><span class="annot"><span class="annottext">Language -&gt; CostModel -&gt; Map Language CostModel
+forall k a. k -&gt; a -&gt; Map k a
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/containers-0.6.5.1/src"><span class="hs-identifier hs-var">Map.singleton</span></a></span><span> </span><span class="annot"><span class="annottext">Language
+</span><span class="hs-identifier hs-var">Alonzo.PlutusV1</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Map Text Integer -&gt; CostModel
+</span><span class="hs-identifier hs-var">Alonzo.CostModel</span></span><span> </span><span class="annot"><span class="annottext">Map Text Integer
+</span><a href="#local-6989586621679463923"><span class="hs-identifier hs-var">m</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>                   </span><span class="hs-keyword">else</span><span> </span><span class="annot"><span class="annottext">[Char] -&gt; Map Language CostModel
+forall a. HasCallStack =&gt; [Char] -&gt; a
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-identifier hs-var">error</span></a></span><span> </span><span class="annot"><span class="annottext">[Char]
+</span><span class="hs-string">&quot;alonzoGenesisDefaults: defaultCostModel is invalid&quot;</span></span><span>
+</span><span id="line-94"></span><span>                 </span><span class="annot"><span class="annottext">Maybe CostModel
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-identifier hs-var">Nothing</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>                   </span><span class="annot"><span class="annottext">[Char] -&gt; Map Language CostModel
+forall a. HasCallStack =&gt; [Char] -&gt; a
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-identifier hs-var">error</span></a></span><span> </span><span class="annot"><span class="annottext">[Char]
+</span><span class="hs-string">&quot;alonzoGenesisDefaults: Could not extract cost model \
+                         \params from defaultCostModel&quot;</span></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-comment">--TODO: we need a better validation story. We also ought to wrap the</span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-comment">-- genesis type in the API properly.</span><span>
+</span><span id="line-99"></span><span>      </span><span id="local-6989586621679463919"><span class="annot"><span class="annottext">prices' :: Prices
+</span><a href="#local-6989586621679463919"><span class="hs-identifier hs-var hs-var">prices'</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-keyword">case</span><span> </span><span class="annot"><span class="annottext">ExecutionUnitPrices -&gt; Maybe Prices
+</span><a href="Cardano.Api.ProtocolParameters.html#toAlonzoPrices"><span class="hs-identifier hs-var">toAlonzoPrices</span></a></span><span> </span><span class="annot"><span class="annottext">ExecutionUnitPrices
+</span><a href="#local-6989586621679463917"><span class="hs-identifier hs-var">alonzoGenesisDefaultExecutionPrices</span></a></span><span> </span><span class="hs-keyword">of</span><span>
+</span><span id="line-100"></span><span>                  </span><span class="annot"><span class="annottext">Maybe Prices
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-identifier hs-var">Nothing</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Char] -&gt; Prices
+forall a. HasCallStack =&gt; [Char] -&gt; a
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-identifier hs-var">error</span></a></span><span> </span><span class="annot"><span class="annottext">[Char]
+</span><span class="hs-string">&quot;alonzoGenesisDefaults: invalid prices&quot;</span></span><span>
+</span><span id="line-101"></span><span>                  </span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-identifier hs-type">Just</span></a></span><span> </span><span id="local-6989586621679463916"><span class="annot"><span class="annottext">Prices
+</span><a href="#local-6989586621679463916"><span class="hs-identifier hs-var">p</span></a></span></span><span>  </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Prices
+</span><a href="#local-6989586621679463916"><span class="hs-identifier hs-var">p</span></a></span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-keyword">in</span><span> </span><span class="annot"><span class="annottext">AlonzoGenesis :: Coin
+-&gt; Map Language CostModel
+-&gt; Prices
+-&gt; ExUnits
+-&gt; ExUnits
+-&gt; Natural
+-&gt; Natural
+-&gt; Natural
+-&gt; AlonzoGenesis
+</span><span class="hs-identifier hs-type">Alonzo.AlonzoGenesis</span></span><span>
+</span><span id="line-103"></span><span>       </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">coinsPerUTxOWord :: Coin
+</span><span class="hs-identifier hs-var">Alonzo.coinsPerUTxOWord</span></span><span>     </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Lovelace -&gt; Coin
+</span><a href="Cardano.Api.Value.html#toShelleyLovelace"><span class="hs-identifier hs-var">toShelleyLovelace</span></a></span><span> </span><span class="annot"><span class="annottext">(Lovelace -&gt; Coin) -&gt; Lovelace -&gt; Coin
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-operator hs-var">$</span></a></span><span> </span><span class="annot"><span class="annottext">Integer -&gt; Lovelace
+</span><a href="Cardano.Api.Value.html#Lovelace"><span class="hs-identifier hs-var">Lovelace</span></a></span><span> </span><span class="annot"><span class="annottext">Integer
+</span><span class="hs-number">34482</span></span><span>
+</span><span id="line-104"></span><span>       </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">costmdls :: Map Language CostModel
+</span><span class="hs-identifier hs-var">Alonzo.costmdls</span></span><span>             </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Map Language CostModel
+</span><a href="#local-6989586621679463927"><span class="hs-identifier hs-var">cModel</span></a></span><span>
+</span><span id="line-105"></span><span>       </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">prices :: Prices
+</span><span class="hs-identifier hs-var">Alonzo.prices</span></span><span>               </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Prices
+</span><a href="#local-6989586621679463919"><span class="hs-identifier hs-var">prices'</span></a></span><span>
+</span><span id="line-106"></span><span>       </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">maxTxExUnits :: ExUnits
+</span><span class="hs-identifier hs-var">Alonzo.maxTxExUnits</span></span><span>         </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ExecutionUnits -&gt; ExUnits
+</span><a href="Cardano.Api.Script.html#toAlonzoExUnits"><span class="hs-identifier hs-var">toAlonzoExUnits</span></a></span><span> </span><span class="annot"><span class="annottext">ExecutionUnits
+</span><a href="#local-6989586621679463907"><span class="hs-identifier hs-var">alonzoGenesisDefaultMaxTxExecutionUnits</span></a></span><span>
+</span><span id="line-107"></span><span>       </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">maxBlockExUnits :: ExUnits
+</span><span class="hs-identifier hs-var">Alonzo.maxBlockExUnits</span></span><span>      </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ExecutionUnits -&gt; ExUnits
+</span><a href="Cardano.Api.Script.html#toAlonzoExUnits"><span class="hs-identifier hs-var">toAlonzoExUnits</span></a></span><span> </span><span class="annot"><span class="annottext">ExecutionUnits
+</span><a href="#local-6989586621679463905"><span class="hs-identifier hs-var">alonzoGenesisDefaultMaxBlockExecutionUnits</span></a></span><span>
+</span><span id="line-108"></span><span>       </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">maxValSize :: Natural
+</span><span class="hs-identifier hs-var">Alonzo.maxValSize</span></span><span>           </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679463903"><span class="hs-identifier hs-var">alonzoGenesisDefaultMaxValueSize</span></a></span><span>
+</span><span id="line-109"></span><span>       </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">collateralPercentage :: Natural
+</span><span class="hs-identifier hs-var">Alonzo.collateralPercentage</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679463901"><span class="hs-identifier hs-var">alonzoGenesisDefaultCollateralPercent</span></a></span><span>
+</span><span id="line-110"></span><span>       </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">maxCollateralInputs :: Natural
+</span><span class="hs-identifier hs-var">Alonzo.maxCollateralInputs</span></span><span>  </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679463899"><span class="hs-identifier hs-var">alonzoGenesisDefaultMaxCollateralInputs</span></a></span><span>
+</span><span id="line-111"></span><span>       </span><span class="hs-special">}</span><span>
+</span><span id="line-112"></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><a href="#local-6989586621679463917"><span class="hs-identifier hs-type">alonzoGenesisDefaultExecutionPrices</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Cardano.Api.ProtocolParameters.html#ExecutionUnitPrices"><span class="hs-identifier hs-type">ExecutionUnitPrices</span></a></span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679463917"><span class="annot"><span class="annottext">alonzoGenesisDefaultExecutionPrices :: ExecutionUnitPrices
+</span><a href="#local-6989586621679463917"><span class="hs-identifier hs-var hs-var">alonzoGenesisDefaultExecutionPrices</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">ExecutionUnitPrices :: Rational -&gt; Rational -&gt; ExecutionUnitPrices
+</span><a href="Cardano.Api.ProtocolParameters.html#ExecutionUnitPrices"><span class="hs-identifier hs-type">ExecutionUnitPrices</span></a></span><span> </span><span class="hs-special">{</span><span>
+</span><span id="line-116"></span><span>         </span><span class="annot"><span class="annottext">priceExecutionSteps :: Rational
+</span><a href="Cardano.Api.ProtocolParameters.html#priceExecutionSteps"><span class="hs-identifier hs-var">priceExecutionSteps</span></a></span><span>  </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><span class="hs-number">1</span></span><span> </span><span class="annot"><span class="annottext">Integer -&gt; Integer -&gt; Rational
+forall a. Integral a =&gt; a -&gt; a -&gt; Ratio a
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-operator hs-var">%</span></a></span><span> </span><span class="annot"><span class="annottext">Integer
+</span><span class="hs-number">10</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>         </span><span class="annot"><span class="annottext">priceExecutionMemory :: Rational
+</span><a href="Cardano.Api.ProtocolParameters.html#priceExecutionMemory"><span class="hs-identifier hs-var">priceExecutionMemory</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><span class="hs-number">1</span></span><span> </span><span class="annot"><span class="annottext">Integer -&gt; Integer -&gt; Rational
+forall a. Integral a =&gt; a -&gt; a -&gt; Ratio a
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-operator hs-var">%</span></a></span><span> </span><span class="annot"><span class="annottext">Integer
+</span><span class="hs-number">10</span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><a href="#local-6989586621679463907"><span class="hs-identifier hs-type">alonzoGenesisDefaultMaxTxExecutionUnits</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Cardano.Api.Script.html#ExecutionUnits"><span class="hs-identifier hs-type">ExecutionUnits</span></a></span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679463907"><span class="annot"><span class="annottext">alonzoGenesisDefaultMaxTxExecutionUnits :: ExecutionUnits
+</span><a href="#local-6989586621679463907"><span class="hs-identifier hs-var hs-var">alonzoGenesisDefaultMaxTxExecutionUnits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">ExecutionUnits :: Natural -&gt; Natural -&gt; ExecutionUnits
+</span><a href="Cardano.Api.Script.html#ExecutionUnits"><span class="hs-identifier hs-type">ExecutionUnits</span></a></span><span> </span><span class="hs-special">{</span><span>
+</span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">executionSteps :: Natural
+</span><a href="Cardano.Api.Script.html#executionSteps"><span class="hs-identifier hs-var">executionSteps</span></a></span><span>  </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><span class="hs-number">500_000_000_000</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">executionMemory :: Natural
+</span><a href="Cardano.Api.Script.html#executionMemory"><span class="hs-identifier hs-var">executionMemory</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><span class="hs-number">500_000_000_000</span></span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><a href="#local-6989586621679463905"><span class="hs-identifier hs-type">alonzoGenesisDefaultMaxBlockExecutionUnits</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Cardano.Api.Script.html#ExecutionUnits"><span class="hs-identifier hs-type">ExecutionUnits</span></a></span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679463905"><span class="annot"><span class="annottext">alonzoGenesisDefaultMaxBlockExecutionUnits :: ExecutionUnits
+</span><a href="#local-6989586621679463905"><span class="hs-identifier hs-var hs-var">alonzoGenesisDefaultMaxBlockExecutionUnits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">ExecutionUnits :: Natural -&gt; Natural -&gt; ExecutionUnits
+</span><a href="Cardano.Api.Script.html#ExecutionUnits"><span class="hs-identifier hs-type">ExecutionUnits</span></a></span><span> </span><span class="hs-special">{</span><span>
+</span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">executionSteps :: Natural
+</span><a href="Cardano.Api.Script.html#executionSteps"><span class="hs-identifier hs-var">executionSteps</span></a></span><span>  </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><span class="hs-number">500_000_000_000</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">executionMemory :: Natural
+</span><a href="Cardano.Api.Script.html#executionMemory"><span class="hs-identifier hs-var">executionMemory</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><span class="hs-number">500_000_000_000</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><a href="#local-6989586621679463903"><span class="hs-identifier hs-type">alonzoGenesisDefaultMaxValueSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-identifier hs-type">Natural</span></a></span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679463903"><span class="annot"><span class="annottext">alonzoGenesisDefaultMaxValueSize :: Natural
+</span><a href="#local-6989586621679463903"><span class="hs-identifier hs-var hs-var">alonzoGenesisDefaultMaxValueSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><span class="hs-number">4000</span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><a href="#local-6989586621679463901"><span class="hs-identifier hs-type">alonzoGenesisDefaultCollateralPercent</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-identifier hs-type">Natural</span></a></span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679463901"><span class="annot"><span class="annottext">alonzoGenesisDefaultCollateralPercent :: Natural
+</span><a href="#local-6989586621679463901"><span class="hs-identifier hs-var hs-var">alonzoGenesisDefaultCollateralPercent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><span class="hs-number">1</span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><a href="#local-6989586621679463899"><span class="hs-identifier hs-type">alonzoGenesisDefaultMaxCollateralInputs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-identifier hs-type">Natural</span></a></span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679463899"><span class="annot"><span class="annottext">alonzoGenesisDefaultMaxCollateralInputs :: Natural
+</span><a href="#local-6989586621679463899"><span class="hs-identifier hs-var hs-var">alonzoGenesisDefaultMaxCollateralInputs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><span class="hs-number">5</span></span><span>
+</span><span id="line-142"></span></pre></body></html>

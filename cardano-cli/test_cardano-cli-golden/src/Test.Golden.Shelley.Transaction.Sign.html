@@ -18,7 +18,7 @@
 </span><a href="Test.Golden.Shelley.Transaction.Sign.html#golden_shelleyTransactionSign"><span class="hs-identifier hs-var hs-var">golden_shelleyTransactionSign</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PropertyT IO () -&gt; Property
 </span><a href="Test.OptParse.html#propertyOnce"><span class="hs-identifier hs-var">propertyOnce</span></a></span><span> </span><span class="annot"><span class="annottext">(PropertyT IO () -&gt; Property) -&gt; PropertyT IO () -&gt; Property
 forall a b. (a -&gt; b) -&gt; a -&gt; b
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-operator hs-var">$</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; (FilePath -&gt; PropertyT IO ()) -&gt; PropertyT IO ()
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-operator hs-var">$</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; (FilePath -&gt; PropertyT IO ()) -&gt; PropertyT IO ()
 forall (m :: * -&gt; *).
 (MonadTest m, MonadIO m, HasCallStack) =&gt;
 FilePath -&gt; (FilePath -&gt; m ()) -&gt; m ()
@@ -26,68 +26,68 @@ FilePath -&gt; (FilePath -&gt; m ()) -&gt; m ()
 </span><span class="hs-string">&quot;tmp&quot;</span></span><span> </span><span class="annot"><span class="annottext">((FilePath -&gt; PropertyT IO ()) -&gt; PropertyT IO ())
 -&gt; (FilePath -&gt; PropertyT IO ()) -&gt; PropertyT IO ()
 forall a b. (a -&gt; b) -&gt; a -&gt; b
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-operator hs-var">$</span></a></span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679205543"><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679205543"><span class="hs-identifier hs-var">tempDir</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-keyword">do</span><span>
-</span><span id="line-18"></span><span>  </span><span id="local-6989586621679205542"><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679205542"><span class="hs-identifier hs-var">txBodyFile</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; PropertyT IO FilePath
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-operator hs-var">$</span></a></span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679208784"><span class="annot"><span class="annottext">FilePath
+</span><a href="#local-6989586621679208784"><span class="hs-identifier hs-var">tempDir</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-keyword">do</span><span>
+</span><span id="line-18"></span><span>  </span><span id="local-6989586621679208783"><span class="annot"><span class="annottext">FilePath
+</span><a href="#local-6989586621679208783"><span class="hs-identifier hs-var">txBodyFile</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; PropertyT IO FilePath
 forall (m :: * -&gt; *).
 (MonadTest m, HasCallStack) =&gt;
 FilePath -&gt; m FilePath
 </span><a href="Test.OptParse.html#noteInputFile"><span class="hs-identifier hs-var">noteInputFile</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;test/data/golden/shelley/tx/txbody&quot;</span></span><span>
-</span><span id="line-19"></span><span>  </span><span id="local-6989586621679205540"><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679205540"><span class="hs-identifier hs-var">initialUtxo1SigningKeyFile</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; PropertyT IO FilePath
+</span><span id="line-19"></span><span>  </span><span id="local-6989586621679208781"><span class="annot"><span class="annottext">FilePath
+</span><a href="#local-6989586621679208781"><span class="hs-identifier hs-var">initialUtxo1SigningKeyFile</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; PropertyT IO FilePath
 forall (m :: * -&gt; *).
 (MonadTest m, HasCallStack) =&gt;
 FilePath -&gt; m FilePath
 </span><a href="Test.OptParse.html#noteInputFile"><span class="hs-identifier hs-var">noteInputFile</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;test/data/golden/shelley/keys/payment_keys/signing_key&quot;</span></span><span>
-</span><span id="line-20"></span><span>  </span><span id="local-6989586621679205539"><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679205539"><span class="hs-identifier hs-var">utxoSigningKeyFile</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; PropertyT IO FilePath
+</span><span id="line-20"></span><span>  </span><span id="local-6989586621679208780"><span class="annot"><span class="annottext">FilePath
+</span><a href="#local-6989586621679208780"><span class="hs-identifier hs-var">utxoSigningKeyFile</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; PropertyT IO FilePath
 forall (m :: * -&gt; *).
 (MonadTest m, HasCallStack) =&gt;
 FilePath -&gt; m FilePath
 </span><a href="Test.OptParse.html#noteInputFile"><span class="hs-identifier hs-var">noteInputFile</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;test/data/golden/shelley/transaction-sign/utxo.skey&quot;</span></span><span>
-</span><span id="line-21"></span><span>  </span><span id="local-6989586621679205538"><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679205538"><span class="hs-identifier hs-var">stakeSigningKeyFile</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; PropertyT IO FilePath
+</span><span id="line-21"></span><span>  </span><span id="local-6989586621679208779"><span class="annot"><span class="annottext">FilePath
+</span><a href="#local-6989586621679208779"><span class="hs-identifier hs-var">stakeSigningKeyFile</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; PropertyT IO FilePath
 forall (m :: * -&gt; *).
 (MonadTest m, HasCallStack) =&gt;
 FilePath -&gt; m FilePath
 </span><a href="Test.OptParse.html#noteInputFile"><span class="hs-identifier hs-var">noteInputFile</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;test/data/golden/shelley/transaction-sign/stake.skey&quot;</span></span><span>
-</span><span id="line-22"></span><span>  </span><span id="local-6989586621679205537"><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679205537"><span class="hs-identifier hs-var">nodeColdSigningKeyFile</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; PropertyT IO FilePath
+</span><span id="line-22"></span><span>  </span><span id="local-6989586621679208778"><span class="annot"><span class="annottext">FilePath
+</span><a href="#local-6989586621679208778"><span class="hs-identifier hs-var">nodeColdSigningKeyFile</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; PropertyT IO FilePath
 forall (m :: * -&gt; *).
 (MonadTest m, HasCallStack) =&gt;
 FilePath -&gt; m FilePath
 </span><a href="Test.OptParse.html#noteInputFile"><span class="hs-identifier hs-var">noteInputFile</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;test/data/golden/shelley/transaction-sign/node-cold.skey&quot;</span></span><span>
-</span><span id="line-23"></span><span>  </span><span id="local-6989586621679205536"><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679205536"><span class="hs-identifier hs-var">signedTransactionFile</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; FilePath -&gt; PropertyT IO FilePath
+</span><span id="line-23"></span><span>  </span><span id="local-6989586621679208777"><span class="annot"><span class="annottext">FilePath
+</span><a href="#local-6989586621679208777"><span class="hs-identifier hs-var">signedTransactionFile</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; FilePath -&gt; PropertyT IO FilePath
 forall (m :: * -&gt; *).
 (MonadTest m, HasCallStack) =&gt;
 FilePath -&gt; FilePath -&gt; m FilePath
 </span><a href="Test.OptParse.html#noteTempFile"><span class="hs-identifier hs-var">noteTempFile</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679205543"><span class="hs-identifier hs-var">tempDir</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
+</span><a href="#local-6989586621679208784"><span class="hs-identifier hs-var">tempDir</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;signed.tx&quot;</span></span><span>
-</span><span id="line-24"></span><span>  </span><span id="local-6989586621679205534"><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679205534"><span class="hs-identifier hs-var">transactionPoolRegSignedFile</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; FilePath -&gt; PropertyT IO FilePath
+</span><span id="line-24"></span><span>  </span><span id="local-6989586621679208775"><span class="annot"><span class="annottext">FilePath
+</span><a href="#local-6989586621679208775"><span class="hs-identifier hs-var">transactionPoolRegSignedFile</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; FilePath -&gt; PropertyT IO FilePath
 forall (m :: * -&gt; *).
 (MonadTest m, HasCallStack) =&gt;
 FilePath -&gt; FilePath -&gt; m FilePath
 </span><a href="Test.OptParse.html#noteTempFile"><span class="hs-identifier hs-var">noteTempFile</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679205543"><span class="hs-identifier hs-var">tempDir</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
+</span><a href="#local-6989586621679208784"><span class="hs-identifier hs-var">tempDir</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;tx-pool-reg.signed&quot;</span></span><span>
 </span><span id="line-25"></span><span>
 </span><span id="line-26"></span><span>  </span><span class="hs-comment">-- Defaults to signing a Mainnet transaction</span><span>
 </span><span id="line-27"></span><span>
 </span><span id="line-28"></span><span>  </span><span class="annot"><span class="annottext">PropertyT IO FilePath -&gt; PropertyT IO ()
 forall (f :: * -&gt; *) a. Functor f =&gt; f a -&gt; f ()
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-identifier hs-var">void</span></a></span><span> </span><span class="annot"><span class="annottext">(PropertyT IO FilePath -&gt; PropertyT IO ())
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-identifier hs-var">void</span></a></span><span> </span><span class="annot"><span class="annottext">(PropertyT IO FilePath -&gt; PropertyT IO ())
 -&gt; PropertyT IO FilePath -&gt; PropertyT IO ()
 forall a b. (a -&gt; b) -&gt; a -&gt; b
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-operator hs-var">$</span></a></span><span> </span><span class="annot"><span class="annottext">[FilePath] -&gt; PropertyT IO FilePath
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-operator hs-var">$</span></a></span><span> </span><span class="annot"><span class="annottext">[FilePath] -&gt; PropertyT IO FilePath
 forall (m :: * -&gt; *).
 (MonadTest m, MonadCatch m, MonadIO m, HasCallStack) =&gt;
 [FilePath] -&gt; m FilePath
@@ -99,13 +99,13 @@ forall (m :: * -&gt; *).
 </span><span class="hs-string">&quot;--mainnet&quot;</span></span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;--tx-body-file&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679205542"><span class="hs-identifier hs-var">txBodyFile</span></a></span><span>
+</span><a href="#local-6989586621679208783"><span class="hs-identifier hs-var">txBodyFile</span></a></span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;--signing-key-file&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679205540"><span class="hs-identifier hs-var">initialUtxo1SigningKeyFile</span></a></span><span>
+</span><a href="#local-6989586621679208781"><span class="hs-identifier hs-var">initialUtxo1SigningKeyFile</span></a></span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;--tx-file&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679205536"><span class="hs-identifier hs-var">signedTransactionFile</span></a></span><span>
+</span><a href="#local-6989586621679208777"><span class="hs-identifier hs-var">signedTransactionFile</span></a></span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-special">]</span><span>
 </span><span id="line-35"></span><span>
 </span><span id="line-36"></span><span>  </span><span class="annot"><span class="annottext">Int -&gt; FilePath -&gt; FilePath -&gt; PropertyT IO ()
@@ -115,22 +115,22 @@ Int -&gt; FilePath -&gt; FilePath -&gt; m ()
 </span><span class="hs-identifier hs-var">H.assertFileOccurences</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">1</span></span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;Tx MaryEra&quot;</span></span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679205536"><span class="hs-identifier hs-var">signedTransactionFile</span></a></span><span>
+</span><a href="#local-6989586621679208777"><span class="hs-identifier hs-var">signedTransactionFile</span></a></span><span>
 </span><span id="line-37"></span><span>  </span><span class="annot"><span class="annottext">FilePath -&gt; PropertyT IO ()
 forall (m :: * -&gt; *).
 (MonadTest m, MonadIO m, HasCallStack) =&gt;
 FilePath -&gt; m ()
 </span><span class="hs-identifier hs-var">H.assertEndsWithSingleNewline</span></span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679205536"><span class="hs-identifier hs-var">signedTransactionFile</span></a></span><span>
+</span><a href="#local-6989586621679208777"><span class="hs-identifier hs-var">signedTransactionFile</span></a></span><span>
 </span><span id="line-38"></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-comment">-- Sign for a testnet with a testnet network magic of 11, but use two signing keys</span><span>
 </span><span id="line-40"></span><span>
 </span><span id="line-41"></span><span>  </span><span class="annot"><span class="annottext">PropertyT IO FilePath -&gt; PropertyT IO ()
 forall (f :: * -&gt; *) a. Functor f =&gt; f a -&gt; f ()
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-identifier hs-var">void</span></a></span><span> </span><span class="annot"><span class="annottext">(PropertyT IO FilePath -&gt; PropertyT IO ())
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-identifier hs-var">void</span></a></span><span> </span><span class="annot"><span class="annottext">(PropertyT IO FilePath -&gt; PropertyT IO ())
 -&gt; PropertyT IO FilePath -&gt; PropertyT IO ()
 forall a b. (a -&gt; b) -&gt; a -&gt; b
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-operator hs-var">$</span></a></span><span> </span><span class="annot"><span class="annottext">[FilePath] -&gt; PropertyT IO FilePath
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-operator hs-var">$</span></a></span><span> </span><span class="annot"><span class="annottext">[FilePath] -&gt; PropertyT IO FilePath
 forall (m :: * -&gt; *).
 (MonadTest m, MonadCatch m, MonadIO m, HasCallStack) =&gt;
 [FilePath] -&gt; m FilePath
@@ -142,16 +142,16 @@ forall (m :: * -&gt; *).
 </span><span class="hs-string">&quot;--mainnet&quot;</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;--tx-body-file&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679205542"><span class="hs-identifier hs-var">txBodyFile</span></a></span><span>
+</span><a href="#local-6989586621679208783"><span class="hs-identifier hs-var">txBodyFile</span></a></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;--signing-key-file&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679205540"><span class="hs-identifier hs-var">initialUtxo1SigningKeyFile</span></a></span><span>
+</span><a href="#local-6989586621679208781"><span class="hs-identifier hs-var">initialUtxo1SigningKeyFile</span></a></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;--signing-key-file&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679205540"><span class="hs-identifier hs-var">initialUtxo1SigningKeyFile</span></a></span><span>
+</span><a href="#local-6989586621679208781"><span class="hs-identifier hs-var">initialUtxo1SigningKeyFile</span></a></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;--tx-file&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679205536"><span class="hs-identifier hs-var">signedTransactionFile</span></a></span><span>
+</span><a href="#local-6989586621679208777"><span class="hs-identifier hs-var">signedTransactionFile</span></a></span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-special">]</span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span>  </span><span class="annot"><span class="annottext">Int -&gt; FilePath -&gt; FilePath -&gt; PropertyT IO ()
@@ -161,23 +161,23 @@ Int -&gt; FilePath -&gt; FilePath -&gt; m ()
 </span><span class="hs-identifier hs-var">H.assertFileOccurences</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">1</span></span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;Tx MaryEra&quot;</span></span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679205536"><span class="hs-identifier hs-var">signedTransactionFile</span></a></span><span>
+</span><a href="#local-6989586621679208777"><span class="hs-identifier hs-var">signedTransactionFile</span></a></span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">FilePath -&gt; PropertyT IO ()
 forall (m :: * -&gt; *).
 (MonadTest m, MonadIO m, HasCallStack) =&gt;
 FilePath -&gt; m ()
 </span><span class="hs-identifier hs-var">H.assertEndsWithSingleNewline</span></span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679205536"><span class="hs-identifier hs-var">signedTransactionFile</span></a></span><span>
+</span><a href="#local-6989586621679208777"><span class="hs-identifier hs-var">signedTransactionFile</span></a></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-comment">-- Sign a pool registration transaction.</span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-comment">-- TODO: This needs to use an unsigned tx with a registration certificate</span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">PropertyT IO FilePath -&gt; PropertyT IO ()
 forall (f :: * -&gt; *) a. Functor f =&gt; f a -&gt; f ()
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-identifier hs-var">void</span></a></span><span> </span><span class="annot"><span class="annottext">(PropertyT IO FilePath -&gt; PropertyT IO ())
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-identifier hs-var">void</span></a></span><span> </span><span class="annot"><span class="annottext">(PropertyT IO FilePath -&gt; PropertyT IO ())
 -&gt; PropertyT IO FilePath -&gt; PropertyT IO ()
 forall a b. (a -&gt; b) -&gt; a -&gt; b
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-operator hs-var">$</span></a></span><span> </span><span class="annot"><span class="annottext">[FilePath] -&gt; PropertyT IO FilePath
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-operator hs-var">$</span></a></span><span> </span><span class="annot"><span class="annottext">[FilePath] -&gt; PropertyT IO FilePath
 forall (m :: * -&gt; *).
 (MonadTest m, MonadCatch m, MonadIO m, HasCallStack) =&gt;
 [FilePath] -&gt; m FilePath
@@ -189,19 +189,19 @@ forall (m :: * -&gt; *).
 </span><span class="hs-string">&quot;--mainnet&quot;</span></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;--tx-body-file&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679205542"><span class="hs-identifier hs-var">txBodyFile</span></a></span><span>
+</span><a href="#local-6989586621679208783"><span class="hs-identifier hs-var">txBodyFile</span></a></span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;--signing-key-file&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679205539"><span class="hs-identifier hs-var">utxoSigningKeyFile</span></a></span><span>
+</span><a href="#local-6989586621679208780"><span class="hs-identifier hs-var">utxoSigningKeyFile</span></a></span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;--signing-key-file&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679205538"><span class="hs-identifier hs-var">stakeSigningKeyFile</span></a></span><span>
+</span><a href="#local-6989586621679208779"><span class="hs-identifier hs-var">stakeSigningKeyFile</span></a></span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;--signing-key-file&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679205537"><span class="hs-identifier hs-var">nodeColdSigningKeyFile</span></a></span><span>
+</span><a href="#local-6989586621679208778"><span class="hs-identifier hs-var">nodeColdSigningKeyFile</span></a></span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;--tx-file&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679205534"><span class="hs-identifier hs-var">transactionPoolRegSignedFile</span></a></span><span>
+</span><a href="#local-6989586621679208775"><span class="hs-identifier hs-var">transactionPoolRegSignedFile</span></a></span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-special">]</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span>  </span><span class="annot"><span class="annottext">Int -&gt; FilePath -&gt; FilePath -&gt; PropertyT IO ()
@@ -211,11 +211,11 @@ Int -&gt; FilePath -&gt; FilePath -&gt; m ()
 </span><span class="hs-identifier hs-var">H.assertFileOccurences</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">1</span></span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;Tx MaryEra&quot;</span></span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679205534"><span class="hs-identifier hs-var">transactionPoolRegSignedFile</span></a></span><span>
+</span><a href="#local-6989586621679208775"><span class="hs-identifier hs-var">transactionPoolRegSignedFile</span></a></span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="annottext">FilePath -&gt; PropertyT IO ()
 forall (m :: * -&gt; *).
 (MonadTest m, MonadIO m, HasCallStack) =&gt;
 FilePath -&gt; m ()
 </span><span class="hs-identifier hs-var">H.assertEndsWithSingleNewline</span></span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679205534"><span class="hs-identifier hs-var">transactionPoolRegSignedFile</span></a></span><span>
+</span><a href="#local-6989586621679208775"><span class="hs-identifier hs-var">transactionPoolRegSignedFile</span></a></span><span>
 </span><span id="line-68"></span></pre></body></html>

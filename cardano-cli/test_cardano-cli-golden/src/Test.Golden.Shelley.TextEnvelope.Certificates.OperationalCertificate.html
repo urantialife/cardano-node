@@ -4,7 +4,7 @@
 </span><span id="line-4"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Test.Golden.Shelley.TextEnvelope.Certificates.OperationalCertificate.html#golden_shelleyOperationalCertificate"><span class="hs-identifier">golden_shelleyOperationalCertificate</span></a></span><span>
 </span><span id="line-5"></span><span>  </span><span class="hs-special">)</span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-6"></span><span>
-</span><span id="line-7"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><a href="../file:///home/runner/work/cardano-node/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.4/cardano-api-1.30.0/noopt/doc/html/cardano-api/src"><span class="hs-identifier">Cardano.Api</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="../file:///home/runner/work/cardano-node/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.4/cardano-api-1.30.0/noopt/doc/html/cardano-api/src"><span class="hs-identifier">AsType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span> </span><span class="annot"><a href="../file:///home/runner/work/cardano-node/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.4/cardano-api-1.30.0/noopt/doc/html/cardano-api/src"><span class="hs-identifier">HasTextEnvelope</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-7"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><a href="../file:///home/runner/work/cardano-node/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.7/cardano-api-1.31.0/noopt/doc/html/cardano-api/src"><span class="hs-identifier">Cardano.Api</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="../file:///home/runner/work/cardano-node/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.7/cardano-api-1.31.0/noopt/doc/html/cardano-api/src"><span class="hs-identifier">AsType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span> </span><span class="annot"><a href="../file:///home/runner/work/cardano-node/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.7/cardano-api-1.31.0/noopt/doc/html/cardano-api/src"><span class="hs-identifier">HasTextEnvelope</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-8"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><span class="hs-identifier">Cardano.Prelude</span></span><span>
 </span><span id="line-9"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><span class="hs-identifier">Hedgehog</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier">Property</span></span><span class="hs-special">)</span><span>
 </span><span id="line-10"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><a href="Test.OptParse.html"><span class="hs-identifier">Test.OptParse</span></a></span><span>
@@ -28,7 +28,7 @@
 forall k (cat :: k -&gt; k -&gt; *) (b :: k) (c :: k) (a :: k).
 Category cat =&gt;
 cat b c -&gt; cat a b -&gt; cat a c
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-operator hs-var">.</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; (FilePath -&gt; PropertyT IO ()) -&gt; PropertyT IO ()
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-operator hs-var">.</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; (FilePath -&gt; PropertyT IO ()) -&gt; PropertyT IO ()
 forall (m :: * -&gt; *).
 (MonadTest m, MonadIO m, HasCallStack) =&gt;
 FilePath -&gt; (FilePath -&gt; m ()) -&gt; m ()
@@ -36,11 +36,11 @@ FilePath -&gt; (FilePath -&gt; m ()) -&gt; m ()
 </span><span class="hs-string">&quot;tmp&quot;</span></span><span> </span><span class="annot"><span class="annottext">((FilePath -&gt; PropertyT IO ()) -&gt; Property)
 -&gt; (FilePath -&gt; PropertyT IO ()) -&gt; Property
 forall a b. (a -&gt; b) -&gt; a -&gt; b
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-operator hs-var">$</span></a></span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679206380"><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206380"><span class="hs-identifier hs-var">tempDir</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-keyword">do</span><span>
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-operator hs-var">$</span></a></span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679209626"><span class="annot"><span class="annottext">FilePath
+</span><a href="#local-6989586621679209626"><span class="hs-identifier hs-var">tempDir</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-keyword">do</span><span>
 </span><span id="line-23"></span><span>  </span><span class="hs-comment">-- Reference keys</span><span>
-</span><span id="line-24"></span><span>  </span><span id="local-6989586621679206379"><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206379"><span class="hs-identifier hs-var">referenceOperationalCertificate</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; PropertyT IO FilePath
+</span><span id="line-24"></span><span>  </span><span id="local-6989586621679209625"><span class="annot"><span class="annottext">FilePath
+</span><a href="#local-6989586621679209625"><span class="hs-identifier hs-var">referenceOperationalCertificate</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; PropertyT IO FilePath
 forall (m :: * -&gt; *).
 (MonadTest m, HasCallStack) =&gt;
 FilePath -&gt; m FilePath
@@ -48,62 +48,62 @@ FilePath -&gt; m FilePath
 </span><span class="hs-string">&quot;test/data/golden/shelley/certificates/operational_certificate&quot;</span></span><span>
 </span><span id="line-25"></span><span>
 </span><span id="line-26"></span><span>  </span><span class="hs-comment">-- Key filepaths</span><span>
-</span><span id="line-27"></span><span>  </span><span id="local-6989586621679206377"><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206377"><span class="hs-identifier hs-var">kesVerKey</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; FilePath -&gt; PropertyT IO FilePath
+</span><span id="line-27"></span><span>  </span><span id="local-6989586621679209623"><span class="annot"><span class="annottext">FilePath
+</span><a href="#local-6989586621679209623"><span class="hs-identifier hs-var">kesVerKey</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; FilePath -&gt; PropertyT IO FilePath
 forall (m :: * -&gt; *).
 (MonadTest m, HasCallStack) =&gt;
 FilePath -&gt; FilePath -&gt; m FilePath
 </span><a href="Test.OptParse.html#noteTempFile"><span class="hs-identifier hs-var">noteTempFile</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206380"><span class="hs-identifier hs-var">tempDir</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
+</span><a href="#local-6989586621679209626"><span class="hs-identifier hs-var">tempDir</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;KES-verification-key-file&quot;</span></span><span>
-</span><span id="line-28"></span><span>  </span><span id="local-6989586621679206375"><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206375"><span class="hs-identifier hs-var">kesSignKey</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; FilePath -&gt; PropertyT IO FilePath
+</span><span id="line-28"></span><span>  </span><span id="local-6989586621679209621"><span class="annot"><span class="annottext">FilePath
+</span><a href="#local-6989586621679209621"><span class="hs-identifier hs-var">kesSignKey</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; FilePath -&gt; PropertyT IO FilePath
 forall (m :: * -&gt; *).
 (MonadTest m, HasCallStack) =&gt;
 FilePath -&gt; FilePath -&gt; m FilePath
 </span><a href="Test.OptParse.html#noteTempFile"><span class="hs-identifier hs-var">noteTempFile</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206380"><span class="hs-identifier hs-var">tempDir</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
+</span><a href="#local-6989586621679209626"><span class="hs-identifier hs-var">tempDir</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;KES-signing-key-file&quot;</span></span><span>
-</span><span id="line-29"></span><span>  </span><span id="local-6989586621679206374"><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206374"><span class="hs-identifier hs-var">coldVerKey</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; FilePath -&gt; PropertyT IO FilePath
+</span><span id="line-29"></span><span>  </span><span id="local-6989586621679209620"><span class="annot"><span class="annottext">FilePath
+</span><a href="#local-6989586621679209620"><span class="hs-identifier hs-var">coldVerKey</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; FilePath -&gt; PropertyT IO FilePath
 forall (m :: * -&gt; *).
 (MonadTest m, HasCallStack) =&gt;
 FilePath -&gt; FilePath -&gt; m FilePath
 </span><a href="Test.OptParse.html#noteTempFile"><span class="hs-identifier hs-var">noteTempFile</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206380"><span class="hs-identifier hs-var">tempDir</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
+</span><a href="#local-6989586621679209626"><span class="hs-identifier hs-var">tempDir</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;cold-verification-key-file&quot;</span></span><span>
-</span><span id="line-30"></span><span>  </span><span id="local-6989586621679206373"><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206373"><span class="hs-identifier hs-var">coldSignKey</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; FilePath -&gt; PropertyT IO FilePath
+</span><span id="line-30"></span><span>  </span><span id="local-6989586621679209619"><span class="annot"><span class="annottext">FilePath
+</span><a href="#local-6989586621679209619"><span class="hs-identifier hs-var">coldSignKey</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; FilePath -&gt; PropertyT IO FilePath
 forall (m :: * -&gt; *).
 (MonadTest m, HasCallStack) =&gt;
 FilePath -&gt; FilePath -&gt; m FilePath
 </span><a href="Test.OptParse.html#noteTempFile"><span class="hs-identifier hs-var">noteTempFile</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206380"><span class="hs-identifier hs-var">tempDir</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
+</span><a href="#local-6989586621679209626"><span class="hs-identifier hs-var">tempDir</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;cold-signing-key-file&quot;</span></span><span>
-</span><span id="line-31"></span><span>  </span><span id="local-6989586621679206372"><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206372"><span class="hs-identifier hs-var">operationalCertCounter</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; FilePath -&gt; PropertyT IO FilePath
+</span><span id="line-31"></span><span>  </span><span id="local-6989586621679209618"><span class="annot"><span class="annottext">FilePath
+</span><a href="#local-6989586621679209618"><span class="hs-identifier hs-var">operationalCertCounter</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; FilePath -&gt; PropertyT IO FilePath
 forall (m :: * -&gt; *).
 (MonadTest m, HasCallStack) =&gt;
 FilePath -&gt; FilePath -&gt; m FilePath
 </span><a href="Test.OptParse.html#noteTempFile"><span class="hs-identifier hs-var">noteTempFile</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206380"><span class="hs-identifier hs-var">tempDir</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
+</span><a href="#local-6989586621679209626"><span class="hs-identifier hs-var">tempDir</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;operational-certificate-counter-file&quot;</span></span><span>
-</span><span id="line-32"></span><span>  </span><span id="local-6989586621679206371"><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206371"><span class="hs-identifier hs-var">operationalCert</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; FilePath -&gt; PropertyT IO FilePath
+</span><span id="line-32"></span><span>  </span><span id="local-6989586621679209617"><span class="annot"><span class="annottext">FilePath
+</span><a href="#local-6989586621679209617"><span class="hs-identifier hs-var">operationalCert</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; FilePath -&gt; PropertyT IO FilePath
 forall (m :: * -&gt; *).
 (MonadTest m, HasCallStack) =&gt;
 FilePath -&gt; FilePath -&gt; m FilePath
 </span><a href="Test.OptParse.html#noteTempFile"><span class="hs-identifier hs-var">noteTempFile</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206380"><span class="hs-identifier hs-var">tempDir</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
+</span><a href="#local-6989586621679209626"><span class="hs-identifier hs-var">tempDir</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;operational-certificate-file&quot;</span></span><span>
 </span><span id="line-33"></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-comment">-- Create KES key pair</span><span>
 </span><span id="line-35"></span><span>  </span><span class="annot"><span class="annottext">PropertyT IO FilePath -&gt; PropertyT IO ()
 forall (f :: * -&gt; *) a. Functor f =&gt; f a -&gt; f ()
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-identifier hs-var">void</span></a></span><span> </span><span class="annot"><span class="annottext">(PropertyT IO FilePath -&gt; PropertyT IO ())
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-identifier hs-var">void</span></a></span><span> </span><span class="annot"><span class="annottext">(PropertyT IO FilePath -&gt; PropertyT IO ())
 -&gt; PropertyT IO FilePath -&gt; PropertyT IO ()
 forall a b. (a -&gt; b) -&gt; a -&gt; b
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-operator hs-var">$</span></a></span><span> </span><span class="annot"><span class="annottext">[FilePath] -&gt; PropertyT IO FilePath
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-operator hs-var">$</span></a></span><span> </span><span class="annot"><span class="annottext">[FilePath] -&gt; PropertyT IO FilePath
 forall (m :: * -&gt; *).
 (MonadTest m, MonadCatch m, MonadIO m, HasCallStack) =&gt;
 [FilePath] -&gt; m FilePath
@@ -113,10 +113,10 @@ forall (m :: * -&gt; *).
 </span><span class="hs-string">&quot;key-gen-KES&quot;</span></span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;--verification-key-file&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206377"><span class="hs-identifier hs-var">kesVerKey</span></a></span><span>
+</span><a href="#local-6989586621679209623"><span class="hs-identifier hs-var">kesVerKey</span></a></span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;--signing-key-file&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206375"><span class="hs-identifier hs-var">kesSignKey</span></a></span><span>
+</span><a href="#local-6989586621679209621"><span class="hs-identifier hs-var">kesSignKey</span></a></span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-special">]</span><span>
 </span><span id="line-40"></span><span>
 </span><span id="line-41"></span><span>  </span><span class="annot"><span class="annottext">[FilePath] -&gt; PropertyT IO ()
@@ -124,16 +124,16 @@ forall (m :: * -&gt; *).
 (MonadTest m, MonadIO m, HasCallStack) =&gt;
 [FilePath] -&gt; m ()
 </span><span class="hs-identifier hs-var">H.assertFilesExist</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206375"><span class="hs-identifier hs-var">kesSignKey</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206377"><span class="hs-identifier hs-var">kesVerKey</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679209621"><span class="hs-identifier hs-var">kesSignKey</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
+</span><a href="#local-6989586621679209623"><span class="hs-identifier hs-var">kesVerKey</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-42"></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-comment">-- Create cold key pair</span><span>
 </span><span id="line-44"></span><span>  </span><span class="annot"><span class="annottext">PropertyT IO FilePath -&gt; PropertyT IO ()
 forall (f :: * -&gt; *) a. Functor f =&gt; f a -&gt; f ()
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-identifier hs-var">void</span></a></span><span> </span><span class="annot"><span class="annottext">(PropertyT IO FilePath -&gt; PropertyT IO ())
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-identifier hs-var">void</span></a></span><span> </span><span class="annot"><span class="annottext">(PropertyT IO FilePath -&gt; PropertyT IO ())
 -&gt; PropertyT IO FilePath -&gt; PropertyT IO ()
 forall a b. (a -&gt; b) -&gt; a -&gt; b
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-operator hs-var">$</span></a></span><span> </span><span class="annot"><span class="annottext">[FilePath] -&gt; PropertyT IO FilePath
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-operator hs-var">$</span></a></span><span> </span><span class="annot"><span class="annottext">[FilePath] -&gt; PropertyT IO FilePath
 forall (m :: * -&gt; *).
 (MonadTest m, MonadCatch m, MonadIO m, HasCallStack) =&gt;
 [FilePath] -&gt; m FilePath
@@ -143,13 +143,13 @@ forall (m :: * -&gt; *).
 </span><span class="hs-string">&quot;key-gen&quot;</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;--cold-verification-key-file&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206374"><span class="hs-identifier hs-var">coldVerKey</span></a></span><span>
+</span><a href="#local-6989586621679209620"><span class="hs-identifier hs-var">coldVerKey</span></a></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;--cold-signing-key-file&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206373"><span class="hs-identifier hs-var">coldSignKey</span></a></span><span>
+</span><a href="#local-6989586621679209619"><span class="hs-identifier hs-var">coldSignKey</span></a></span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;--operational-certificate-issue-counter&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206372"><span class="hs-identifier hs-var">operationalCertCounter</span></a></span><span>
+</span><a href="#local-6989586621679209618"><span class="hs-identifier hs-var">operationalCertCounter</span></a></span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-special">]</span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">[FilePath] -&gt; PropertyT IO ()
@@ -157,17 +157,17 @@ forall (m :: * -&gt; *).
 (MonadTest m, MonadIO m, HasCallStack) =&gt;
 [FilePath] -&gt; m ()
 </span><span class="hs-identifier hs-var">H.assertFilesExist</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206374"><span class="hs-identifier hs-var">coldVerKey</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206373"><span class="hs-identifier hs-var">coldSignKey</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206372"><span class="hs-identifier hs-var">operationalCertCounter</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679209620"><span class="hs-identifier hs-var">coldVerKey</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
+</span><a href="#local-6989586621679209619"><span class="hs-identifier hs-var">coldSignKey</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
+</span><a href="#local-6989586621679209618"><span class="hs-identifier hs-var">operationalCertCounter</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-comment">-- Create operational certificate</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><span class="annottext">PropertyT IO FilePath -&gt; PropertyT IO ()
 forall (f :: * -&gt; *) a. Functor f =&gt; f a -&gt; f ()
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-identifier hs-var">void</span></a></span><span> </span><span class="annot"><span class="annottext">(PropertyT IO FilePath -&gt; PropertyT IO ())
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-identifier hs-var">void</span></a></span><span> </span><span class="annot"><span class="annottext">(PropertyT IO FilePath -&gt; PropertyT IO ())
 -&gt; PropertyT IO FilePath -&gt; PropertyT IO ()
 forall a b. (a -&gt; b) -&gt; a -&gt; b
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-operator hs-var">$</span></a></span><span> </span><span class="annot"><span class="annottext">[FilePath] -&gt; PropertyT IO FilePath
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-operator hs-var">$</span></a></span><span> </span><span class="annot"><span class="annottext">[FilePath] -&gt; PropertyT IO FilePath
 forall (m :: * -&gt; *).
 (MonadTest m, MonadCatch m, MonadIO m, HasCallStack) =&gt;
 [FilePath] -&gt; m FilePath
@@ -177,26 +177,26 @@ forall (m :: * -&gt; *).
 </span><span class="hs-string">&quot;issue-op-cert&quot;</span></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;--kes-verification-key-file&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206377"><span class="hs-identifier hs-var">kesVerKey</span></a></span><span>
+</span><a href="#local-6989586621679209623"><span class="hs-identifier hs-var">kesVerKey</span></a></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;--cold-signing-key-file&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206373"><span class="hs-identifier hs-var">coldSignKey</span></a></span><span>
+</span><a href="#local-6989586621679209619"><span class="hs-identifier hs-var">coldSignKey</span></a></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;--operational-certificate-issue-counter&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206372"><span class="hs-identifier hs-var">operationalCertCounter</span></a></span><span>
+</span><a href="#local-6989586621679209618"><span class="hs-identifier hs-var">operationalCertCounter</span></a></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;--kes-period&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;1000&quot;</span></span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;--out-file&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206371"><span class="hs-identifier hs-var">operationalCert</span></a></span><span>
+</span><a href="#local-6989586621679209617"><span class="hs-identifier hs-var">operationalCert</span></a></span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-special">]</span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">let</span><span> </span><span id="local-6989586621679206367"><span class="annot"><span class="annottext">operationalCertificateType :: TextEnvelopeType
-</span><a href="#local-6989586621679206367"><span class="hs-identifier hs-var hs-var">operationalCertificateType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AsType OperationalCertificate -&gt; TextEnvelopeType
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">let</span><span> </span><span id="local-6989586621679209613"><span class="annot"><span class="annottext">operationalCertificateType :: TextEnvelopeType
+</span><a href="#local-6989586621679209613"><span class="hs-identifier hs-var hs-var">operationalCertificateType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AsType OperationalCertificate -&gt; TextEnvelopeType
 forall a. HasTextEnvelope a =&gt; AsType a -&gt; TextEnvelopeType
-</span><a href="../file:///home/runner/work/cardano-node/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.4/cardano-api-1.30.0/noopt/doc/html/cardano-api/src"><span class="hs-identifier hs-var">textEnvelopeType</span></a></span><span> </span><span class="annot"><span class="annottext">AsType OperationalCertificate
-</span><a href="../file:///home/runner/work/cardano-node/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.4/cardano-api-1.30.0/noopt/doc/html/cardano-api/src"><span class="hs-identifier hs-var">AsOperationalCertificate</span></a></span><span>
+</span><a href="../file:///home/runner/work/cardano-node/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.7/cardano-api-1.31.0/noopt/doc/html/cardano-api/src"><span class="hs-identifier hs-var">textEnvelopeType</span></a></span><span> </span><span class="annot"><span class="annottext">AsType OperationalCertificate
+</span><a href="../file:///home/runner/work/cardano-node/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.7/cardano-api-1.31.0/noopt/doc/html/cardano-api/src"><span class="hs-identifier hs-var">AsOperationalCertificate</span></a></span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-comment">-- Check the newly created files have not deviated from the</span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-comment">-- golden files</span><span>
@@ -205,7 +205,7 @@ forall (m :: * -&gt; *).
 (MonadTest m, MonadIO m, HasCallStack) =&gt;
 TextEnvelopeType -&gt; FilePath -&gt; FilePath -&gt; m ()
 </span><a href="Test.OptParse.html#checkTextEnvelopeFormat"><span class="hs-identifier hs-var">checkTextEnvelopeFormat</span></a></span><span> </span><span class="annot"><span class="annottext">TextEnvelopeType
-</span><a href="#local-6989586621679206367"><span class="hs-identifier hs-var">operationalCertificateType</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206379"><span class="hs-identifier hs-var">referenceOperationalCertificate</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679206371"><span class="hs-identifier hs-var">operationalCert</span></a></span><span>
+</span><a href="#local-6989586621679209613"><span class="hs-identifier hs-var">operationalCertificateType</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
+</span><a href="#local-6989586621679209625"><span class="hs-identifier hs-var">referenceOperationalCertificate</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
+</span><a href="#local-6989586621679209617"><span class="hs-identifier hs-var">operationalCert</span></a></span><span>
 </span><span id="line-68"></span></pre></body></html>

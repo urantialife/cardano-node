@@ -13,9 +13,9 @@
 </span><span id="line-13"></span><span>  </span><span class="hs-special">,</span><span> </span><span class="annot"><a href="Cardano.Node.Protocol.Cardano.html#CardanoProtocolInstantiationError"><span class="hs-identifier">CardanoProtocolInstantiationError</span></a></span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span>
 </span><span id="line-14"></span><span>  </span><span class="hs-special">)</span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-15"></span><span>
-</span><span id="line-16"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-identifier">Prelude</span></a></span><span>
+</span><span id="line-16"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-identifier">Prelude</span></a></span><span>
 </span><span id="line-17"></span><span>
-</span><span id="line-18"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/transformers-0.5.6.2/src"><span class="hs-identifier">Control.Monad.Trans.Except</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/transformers-0.5.6.2/src"><span class="hs-identifier">ExceptT</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-18"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/transformers-0.5.6.2/src"><span class="hs-identifier">Control.Monad.Trans.Except</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/transformers-0.5.6.2/src"><span class="hs-identifier">ExceptT</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-19"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><span class="hs-identifier">Control.Monad.Trans.Except.Extra</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier">firstExceptT</span></span><span class="hs-special">)</span><span>
 </span><span id="line-20"></span><span>
 </span><span id="line-21"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Cardano.Chain.Update</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Byron</span></span><span>
@@ -28,9 +28,9 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><span class="hs-identifier">Ouroboros.Consensus.Cardano.Condense</span></span><span> </span><span class="hs-special">(</span><span class="hs-special">)</span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Ouroboros.Consensus.Mempool.TxLimits</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">TxLimits</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><a href="../file:///home/runner/work/cardano-node/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.4/cardano-api-1.30.0/noopt/doc/html/cardano-api/src"><span class="hs-identifier">Cardano.Api</span></a></span><span>
-</span><span id="line-32"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><a href="../file:///home/runner/work/cardano-node/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.4/cardano-api-1.30.0/noopt/doc/html/cardano-api/src"><span class="hs-identifier">Cardano.Api.Orphans</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-special">)</span><span>
-</span><span id="line-33"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><a href="../file:///home/runner/work/cardano-node/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.4/cardano-api-1.30.0/noopt/doc/html/cardano-api/src"><span class="hs-identifier">Cardano.Api.Protocol.Types</span></a></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><a href="../file:///home/runner/work/cardano-node/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.7/cardano-api-1.31.0/noopt/doc/html/cardano-api/src"><span class="hs-identifier">Cardano.Api</span></a></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><a href="../file:///home/runner/work/cardano-node/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.7/cardano-api-1.31.0/noopt/doc/html/cardano-api/src"><span class="hs-identifier">Cardano.Api.Orphans</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-special">)</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><a href="../file:///home/runner/work/cardano-node/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.7/cardano-api-1.31.0/noopt/doc/html/cardano-api/src"><span class="hs-identifier">Cardano.Api.Protocol.Types</span></a></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><a href="Cardano.Node.Types.html"><span class="hs-identifier">Cardano.Node.Types</span></a></span><span>
 </span><span id="line-35"></span><span>
 </span><span id="line-36"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><a href="Cardano.Tracing.OrphanInstances.Byron.html"><span class="hs-identifier">Cardano.Tracing.OrphanInstances.Byron</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-special">)</span><span>
@@ -63,8 +63,8 @@
 </span><span id="line-63"></span><span>  </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Cardano.Node.Types.html#NodeShelleyProtocolConfiguration"><span class="hs-identifier hs-type">NodeShelleyProtocolConfiguration</span></a></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Cardano.Node.Types.html#NodeAlonzoProtocolConfiguration"><span class="hs-identifier hs-type">NodeAlonzoProtocolConfiguration</span></a></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Cardano.Node.Types.html#NodeHardForkProtocolConfiguration"><span class="hs-identifier hs-type">NodeHardForkProtocolConfiguration</span></a></span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-identifier hs-type">Maybe</span></a></span><span> </span><span class="annot"><a href="Cardano.Node.Types.html#ProtocolFilepaths"><span class="hs-identifier hs-type">ProtocolFilepaths</span></a></span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/transformers-0.5.6.2/src"><span class="hs-identifier hs-type">ExceptT</span></a></span><span> </span><span class="annot"><a href="Cardano.Node.Protocol.Cardano.html#CardanoProtocolInstantiationError"><span class="hs-identifier hs-type">CardanoProtocolInstantiationError</span></a></span><span> </span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/ghc-prim-0.6.1/src"><span class="hs-identifier hs-type">IO</span></a></span><span> </span><span class="annot"><a href="Cardano.Node.Protocol.Types.html#SomeConsensusProtocol"><span class="hs-identifier hs-type">SomeConsensusProtocol</span></a></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-identifier hs-type">Maybe</span></a></span><span> </span><span class="annot"><a href="Cardano.Node.Types.html#ProtocolFilepaths"><span class="hs-identifier hs-type">ProtocolFilepaths</span></a></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/transformers-0.5.6.2/src"><span class="hs-identifier hs-type">ExceptT</span></a></span><span> </span><span class="annot"><a href="Cardano.Node.Protocol.Cardano.html#CardanoProtocolInstantiationError"><span class="hs-identifier hs-type">CardanoProtocolInstantiationError</span></a></span><span> </span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/ghc-prim-0.6.1/src"><span class="hs-identifier hs-type">IO</span></a></span><span> </span><span class="annot"><a href="Cardano.Node.Protocol.Types.html#SomeConsensusProtocol"><span class="hs-identifier hs-type">SomeConsensusProtocol</span></a></span><span>
 </span><span id="line-68"></span><span id="mkSomeConsensusProtocolCardano"><span class="annot"><span class="annottext">mkSomeConsensusProtocolCardano :: NodeByronProtocolConfiguration
 -&gt; NodeShelleyProtocolConfiguration
 -&gt; NodeAlonzoProtocolConfiguration
@@ -73,59 +73,59 @@
 -&gt; ExceptT
      CardanoProtocolInstantiationError IO SomeConsensusProtocol
 </span><a href="Cardano.Node.Protocol.Cardano.html#mkSomeConsensusProtocolCardano"><span class="hs-identifier hs-var hs-var">mkSomeConsensusProtocolCardano</span></a></span></span><span> </span><span class="annot"><a href="Cardano.Node.Types.html#NodeByronProtocolConfiguration"><span class="hs-identifier hs-type">NodeByronProtocolConfiguration</span></a></span><span> </span><span class="hs-special">{</span><span>
-</span><span id="line-69"></span><span>                             </span><span id="local-6989586621679423679"><span class="annot"><span class="annottext">GenesisFile
+</span><span id="line-69"></span><span>                             </span><span id="local-6989586621679451685"><span class="annot"><span class="annottext">GenesisFile
 npcByronGenesisFile :: NodeByronProtocolConfiguration -&gt; GenesisFile
 npcByronGenesisFile :: GenesisFile
 </span><a href="Cardano.Node.Types.html#npcByronGenesisFile"><span class="hs-identifier hs-var hs-var">npcByronGenesisFile</span></a></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>                             </span><span id="local-6989586621679423677"><span class="annot"><span class="annottext">Maybe GenesisHash
+</span><span id="line-70"></span><span>                             </span><span id="local-6989586621679451683"><span class="annot"><span class="annottext">Maybe GenesisHash
 npcByronGenesisFileHash :: NodeByronProtocolConfiguration -&gt; Maybe GenesisHash
 npcByronGenesisFileHash :: Maybe GenesisHash
 </span><a href="Cardano.Node.Types.html#npcByronGenesisFileHash"><span class="hs-identifier hs-var hs-var">npcByronGenesisFileHash</span></a></span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>                             </span><span id="local-6989586621679423675"><span class="annot"><span class="annottext">RequiresNetworkMagic
+</span><span id="line-71"></span><span>                             </span><span id="local-6989586621679451681"><span class="annot"><span class="annottext">RequiresNetworkMagic
 npcByronReqNetworkMagic :: NodeByronProtocolConfiguration -&gt; RequiresNetworkMagic
 npcByronReqNetworkMagic :: RequiresNetworkMagic
 </span><a href="Cardano.Node.Types.html#npcByronReqNetworkMagic"><span class="hs-identifier hs-var hs-var">npcByronReqNetworkMagic</span></a></span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>                             </span><span id="local-6989586621679423673"><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-72"></span><span>                             </span><span id="local-6989586621679451679"><span class="annot"><span class="annottext">Maybe Double
 npcByronPbftSignatureThresh :: NodeByronProtocolConfiguration -&gt; Maybe Double
 npcByronPbftSignatureThresh :: Maybe Double
 </span><a href="Cardano.Node.Types.html#npcByronPbftSignatureThresh"><span class="hs-identifier hs-var hs-var">npcByronPbftSignatureThresh</span></a></span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>                             </span><span id="local-6989586621679423671"><span class="annot"><span class="annottext">ApplicationName
+</span><span id="line-73"></span><span>                             </span><span id="local-6989586621679451677"><span class="annot"><span class="annottext">ApplicationName
 npcByronApplicationName :: NodeByronProtocolConfiguration -&gt; ApplicationName
 npcByronApplicationName :: ApplicationName
 </span><a href="Cardano.Node.Types.html#npcByronApplicationName"><span class="hs-identifier hs-var hs-var">npcByronApplicationName</span></a></span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>                             </span><span id="local-6989586621679423669"><span class="annot"><span class="annottext">NumSoftwareVersion
+</span><span id="line-74"></span><span>                             </span><span id="local-6989586621679451675"><span class="annot"><span class="annottext">NumSoftwareVersion
 npcByronApplicationVersion :: NodeByronProtocolConfiguration -&gt; NumSoftwareVersion
 npcByronApplicationVersion :: NumSoftwareVersion
 </span><a href="Cardano.Node.Types.html#npcByronApplicationVersion"><span class="hs-identifier hs-var hs-var">npcByronApplicationVersion</span></a></span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>                             </span><span id="local-6989586621679423667"><span class="annot"><span class="annottext">Word16
+</span><span id="line-75"></span><span>                             </span><span id="local-6989586621679451673"><span class="annot"><span class="annottext">Word16
 npcByronSupportedProtocolVersionMajor :: NodeByronProtocolConfiguration -&gt; Word16
 npcByronSupportedProtocolVersionMajor :: Word16
 </span><a href="Cardano.Node.Types.html#npcByronSupportedProtocolVersionMajor"><span class="hs-identifier hs-var hs-var">npcByronSupportedProtocolVersionMajor</span></a></span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>                             </span><span id="local-6989586621679423665"><span class="annot"><span class="annottext">Word16
+</span><span id="line-76"></span><span>                             </span><span id="local-6989586621679451671"><span class="annot"><span class="annottext">Word16
 npcByronSupportedProtocolVersionMinor :: NodeByronProtocolConfiguration -&gt; Word16
 npcByronSupportedProtocolVersionMinor :: Word16
 </span><a href="Cardano.Node.Types.html#npcByronSupportedProtocolVersionMinor"><span class="hs-identifier hs-var hs-var">npcByronSupportedProtocolVersionMinor</span></a></span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>                             </span><span id="local-6989586621679423663"><span class="annot"><span class="annottext">Word8
+</span><span id="line-77"></span><span>                             </span><span id="local-6989586621679451669"><span class="annot"><span class="annottext">Word8
 npcByronSupportedProtocolVersionAlt :: NodeByronProtocolConfiguration -&gt; Word8
 npcByronSupportedProtocolVersionAlt :: Word8
 </span><a href="Cardano.Node.Types.html#npcByronSupportedProtocolVersionAlt"><span class="hs-identifier hs-var hs-var">npcByronSupportedProtocolVersionAlt</span></a></span></span><span>
 </span><span id="line-78"></span><span>                           </span><span class="hs-special">}</span><span>
 </span><span id="line-79"></span><span>                           </span><span class="annot"><a href="Cardano.Node.Types.html#NodeShelleyProtocolConfiguration"><span class="hs-identifier hs-type">NodeShelleyProtocolConfiguration</span></a></span><span> </span><span class="hs-special">{</span><span>
-</span><span id="line-80"></span><span>                             </span><span id="local-6989586621679423660"><span class="annot"><span class="annottext">GenesisFile
+</span><span id="line-80"></span><span>                             </span><span id="local-6989586621679451666"><span class="annot"><span class="annottext">GenesisFile
 npcShelleyGenesisFile :: NodeShelleyProtocolConfiguration -&gt; GenesisFile
 npcShelleyGenesisFile :: GenesisFile
 </span><a href="Cardano.Node.Types.html#npcShelleyGenesisFile"><span class="hs-identifier hs-var hs-var">npcShelleyGenesisFile</span></a></span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>                             </span><span id="local-6989586621679423658"><span class="annot"><span class="annottext">Maybe GenesisHash
+</span><span id="line-81"></span><span>                             </span><span id="local-6989586621679451664"><span class="annot"><span class="annottext">Maybe GenesisHash
 npcShelleyGenesisFileHash :: NodeShelleyProtocolConfiguration -&gt; Maybe GenesisHash
 npcShelleyGenesisFileHash :: Maybe GenesisHash
 </span><a href="Cardano.Node.Types.html#npcShelleyGenesisFileHash"><span class="hs-identifier hs-var hs-var">npcShelleyGenesisFileHash</span></a></span></span><span>
 </span><span id="line-82"></span><span>                           </span><span class="hs-special">}</span><span>
 </span><span id="line-83"></span><span>                           </span><span class="annot"><a href="Cardano.Node.Types.html#NodeAlonzoProtocolConfiguration"><span class="hs-identifier hs-type">NodeAlonzoProtocolConfiguration</span></a></span><span> </span><span class="hs-special">{</span><span>
-</span><span id="line-84"></span><span>                             </span><span id="local-6989586621679423655"><span class="annot"><span class="annottext">GenesisFile
+</span><span id="line-84"></span><span>                             </span><span id="local-6989586621679451661"><span class="annot"><span class="annottext">GenesisFile
 npcAlonzoGenesisFile :: NodeAlonzoProtocolConfiguration -&gt; GenesisFile
 npcAlonzoGenesisFile :: GenesisFile
 </span><a href="Cardano.Node.Types.html#npcAlonzoGenesisFile"><span class="hs-identifier hs-var hs-var">npcAlonzoGenesisFile</span></a></span></span><span class="hs-special">,</span><span>
-</span><span id="line-85"></span><span>                             </span><span id="local-6989586621679423653"><span class="annot"><span class="annottext">Maybe GenesisHash
+</span><span id="line-85"></span><span>                             </span><span id="local-6989586621679451659"><span class="annot"><span class="annottext">Maybe GenesisHash
 npcAlonzoGenesisFileHash :: NodeAlonzoProtocolConfiguration -&gt; Maybe GenesisHash
 npcAlonzoGenesisFileHash :: Maybe GenesisHash
 </span><a href="Cardano.Node.Types.html#npcAlonzoGenesisFileHash"><span class="hs-identifier hs-var hs-var">npcAlonzoGenesisFileHash</span></a></span></span><span>
@@ -137,43 +137,43 @@ npcAlonzoGenesisFileHash :: Maybe GenesisHash
 </span><span id="line-91"></span><span>                            </span><span class="hs-comment">-- testing development/unstable eras is used. This lets us include</span><span>
 </span><span id="line-92"></span><span>                            </span><span class="hs-comment">-- not-yet-ready eras in released node versions without mainnet nodes</span><span>
 </span><span id="line-93"></span><span>                            </span><span class="hs-comment">-- prematurely advertising that they could hard fork into the new era.</span><span>
-</span><span id="line-94"></span><span>                             </span><span id="local-6989586621679423650"><span class="annot"><span class="annottext">Maybe EpochNo
+</span><span id="line-94"></span><span>                             </span><span id="local-6989586621679451656"><span class="annot"><span class="annottext">Maybe EpochNo
 npcTestShelleyHardForkAtEpoch :: NodeHardForkProtocolConfiguration -&gt; Maybe EpochNo
 npcTestShelleyHardForkAtEpoch :: Maybe EpochNo
 </span><a href="Cardano.Node.Types.html#npcTestShelleyHardForkAtEpoch"><span class="hs-identifier hs-var hs-var">npcTestShelleyHardForkAtEpoch</span></a></span></span><span class="hs-special">,</span><span>
-</span><span id="line-95"></span><span>                             </span><span id="local-6989586621679423648"><span class="annot"><span class="annottext">Maybe Word
+</span><span id="line-95"></span><span>                             </span><span id="local-6989586621679451654"><span class="annot"><span class="annottext">Maybe Word
 npcTestShelleyHardForkAtVersion :: NodeHardForkProtocolConfiguration -&gt; Maybe Word
 npcTestShelleyHardForkAtVersion :: Maybe Word
 </span><a href="Cardano.Node.Types.html#npcTestShelleyHardForkAtVersion"><span class="hs-identifier hs-var hs-var">npcTestShelleyHardForkAtVersion</span></a></span></span><span class="hs-special">,</span><span>
-</span><span id="line-96"></span><span>                             </span><span id="local-6989586621679423646"><span class="annot"><span class="annottext">Maybe EpochNo
+</span><span id="line-96"></span><span>                             </span><span id="local-6989586621679451652"><span class="annot"><span class="annottext">Maybe EpochNo
 npcTestAllegraHardForkAtEpoch :: NodeHardForkProtocolConfiguration -&gt; Maybe EpochNo
 npcTestAllegraHardForkAtEpoch :: Maybe EpochNo
 </span><a href="Cardano.Node.Types.html#npcTestAllegraHardForkAtEpoch"><span class="hs-identifier hs-var hs-var">npcTestAllegraHardForkAtEpoch</span></a></span></span><span class="hs-special">,</span><span>
-</span><span id="line-97"></span><span>                             </span><span id="local-6989586621679423644"><span class="annot"><span class="annottext">Maybe Word
+</span><span id="line-97"></span><span>                             </span><span id="local-6989586621679451650"><span class="annot"><span class="annottext">Maybe Word
 npcTestAllegraHardForkAtVersion :: NodeHardForkProtocolConfiguration -&gt; Maybe Word
 npcTestAllegraHardForkAtVersion :: Maybe Word
 </span><a href="Cardano.Node.Types.html#npcTestAllegraHardForkAtVersion"><span class="hs-identifier hs-var hs-var">npcTestAllegraHardForkAtVersion</span></a></span></span><span class="hs-special">,</span><span>
-</span><span id="line-98"></span><span>                             </span><span id="local-6989586621679423642"><span class="annot"><span class="annottext">Maybe EpochNo
+</span><span id="line-98"></span><span>                             </span><span id="local-6989586621679451648"><span class="annot"><span class="annottext">Maybe EpochNo
 npcTestMaryHardForkAtEpoch :: NodeHardForkProtocolConfiguration -&gt; Maybe EpochNo
 npcTestMaryHardForkAtEpoch :: Maybe EpochNo
 </span><a href="Cardano.Node.Types.html#npcTestMaryHardForkAtEpoch"><span class="hs-identifier hs-var hs-var">npcTestMaryHardForkAtEpoch</span></a></span></span><span class="hs-special">,</span><span>
-</span><span id="line-99"></span><span>                             </span><span id="local-6989586621679423640"><span class="annot"><span class="annottext">Maybe Word
+</span><span id="line-99"></span><span>                             </span><span id="local-6989586621679451646"><span class="annot"><span class="annottext">Maybe Word
 npcTestMaryHardForkAtVersion :: NodeHardForkProtocolConfiguration -&gt; Maybe Word
 npcTestMaryHardForkAtVersion :: Maybe Word
 </span><a href="Cardano.Node.Types.html#npcTestMaryHardForkAtVersion"><span class="hs-identifier hs-var hs-var">npcTestMaryHardForkAtVersion</span></a></span></span><span class="hs-special">,</span><span>
-</span><span id="line-100"></span><span>                             </span><span id="local-6989586621679423638"><span class="annot"><span class="annottext">Maybe EpochNo
+</span><span id="line-100"></span><span>                             </span><span id="local-6989586621679451644"><span class="annot"><span class="annottext">Maybe EpochNo
 npcTestAlonzoHardForkAtEpoch :: NodeHardForkProtocolConfiguration -&gt; Maybe EpochNo
 npcTestAlonzoHardForkAtEpoch :: Maybe EpochNo
 </span><a href="Cardano.Node.Types.html#npcTestAlonzoHardForkAtEpoch"><span class="hs-identifier hs-var hs-var">npcTestAlonzoHardForkAtEpoch</span></a></span></span><span class="hs-special">,</span><span>
-</span><span id="line-101"></span><span>                             </span><span id="local-6989586621679423636"><span class="annot"><span class="annottext">Maybe Word
+</span><span id="line-101"></span><span>                             </span><span id="local-6989586621679451642"><span class="annot"><span class="annottext">Maybe Word
 npcTestAlonzoHardForkAtVersion :: NodeHardForkProtocolConfiguration -&gt; Maybe Word
 npcTestAlonzoHardForkAtVersion :: Maybe Word
 </span><a href="Cardano.Node.Types.html#npcTestAlonzoHardForkAtVersion"><span class="hs-identifier hs-var hs-var">npcTestAlonzoHardForkAtVersion</span></a></span></span><span>
 </span><span id="line-102"></span><span>                           </span><span class="hs-special">}</span><span>
-</span><span id="line-103"></span><span>                           </span><span id="local-6989586621679423634"><span class="annot"><span class="annottext">Maybe ProtocolFilepaths
-</span><a href="#local-6989586621679423634"><span class="hs-identifier hs-var">files</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-keyword">do</span><span>
-</span><span id="line-104"></span><span>    </span><span id="local-6989586621679423633"><span class="annot"><span class="annottext">Config
-</span><a href="#local-6989586621679423633"><span class="hs-identifier hs-var">byronGenesis</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span>
+</span><span id="line-103"></span><span>                           </span><span id="local-6989586621679451640"><span class="annot"><span class="annottext">Maybe ProtocolFilepaths
+</span><a href="#local-6989586621679451640"><span class="hs-identifier hs-var">files</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-keyword">do</span><span>
+</span><span id="line-104"></span><span>    </span><span id="local-6989586621679451639"><span class="annot"><span class="annottext">Config
+</span><a href="#local-6989586621679451639"><span class="hs-identifier hs-var">byronGenesis</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span>
 </span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">(ByronProtocolInstantiationError
  -&gt; CardanoProtocolInstantiationError)
 -&gt; ExceptT ByronProtocolInstantiationError IO Config
@@ -188,20 +188,20 @@ Functor m =&gt;
 -&gt; ExceptT ByronProtocolInstantiationError IO Config
 -&gt; ExceptT CardanoProtocolInstantiationError IO Config
 forall a b. (a -&gt; b) -&gt; a -&gt; b
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-operator hs-var">$</span></a></span><span>
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-operator hs-var">$</span></a></span><span>
 </span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">GenesisFile
 -&gt; Maybe GenesisHash
 -&gt; RequiresNetworkMagic
 -&gt; ExceptT ByronProtocolInstantiationError IO Config
 </span><a href="Cardano.Node.Protocol.Byron.html#readGenesis"><span class="hs-identifier hs-var">Byron.readGenesis</span></a></span><span> </span><span class="annot"><span class="annottext">GenesisFile
-</span><a href="#local-6989586621679423679"><span class="hs-identifier hs-var">npcByronGenesisFile</span></a></span><span>
+</span><a href="#local-6989586621679451685"><span class="hs-identifier hs-var">npcByronGenesisFile</span></a></span><span>
 </span><span id="line-107"></span><span>                          </span><span class="annot"><span class="annottext">Maybe GenesisHash
-</span><a href="#local-6989586621679423677"><span class="hs-identifier hs-var">npcByronGenesisFileHash</span></a></span><span>
+</span><a href="#local-6989586621679451683"><span class="hs-identifier hs-var">npcByronGenesisFileHash</span></a></span><span>
 </span><span id="line-108"></span><span>                          </span><span class="annot"><span class="annottext">RequiresNetworkMagic
-</span><a href="#local-6989586621679423675"><span class="hs-identifier hs-var">npcByronReqNetworkMagic</span></a></span><span>
+</span><a href="#local-6989586621679451681"><span class="hs-identifier hs-var">npcByronReqNetworkMagic</span></a></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span>    </span><span id="local-6989586621679423630"><span class="annot"><span class="annottext">Maybe ByronLeaderCredentials
-</span><a href="#local-6989586621679423630"><span class="hs-identifier hs-var">byronLeaderCredentials</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span>
+</span><span id="line-110"></span><span>    </span><span id="local-6989586621679451636"><span class="annot"><span class="annottext">Maybe ByronLeaderCredentials
+</span><a href="#local-6989586621679451636"><span class="hs-identifier hs-var">byronLeaderCredentials</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span>
 </span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">(ByronProtocolInstantiationError
  -&gt; CardanoProtocolInstantiationError)
 -&gt; ExceptT
@@ -224,18 +224,18 @@ Functor m =&gt;
 -&gt; ExceptT
      CardanoProtocolInstantiationError IO (Maybe ByronLeaderCredentials)
 forall a b. (a -&gt; b) -&gt; a -&gt; b
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-operator hs-var">$</span></a></span><span>
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-operator hs-var">$</span></a></span><span>
 </span><span id="line-112"></span><span>        </span><span class="annot"><span class="annottext">Config
 -&gt; Maybe ProtocolFilepaths
 -&gt; ExceptT
      ByronProtocolInstantiationError IO (Maybe ByronLeaderCredentials)
 </span><a href="Cardano.Node.Protocol.Byron.html#readLeaderCredentials"><span class="hs-identifier hs-var">Byron.readLeaderCredentials</span></a></span><span> </span><span class="annot"><span class="annottext">Config
-</span><a href="#local-6989586621679423633"><span class="hs-identifier hs-var">byronGenesis</span></a></span><span> </span><span class="annot"><span class="annottext">Maybe ProtocolFilepaths
-</span><a href="#local-6989586621679423634"><span class="hs-identifier hs-var">files</span></a></span><span>
+</span><a href="#local-6989586621679451639"><span class="hs-identifier hs-var">byronGenesis</span></a></span><span> </span><span class="annot"><span class="annottext">Maybe ProtocolFilepaths
+</span><a href="#local-6989586621679451640"><span class="hs-identifier hs-var">files</span></a></span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span>    </span><span class="hs-special">(</span><span id="local-6989586621679423628"><span class="annot"><span class="annottext">ShelleyGenesis StandardShelley
-</span><a href="#local-6989586621679423628"><span class="hs-identifier hs-var">shelleyGenesis</span></a></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423627"><span class="annot"><span class="annottext">GenesisHash
-</span><a href="#local-6989586621679423627"><span class="hs-identifier hs-var">shelleyGenesisHash</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">&lt;-</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-special">(</span><span id="local-6989586621679451634"><span class="annot"><span class="annottext">ShelleyGenesis StandardShelley
+</span><a href="#local-6989586621679451634"><span class="hs-identifier hs-var">shelleyGenesis</span></a></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679451633"><span class="annot"><span class="annottext">GenesisHash
+</span><a href="#local-6989586621679451633"><span class="hs-identifier hs-var">shelleyGenesisHash</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">&lt;-</span><span>
 </span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">(GenesisReadError -&gt; CardanoProtocolInstantiationError)
 -&gt; ExceptT
      GenesisReadError IO (ShelleyGenesis StandardShelley, GenesisHash)
@@ -260,19 +260,19 @@ Functor m =&gt;
      IO
      (ShelleyGenesis StandardShelley, GenesisHash)
 forall a b. (a -&gt; b) -&gt; a -&gt; b
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-operator hs-var">$</span></a></span><span>
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-operator hs-var">$</span></a></span><span>
 </span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">GenesisFile
 -&gt; Maybe GenesisHash
 -&gt; ExceptT
      GenesisReadError IO (ShelleyGenesis StandardShelley, GenesisHash)
 </span><a href="Cardano.Node.Protocol.Shelley.html#readGenesis"><span class="hs-identifier hs-var">Shelley.readGenesis</span></a></span><span> </span><span class="annot"><span class="annottext">GenesisFile
-</span><a href="#local-6989586621679423660"><span class="hs-identifier hs-var">npcShelleyGenesisFile</span></a></span><span>
+</span><a href="#local-6989586621679451666"><span class="hs-identifier hs-var">npcShelleyGenesisFile</span></a></span><span>
 </span><span id="line-117"></span><span>                            </span><span class="annot"><span class="annottext">Maybe GenesisHash
-</span><a href="#local-6989586621679423658"><span class="hs-identifier hs-var">npcShelleyGenesisFileHash</span></a></span><span>
+</span><a href="#local-6989586621679451664"><span class="hs-identifier hs-var">npcShelleyGenesisFileHash</span></a></span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span>    </span><span class="hs-special">(</span><span id="local-6989586621679423624"><span class="annot"><span class="annottext">AlonzoGenesis
-</span><a href="#local-6989586621679423624"><span class="hs-identifier hs-var">alonzoGenesis</span></a></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423623"><span class="annot"><span class="annottext">GenesisHash
-</span><a href="#local-6989586621679423623"><span class="hs-identifier hs-var">_alonzoGenesisHash</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">&lt;-</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-special">(</span><span id="local-6989586621679451630"><span class="annot"><span class="annottext">AlonzoGenesis
+</span><a href="#local-6989586621679451630"><span class="hs-identifier hs-var">alonzoGenesis</span></a></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679451629"><span class="annot"><span class="annottext">GenesisHash
+</span><a href="#local-6989586621679451629"><span class="hs-identifier hs-var">_alonzoGenesisHash</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">&lt;-</span><span>
 </span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">(GenesisReadError -&gt; CardanoProtocolInstantiationError)
 -&gt; ExceptT GenesisReadError IO (AlonzoGenesis, GenesisHash)
 -&gt; ExceptT
@@ -288,17 +288,17 @@ Functor m =&gt;
 -&gt; ExceptT
      CardanoProtocolInstantiationError IO (AlonzoGenesis, GenesisHash)
 forall a b. (a -&gt; b) -&gt; a -&gt; b
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-operator hs-var">$</span></a></span><span>
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-operator hs-var">$</span></a></span><span>
 </span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">GenesisFile
 -&gt; Maybe GenesisHash
 -&gt; ExceptT GenesisReadError IO (AlonzoGenesis, GenesisHash)
 </span><a href="Cardano.Node.Protocol.Alonzo.html#readGenesis"><span class="hs-identifier hs-var">Alonzo.readGenesis</span></a></span><span> </span><span class="annot"><span class="annottext">GenesisFile
-</span><a href="#local-6989586621679423655"><span class="hs-identifier hs-var">npcAlonzoGenesisFile</span></a></span><span>
+</span><a href="#local-6989586621679451661"><span class="hs-identifier hs-var">npcAlonzoGenesisFile</span></a></span><span>
 </span><span id="line-122"></span><span>                           </span><span class="annot"><span class="annottext">Maybe GenesisHash
-</span><a href="#local-6989586621679423653"><span class="hs-identifier hs-var">npcAlonzoGenesisFileHash</span></a></span><span>
+</span><a href="#local-6989586621679451659"><span class="hs-identifier hs-var">npcAlonzoGenesisFileHash</span></a></span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span>    </span><span id="local-6989586621679423620"><span class="annot"><span class="annottext">[TPraosLeaderCredentials StandardCrypto]
-</span><a href="#local-6989586621679423620"><span class="hs-identifier hs-var">shelleyLeaderCredentials</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span>
+</span><span id="line-124"></span><span>    </span><span id="local-6989586621679451626"><span class="annot"><span class="annottext">[TPraosLeaderCredentials StandardCrypto]
+</span><a href="#local-6989586621679451626"><span class="hs-identifier hs-var">shelleyLeaderCredentials</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span>
 </span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">(PraosLeaderCredentialsError -&gt; CardanoProtocolInstantiationError)
 -&gt; ExceptT
      PraosLeaderCredentialsError
@@ -329,14 +329,14 @@ Functor m =&gt;
      IO
      [TPraosLeaderCredentials StandardCrypto]
 forall a b. (a -&gt; b) -&gt; a -&gt; b
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-operator hs-var">$</span></a></span><span>
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-operator hs-var">$</span></a></span><span>
 </span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">Maybe ProtocolFilepaths
 -&gt; ExceptT
      PraosLeaderCredentialsError
      IO
      [TPraosLeaderCredentials StandardCrypto]
 </span><a href="Cardano.Node.Protocol.Shelley.html#readLeaderCredentials"><span class="hs-identifier hs-var">Shelley.readLeaderCredentials</span></a></span><span> </span><span class="annot"><span class="annottext">Maybe ProtocolFilepaths
-</span><a href="#local-6989586621679423634"><span class="hs-identifier hs-var">files</span></a></span><span>
+</span><a href="#local-6989586621679451640"><span class="hs-identifier hs-var">files</span></a></span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span>    </span><span class="hs-comment">--TODO: all these protocol versions below are confusing and unnecessary.</span><span>
 </span><span id="line-129"></span><span>    </span><span class="hs-comment">-- It could and should all be automated and these config entries eliminated.</span><span>
@@ -344,14 +344,14 @@ forall a b. (a -&gt; b) -&gt; a -&gt; b
 -&gt; ExceptT
      CardanoProtocolInstantiationError IO SomeConsensusProtocol
 forall (m :: * -&gt; *) a. Monad m =&gt; a -&gt; m a
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-identifier hs-var">return</span></a></span><span> </span><span class="annot"><span class="annottext">(SomeConsensusProtocol
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-identifier hs-var">return</span></a></span><span> </span><span class="annot"><span class="annottext">(SomeConsensusProtocol
  -&gt; ExceptT
       CardanoProtocolInstantiationError IO SomeConsensusProtocol)
 -&gt; SomeConsensusProtocol
 -&gt; ExceptT
      CardanoProtocolInstantiationError IO SomeConsensusProtocol
 forall a b. (a -&gt; b) -&gt; a -&gt; b
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-operator hs-var">$!</span></a></span><span>
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-operator hs-var">$!</span></a></span><span>
 </span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">BlockType (HardForkBlock (CardanoEras StandardCrypto))
 -&gt; ProtocolInfoArgs IO (HardForkBlock (CardanoEras StandardCrypto))
 -&gt; SomeConsensusProtocol
@@ -360,12 +360,12 @@ forall blk.
  TraceConstraints blk) =&gt;
 BlockType blk -&gt; ProtocolInfoArgs IO blk -&gt; SomeConsensusProtocol
 </span><a href="Cardano.Node.Protocol.Types.html#SomeConsensusProtocol"><span class="hs-identifier hs-var">SomeConsensusProtocol</span></a></span><span> </span><span class="annot"><span class="annottext">BlockType (HardForkBlock (CardanoEras StandardCrypto))
-</span><a href="../file:///home/runner/work/cardano-node/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.4/cardano-api-1.30.0/noopt/doc/html/cardano-api/src"><span class="hs-identifier hs-var">CardanoBlockType</span></a></span><span> </span><span class="annot"><span class="annottext">(ProtocolInfoArgs IO (HardForkBlock (CardanoEras StandardCrypto))
+</span><a href="../file:///home/runner/work/cardano-node/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.7/cardano-api-1.31.0/noopt/doc/html/cardano-api/src"><span class="hs-identifier hs-var">CardanoBlockType</span></a></span><span> </span><span class="annot"><span class="annottext">(ProtocolInfoArgs IO (HardForkBlock (CardanoEras StandardCrypto))
  -&gt; SomeConsensusProtocol)
 -&gt; ProtocolInfoArgs IO (HardForkBlock (CardanoEras StandardCrypto))
 -&gt; SomeConsensusProtocol
 forall a b. (a -&gt; b) -&gt; a -&gt; b
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-operator hs-var">$</span></a></span><span> </span><span class="annot"><span class="annottext">ProtocolParamsByron
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-operator hs-var">$</span></a></span><span> </span><span class="annot"><span class="annottext">ProtocolParamsByron
 -&gt; ProtocolParamsShelleyBased StandardShelley
 -&gt; ProtocolParamsShelley StandardCrypto
 -&gt; ProtocolParamsAllegra StandardCrypto
@@ -388,7 +388,7 @@ ProtocolParamsByron
 -&gt; ProtocolTransitionParamsShelleyBased StandardMary
 -&gt; ProtocolTransitionParamsShelleyBased StandardAlonzo
 -&gt; ProtocolInfoArgs m (HardForkBlock (CardanoEras StandardCrypto))
-</span><a href="../file:///home/runner/work/cardano-node/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.4/cardano-api-1.30.0/noopt/doc/html/cardano-api/src"><span class="hs-identifier hs-var">ProtocolInfoArgsCardano</span></a></span><span>
+</span><a href="../file:///home/runner/work/cardano-node/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.7/cardano-api-1.31.0/noopt/doc/html/cardano-api/src"><span class="hs-identifier hs-var">ProtocolInfoArgsCardano</span></a></span><span>
 </span><span id="line-132"></span><span>        </span><span class="annot"><span class="annottext">ProtocolParamsByron :: Config
 -&gt; Maybe PBftSignatureThreshold
 -&gt; ProtocolVersion
@@ -399,15 +399,15 @@ ProtocolParamsByron
 </span><span class="hs-identifier hs-type">Consensus.ProtocolParamsByron</span></span><span> </span><span class="hs-special">{</span><span>
 </span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">$sel:byronGenesis:ProtocolParamsByron :: Config
 </span><span class="hs-identifier hs-var">byronGenesis</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Config
-</span><a href="#local-6989586621679423633"><span class="hs-identifier hs-var">byronGenesis</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679451639"><span class="hs-identifier hs-var">byronGenesis</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">$sel:byronPbftSignatureThreshold:ProtocolParamsByron :: Maybe PBftSignatureThreshold
 </span><span class="hs-identifier hs-var">byronPbftSignatureThreshold</span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Double -&gt; PBftSignatureThreshold
 </span><span class="hs-identifier hs-var">PBftSignatureThreshold</span></span><span> </span><span class="annot"><span class="annottext">(Double -&gt; PBftSignatureThreshold)
 -&gt; Maybe Double -&gt; Maybe PBftSignatureThreshold
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-operator hs-var">&lt;$&gt;</span></a></span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679423673"><span class="hs-identifier hs-var">npcByronPbftSignatureThresh</span></a></span><span class="hs-special">,</span><span>
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-operator hs-var">&lt;$&gt;</span></a></span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679451679"><span class="hs-identifier hs-var">npcByronPbftSignatureThresh</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span>          </span><span class="hs-comment">-- This is /not/ the Byron protocol version. It is the protocol</span><span>
 </span><span id="line-138"></span><span>          </span><span class="hs-comment">-- version that this node will use in blocks it creates. It is used</span><span>
@@ -422,23 +422,23 @@ forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Word16 -&gt; Word16 -&gt; Word8 -&gt; ProtocolVersion
 </span><span class="hs-identifier hs-var">Byron.ProtocolVersion</span></span><span>
 </span><span id="line-147"></span><span>              </span><span class="annot"><span class="annottext">Word16
-</span><a href="#local-6989586621679423667"><span class="hs-identifier hs-var">npcByronSupportedProtocolVersionMajor</span></a></span><span>
+</span><a href="#local-6989586621679451673"><span class="hs-identifier hs-var">npcByronSupportedProtocolVersionMajor</span></a></span><span>
 </span><span id="line-148"></span><span>              </span><span class="annot"><span class="annottext">Word16
-</span><a href="#local-6989586621679423665"><span class="hs-identifier hs-var">npcByronSupportedProtocolVersionMinor</span></a></span><span>
+</span><a href="#local-6989586621679451671"><span class="hs-identifier hs-var">npcByronSupportedProtocolVersionMinor</span></a></span><span>
 </span><span id="line-149"></span><span>              </span><span class="annot"><span class="annottext">Word8
-</span><a href="#local-6989586621679423663"><span class="hs-identifier hs-var">npcByronSupportedProtocolVersionAlt</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679451669"><span class="hs-identifier hs-var">npcByronSupportedProtocolVersionAlt</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-150"></span><span>          </span><span class="annot"><span class="annottext">$sel:byronSoftwareVersion:ProtocolParamsByron :: SoftwareVersion
 </span><span class="hs-identifier hs-var">byronSoftwareVersion</span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">ApplicationName -&gt; NumSoftwareVersion -&gt; SoftwareVersion
 </span><span class="hs-identifier hs-var">Byron.SoftwareVersion</span></span><span>
 </span><span id="line-152"></span><span>              </span><span class="annot"><span class="annottext">ApplicationName
-</span><a href="#local-6989586621679423671"><span class="hs-identifier hs-var">npcByronApplicationName</span></a></span><span>
+</span><a href="#local-6989586621679451677"><span class="hs-identifier hs-var">npcByronApplicationName</span></a></span><span>
 </span><span id="line-153"></span><span>              </span><span class="annot"><span class="annottext">NumSoftwareVersion
-</span><a href="#local-6989586621679423669"><span class="hs-identifier hs-var">npcByronApplicationVersion</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679451675"><span class="hs-identifier hs-var">npcByronApplicationVersion</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-154"></span><span>          </span><span class="annot"><span class="annottext">$sel:byronLeaderCredentials:ProtocolParamsByron :: Maybe ByronLeaderCredentials
 </span><span class="hs-identifier hs-var">byronLeaderCredentials</span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Maybe ByronLeaderCredentials
-</span><a href="#local-6989586621679423630"><span class="hs-identifier hs-var">byronLeaderCredentials</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679451636"><span class="hs-identifier hs-var">byronLeaderCredentials</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-156"></span><span>          </span><span class="annot"><span class="annottext">$sel:byronMaxTxCapacityOverrides:ProtocolParamsByron :: Overrides ByronBlock
 </span><span class="hs-identifier hs-var">byronMaxTxCapacityOverrides</span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">TxMeasure ByronBlock -&gt; Overrides ByronBlock
@@ -455,16 +455,16 @@ ShelleyGenesis era
 </span><span class="hs-identifier hs-type">Consensus.ProtocolParamsShelleyBased</span></span><span> </span><span class="hs-special">{</span><span>
 </span><span id="line-160"></span><span>          </span><span class="annot"><span class="annottext">$sel:shelleyBasedGenesis:ProtocolParamsShelleyBased :: ShelleyGenesis StandardShelley
 </span><span class="hs-identifier hs-var">shelleyBasedGenesis</span></span><span>           </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ShelleyGenesis StandardShelley
-</span><a href="#local-6989586621679423628"><span class="hs-identifier hs-var">shelleyGenesis</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679451634"><span class="hs-identifier hs-var">shelleyGenesis</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-161"></span><span>          </span><span class="annot"><span class="annottext">$sel:shelleyBasedInitialNonce:ProtocolParamsShelleyBased :: Nonce
 </span><span class="hs-identifier hs-var">shelleyBasedInitialNonce</span></span><span>      </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GenesisHash -&gt; Nonce
 </span><a href="Cardano.Node.Protocol.Shelley.html#genesisHashToPraosNonce"><span class="hs-identifier hs-var">Shelley.genesisHashToPraosNonce</span></a></span><span>
 </span><span id="line-162"></span><span>                                            </span><span class="annot"><span class="annottext">GenesisHash
-</span><a href="#local-6989586621679423627"><span class="hs-identifier hs-var">shelleyGenesisHash</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679451633"><span class="hs-identifier hs-var">shelleyGenesisHash</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-163"></span><span>          </span><span class="annot"><span class="annottext">$sel:shelleyBasedLeaderCredentials:ProtocolParamsShelleyBased :: [TPraosLeaderCredentials (EraCrypto StandardShelley)]
 </span><span class="hs-identifier hs-var">shelleyBasedLeaderCredentials</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[TPraosLeaderCredentials StandardCrypto]
 [TPraosLeaderCredentials (EraCrypto StandardShelley)]
-</span><a href="#local-6989586621679423620"><span class="hs-identifier hs-var">shelleyLeaderCredentials</span></a></span><span>
+</span><a href="#local-6989586621679451626"><span class="hs-identifier hs-var">shelleyLeaderCredentials</span></a></span><span>
 </span><span id="line-164"></span><span>        </span><span class="hs-special">}</span><span>
 </span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">ProtocolParamsShelley :: forall c.
 ProtVer
@@ -572,7 +572,7 @@ TranslationContext era
 </span><span class="hs-identifier hs-var">transitionTrigger</span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-210"></span><span>            </span><span class="hs-comment">-- What will trigger the Byron -&gt; Shelley hard fork?</span><span>
 </span><span id="line-211"></span><span>            </span><span class="hs-keyword">case</span><span> </span><span class="annot"><span class="annottext">Maybe EpochNo
-</span><a href="#local-6989586621679423650"><span class="hs-identifier hs-var">npcTestShelleyHardForkAtEpoch</span></a></span><span> </span><span class="hs-keyword">of</span><span>
+</span><a href="#local-6989586621679451656"><span class="hs-identifier hs-var">npcTestShelleyHardForkAtEpoch</span></a></span><span> </span><span class="hs-keyword">of</span><span>
 </span><span id="line-212"></span><span>
 </span><span id="line-213"></span><span>               </span><span class="hs-comment">-- This specifies the major protocol version number update that will</span><span>
 </span><span id="line-214"></span><span>               </span><span class="hs-comment">-- trigger us moving to the Shelley protocol.</span><span>
@@ -588,22 +588,22 @@ TranslationContext era
 </span><span id="line-224"></span><span>               </span><span class="hs-comment">-- such as triggering at the 0 -&gt; 1 transition .</span><span>
 </span><span id="line-225"></span><span>               </span><span class="hs-comment">--</span><span>
 </span><span id="line-226"></span><span>               </span><span class="annot"><span class="annottext">Maybe EpochNo
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-identifier hs-var">Nothing</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Word16 -&gt; TriggerHardFork
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-identifier hs-var">Nothing</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Word16 -&gt; TriggerHardFork
 </span><span class="hs-identifier hs-var">Consensus.TriggerHardForkAtVersion</span></span><span>
 </span><span id="line-227"></span><span>                            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Word16 -&gt; (Word -&gt; Word16) -&gt; Maybe Word -&gt; Word16
 forall b a. b -&gt; (a -&gt; b) -&gt; Maybe a -&gt; b
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-identifier hs-var">maybe</span></a></span><span> </span><span class="annot"><span class="annottext">Word16
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-identifier hs-var">maybe</span></a></span><span> </span><span class="annot"><span class="annottext">Word16
 </span><span class="hs-number">2</span></span><span> </span><span class="annot"><span class="annottext">Word -&gt; Word16
 forall a b. (Integral a, Num b) =&gt; a -&gt; b
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-identifier hs-var">fromIntegral</span></a></span><span> </span><span class="annot"><span class="annottext">Maybe Word
-</span><a href="#local-6989586621679423648"><span class="hs-identifier hs-var">npcTestShelleyHardForkAtVersion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-identifier hs-var">fromIntegral</span></a></span><span> </span><span class="annot"><span class="annottext">Maybe Word
+</span><a href="#local-6989586621679451654"><span class="hs-identifier hs-var">npcTestShelleyHardForkAtVersion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-228"></span><span>
 </span><span id="line-229"></span><span>               </span><span class="hs-comment">-- Alternatively, for testing we can transition at a specific epoch.</span><span>
 </span><span id="line-230"></span><span>               </span><span class="hs-comment">--</span><span>
-</span><span id="line-231"></span><span>               </span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-identifier hs-type">Just</span></a></span><span> </span><span id="local-6989586621679423577"><span class="annot"><span class="annottext">EpochNo
-</span><a href="#local-6989586621679423577"><span class="hs-identifier hs-var">epochNo</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EpochNo -&gt; TriggerHardFork
+</span><span id="line-231"></span><span>               </span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-identifier hs-type">Just</span></a></span><span> </span><span id="local-6989586621679451583"><span class="annot"><span class="annottext">EpochNo
+</span><a href="#local-6989586621679451583"><span class="hs-identifier hs-var">epochNo</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EpochNo -&gt; TriggerHardFork
 </span><span class="hs-identifier hs-var">Consensus.TriggerHardForkAtEpoch</span></span><span> </span><span class="annot"><span class="annottext">EpochNo
-</span><a href="#local-6989586621679423577"><span class="hs-identifier hs-var">epochNo</span></a></span><span>
+</span><a href="#local-6989586621679451583"><span class="hs-identifier hs-var">epochNo</span></a></span><span>
 </span><span id="line-232"></span><span>        </span><span class="hs-special">}</span><span>
 </span><span id="line-233"></span><span>        </span><span class="hs-comment">-- Shelley to Allegra hard fork parameters</span><span>
 </span><span id="line-234"></span><span>        </span><span class="annot"><span class="annottext">ProtocolTransitionParamsShelleyBased :: forall era.
@@ -615,21 +615,21 @@ TranslationContext era
 </span><span id="line-236"></span><span>          </span><span class="annot"><span class="annottext">transitionTrigger :: TriggerHardFork
 </span><span class="hs-identifier hs-var">transitionTrigger</span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-237"></span><span>            </span><span class="hs-keyword">case</span><span> </span><span class="annot"><span class="annottext">Maybe EpochNo
-</span><a href="#local-6989586621679423646"><span class="hs-identifier hs-var">npcTestAllegraHardForkAtEpoch</span></a></span><span> </span><span class="hs-keyword">of</span><span>
+</span><a href="#local-6989586621679451652"><span class="hs-identifier hs-var">npcTestAllegraHardForkAtEpoch</span></a></span><span> </span><span class="hs-keyword">of</span><span>
 </span><span id="line-238"></span><span>               </span><span class="annot"><span class="annottext">Maybe EpochNo
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-identifier hs-var">Nothing</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Word16 -&gt; TriggerHardFork
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-identifier hs-var">Nothing</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Word16 -&gt; TriggerHardFork
 </span><span class="hs-identifier hs-var">Consensus.TriggerHardForkAtVersion</span></span><span>
 </span><span id="line-239"></span><span>                            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Word16 -&gt; (Word -&gt; Word16) -&gt; Maybe Word -&gt; Word16
 forall b a. b -&gt; (a -&gt; b) -&gt; Maybe a -&gt; b
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-identifier hs-var">maybe</span></a></span><span> </span><span class="annot"><span class="annottext">Word16
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-identifier hs-var">maybe</span></a></span><span> </span><span class="annot"><span class="annottext">Word16
 </span><span class="hs-number">3</span></span><span> </span><span class="annot"><span class="annottext">Word -&gt; Word16
 forall a b. (Integral a, Num b) =&gt; a -&gt; b
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-identifier hs-var">fromIntegral</span></a></span><span> </span><span class="annot"><span class="annottext">Maybe Word
-</span><a href="#local-6989586621679423644"><span class="hs-identifier hs-var">npcTestAllegraHardForkAtVersion</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-240"></span><span>               </span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-identifier hs-type">Just</span></a></span><span> </span><span id="local-6989586621679423575"><span class="annot"><span class="annottext">EpochNo
-</span><a href="#local-6989586621679423575"><span class="hs-identifier hs-var">epochNo</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EpochNo -&gt; TriggerHardFork
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-identifier hs-var">fromIntegral</span></a></span><span> </span><span class="annot"><span class="annottext">Maybe Word
+</span><a href="#local-6989586621679451650"><span class="hs-identifier hs-var">npcTestAllegraHardForkAtVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>               </span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-identifier hs-type">Just</span></a></span><span> </span><span id="local-6989586621679451581"><span class="annot"><span class="annottext">EpochNo
+</span><a href="#local-6989586621679451581"><span class="hs-identifier hs-var">epochNo</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EpochNo -&gt; TriggerHardFork
 </span><span class="hs-identifier hs-var">Consensus.TriggerHardForkAtEpoch</span></span><span> </span><span class="annot"><span class="annottext">EpochNo
-</span><a href="#local-6989586621679423575"><span class="hs-identifier hs-var">epochNo</span></a></span><span>
+</span><a href="#local-6989586621679451581"><span class="hs-identifier hs-var">epochNo</span></a></span><span>
 </span><span id="line-241"></span><span>        </span><span class="hs-special">}</span><span>
 </span><span id="line-242"></span><span>        </span><span class="hs-comment">-- Allegra to Mary hard fork parameters</span><span>
 </span><span id="line-243"></span><span>        </span><span class="annot"><span class="annottext">ProtocolTransitionParamsShelleyBased :: forall era.
@@ -641,21 +641,21 @@ TranslationContext era
 </span><span id="line-245"></span><span>          </span><span class="annot"><span class="annottext">transitionTrigger :: TriggerHardFork
 </span><span class="hs-identifier hs-var">transitionTrigger</span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-246"></span><span>            </span><span class="hs-keyword">case</span><span> </span><span class="annot"><span class="annottext">Maybe EpochNo
-</span><a href="#local-6989586621679423642"><span class="hs-identifier hs-var">npcTestMaryHardForkAtEpoch</span></a></span><span> </span><span class="hs-keyword">of</span><span>
+</span><a href="#local-6989586621679451648"><span class="hs-identifier hs-var">npcTestMaryHardForkAtEpoch</span></a></span><span> </span><span class="hs-keyword">of</span><span>
 </span><span id="line-247"></span><span>               </span><span class="annot"><span class="annottext">Maybe EpochNo
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-identifier hs-var">Nothing</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Word16 -&gt; TriggerHardFork
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-identifier hs-var">Nothing</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Word16 -&gt; TriggerHardFork
 </span><span class="hs-identifier hs-var">Consensus.TriggerHardForkAtVersion</span></span><span>
 </span><span id="line-248"></span><span>                            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Word16 -&gt; (Word -&gt; Word16) -&gt; Maybe Word -&gt; Word16
 forall b a. b -&gt; (a -&gt; b) -&gt; Maybe a -&gt; b
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-identifier hs-var">maybe</span></a></span><span> </span><span class="annot"><span class="annottext">Word16
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-identifier hs-var">maybe</span></a></span><span> </span><span class="annot"><span class="annottext">Word16
 </span><span class="hs-number">4</span></span><span> </span><span class="annot"><span class="annottext">Word -&gt; Word16
 forall a b. (Integral a, Num b) =&gt; a -&gt; b
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-identifier hs-var">fromIntegral</span></a></span><span> </span><span class="annot"><span class="annottext">Maybe Word
-</span><a href="#local-6989586621679423640"><span class="hs-identifier hs-var">npcTestMaryHardForkAtVersion</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-249"></span><span>               </span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-identifier hs-type">Just</span></a></span><span> </span><span id="local-6989586621679423574"><span class="annot"><span class="annottext">EpochNo
-</span><a href="#local-6989586621679423574"><span class="hs-identifier hs-var">epochNo</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EpochNo -&gt; TriggerHardFork
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-identifier hs-var">fromIntegral</span></a></span><span> </span><span class="annot"><span class="annottext">Maybe Word
+</span><a href="#local-6989586621679451646"><span class="hs-identifier hs-var">npcTestMaryHardForkAtVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>               </span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-identifier hs-type">Just</span></a></span><span> </span><span id="local-6989586621679451580"><span class="annot"><span class="annottext">EpochNo
+</span><a href="#local-6989586621679451580"><span class="hs-identifier hs-var">epochNo</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EpochNo -&gt; TriggerHardFork
 </span><span class="hs-identifier hs-var">Consensus.TriggerHardForkAtEpoch</span></span><span> </span><span class="annot"><span class="annottext">EpochNo
-</span><a href="#local-6989586621679423574"><span class="hs-identifier hs-var">epochNo</span></a></span><span>
+</span><a href="#local-6989586621679451580"><span class="hs-identifier hs-var">epochNo</span></a></span><span>
 </span><span id="line-250"></span><span>        </span><span class="hs-special">}</span><span>
 </span><span id="line-251"></span><span>        </span><span class="hs-comment">-- Mary to Alonzo hard fork parameters</span><span>
 </span><span id="line-252"></span><span>        </span><span class="annot"><span class="annottext">ProtocolTransitionParamsShelleyBased :: forall era.
@@ -665,25 +665,25 @@ TranslationContext era
 </span><span id="line-253"></span><span>          </span><span class="annot"><span class="annottext">transitionTranslationContext :: TranslationContext StandardAlonzo
 </span><span class="hs-identifier hs-var">transitionTranslationContext</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AlonzoGenesis
 TranslationContext StandardAlonzo
-</span><a href="#local-6989586621679423624"><span class="hs-identifier hs-var">alonzoGenesis</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679451630"><span class="hs-identifier hs-var">alonzoGenesis</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-254"></span><span>          </span><span class="annot"><span class="annottext">transitionTrigger :: TriggerHardFork
 </span><span class="hs-identifier hs-var">transitionTrigger</span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-255"></span><span>            </span><span class="hs-keyword">case</span><span> </span><span class="annot"><span class="annottext">Maybe EpochNo
-</span><a href="#local-6989586621679423638"><span class="hs-identifier hs-var">npcTestAlonzoHardForkAtEpoch</span></a></span><span> </span><span class="hs-keyword">of</span><span>
+</span><a href="#local-6989586621679451644"><span class="hs-identifier hs-var">npcTestAlonzoHardForkAtEpoch</span></a></span><span> </span><span class="hs-keyword">of</span><span>
 </span><span id="line-256"></span><span>               </span><span class="annot"><span class="annottext">Maybe EpochNo
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-identifier hs-var">Nothing</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Word16 -&gt; TriggerHardFork
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-identifier hs-var">Nothing</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Word16 -&gt; TriggerHardFork
 </span><span class="hs-identifier hs-var">Consensus.TriggerHardForkAtVersion</span></span><span>
 </span><span id="line-257"></span><span>                            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Word16 -&gt; (Word -&gt; Word16) -&gt; Maybe Word -&gt; Word16
 forall b a. b -&gt; (a -&gt; b) -&gt; Maybe a -&gt; b
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-identifier hs-var">maybe</span></a></span><span> </span><span class="annot"><span class="annottext">Word16
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-identifier hs-var">maybe</span></a></span><span> </span><span class="annot"><span class="annottext">Word16
 </span><span class="hs-number">5</span></span><span> </span><span class="annot"><span class="annottext">Word -&gt; Word16
 forall a b. (Integral a, Num b) =&gt; a -&gt; b
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-identifier hs-var">fromIntegral</span></a></span><span> </span><span class="annot"><span class="annottext">Maybe Word
-</span><a href="#local-6989586621679423636"><span class="hs-identifier hs-var">npcTestAlonzoHardForkAtVersion</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-258"></span><span>               </span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-identifier hs-type">Just</span></a></span><span> </span><span id="local-6989586621679423573"><span class="annot"><span class="annottext">EpochNo
-</span><a href="#local-6989586621679423573"><span class="hs-identifier hs-var">epochNo</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EpochNo -&gt; TriggerHardFork
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-identifier hs-var">fromIntegral</span></a></span><span> </span><span class="annot"><span class="annottext">Maybe Word
+</span><a href="#local-6989586621679451642"><span class="hs-identifier hs-var">npcTestAlonzoHardForkAtVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>               </span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-identifier hs-type">Just</span></a></span><span> </span><span id="local-6989586621679451579"><span class="annot"><span class="annottext">EpochNo
+</span><a href="#local-6989586621679451579"><span class="hs-identifier hs-var">epochNo</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EpochNo -&gt; TriggerHardFork
 </span><span class="hs-identifier hs-var">Consensus.TriggerHardForkAtEpoch</span></span><span> </span><span class="annot"><span class="annottext">EpochNo
-</span><a href="#local-6989586621679423573"><span class="hs-identifier hs-var">epochNo</span></a></span><span>
+</span><a href="#local-6989586621679451579"><span class="hs-identifier hs-var">epochNo</span></a></span><span>
 </span><span id="line-259"></span><span>        </span><span class="hs-special">}</span><span>
 </span><span id="line-260"></span><span>
 </span><span id="line-261"></span><span>
@@ -706,7 +706,7 @@ forall a b. (Integral a, Num b) =&gt; a -&gt; b
 </span><span id="line-278"></span><span>
 </span><span id="line-279"></span><span>     </span><span class="hs-glyph">|</span><span> </span><span id="CardanoProtocolInstantiationErrorAlonzo"><span class="annot"><a href="Cardano.Node.Protocol.Cardano.html#CardanoProtocolInstantiationErrorAlonzo"><span class="hs-identifier hs-var">CardanoProtocolInstantiationErrorAlonzo</span></a></span></span><span>
 </span><span id="line-280"></span><span>         </span><span class="annot"><a href="Cardano.Node.Protocol.Alonzo.html#AlonzoProtocolInstantiationError"><span class="hs-identifier hs-type">Alonzo.AlonzoProtocolInstantiationError</span></a></span><span>
-</span><span id="line-281"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span id="local-6989586621679423566"><span id="local-6989586621679423568"><span id="local-6989586621679423570"><span class="annot"><span class="annottext">Int -&gt; CardanoProtocolInstantiationError -&gt; ShowS
+</span><span id="line-281"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span id="local-6989586621679451572"><span id="local-6989586621679451574"><span id="local-6989586621679451576"><span class="annot"><span class="annottext">Int -&gt; CardanoProtocolInstantiationError -&gt; ShowS
 [CardanoProtocolInstantiationError] -&gt; ShowS
 CardanoProtocolInstantiationError -&gt; String
 (Int -&gt; CardanoProtocolInstantiationError -&gt; ShowS)
@@ -721,44 +721,44 @@ show :: CardanoProtocolInstantiationError -&gt; String
 $cshow :: CardanoProtocolInstantiationError -&gt; String
 showsPrec :: Int -&gt; CardanoProtocolInstantiationError -&gt; ShowS
 $cshowsPrec :: Int -&gt; CardanoProtocolInstantiationError -&gt; ShowS
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Show</span></a></span></span></span></span><span>
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Show</span></a></span></span></span></span><span>
 </span><span id="line-282"></span><span>
-</span><span id="line-283"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="../file:///home/runner/work/cardano-node/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.4/cardano-api-1.30.0/noopt/doc/html/cardano-api/src"><span class="hs-identifier hs-type">Error</span></a></span><span> </span><span class="annot"><a href="Cardano.Node.Protocol.Cardano.html#CardanoProtocolInstantiationError"><span class="hs-identifier hs-type">CardanoProtocolInstantiationError</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-284"></span><span>  </span><span id="local-6989586621679423561"><span class="annot"><span class="annottext">displayError :: CardanoProtocolInstantiationError -&gt; String
-</span><a href="../file:///home/runner/work/cardano-node/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.4/cardano-api-1.30.0/noopt/doc/html/cardano-api/src"><span class="hs-identifier hs-var hs-var hs-var hs-var">displayError</span></a></span></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Cardano.Node.Protocol.Cardano.html#CardanoProtocolInstantiationErrorByron"><span class="hs-identifier hs-type">CardanoProtocolInstantiationErrorByron</span></a></span><span> </span><span id="local-6989586621679423559"><span class="annot"><span class="annottext">ByronProtocolInstantiationError
-</span><a href="#local-6989586621679423559"><span class="hs-identifier hs-var">err</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-283"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="../file:///home/runner/work/cardano-node/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.7/cardano-api-1.31.0/noopt/doc/html/cardano-api/src"><span class="hs-identifier hs-type">Error</span></a></span><span> </span><span class="annot"><a href="Cardano.Node.Protocol.Cardano.html#CardanoProtocolInstantiationError"><span class="hs-identifier hs-type">CardanoProtocolInstantiationError</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-284"></span><span>  </span><span id="local-6989586621679451567"><span class="annot"><span class="annottext">displayError :: CardanoProtocolInstantiationError -&gt; String
+</span><a href="../file:///home/runner/work/cardano-node/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.7/cardano-api-1.31.0/noopt/doc/html/cardano-api/src"><span class="hs-identifier hs-var hs-var hs-var hs-var">displayError</span></a></span></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Cardano.Node.Protocol.Cardano.html#CardanoProtocolInstantiationErrorByron"><span class="hs-identifier hs-type">CardanoProtocolInstantiationErrorByron</span></a></span><span> </span><span id="local-6989586621679451565"><span class="annot"><span class="annottext">ByronProtocolInstantiationError
+</span><a href="#local-6989586621679451565"><span class="hs-identifier hs-var">err</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-285"></span><span>    </span><span class="annot"><span class="annottext">ByronProtocolInstantiationError -&gt; String
 forall e. Error e =&gt; e -&gt; String
-</span><a href="../file:///home/runner/work/cardano-node/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.4/cardano-api-1.30.0/noopt/doc/html/cardano-api/src"><span class="hs-identifier hs-var">displayError</span></a></span><span> </span><span class="annot"><span class="annottext">ByronProtocolInstantiationError
-</span><a href="#local-6989586621679423559"><span class="hs-identifier hs-var">err</span></a></span><span>
-</span><span id="line-286"></span><span>  </span><span class="annot"><a href="../file:///home/runner/work/cardano-node/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.4/cardano-api-1.30.0/noopt/doc/html/cardano-api/src"><span class="hs-identifier hs-var">displayError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Cardano.Node.Protocol.Cardano.html#CardanoProtocolInstantiationShelleyGenesisReadError"><span class="hs-identifier hs-type">CardanoProtocolInstantiationShelleyGenesisReadError</span></a></span><span> </span><span id="local-6989586621679423558"><span class="annot"><span class="annottext">GenesisReadError
-</span><a href="#local-6989586621679423558"><span class="hs-identifier hs-var">err</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="../file:///home/runner/work/cardano-node/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.7/cardano-api-1.31.0/noopt/doc/html/cardano-api/src"><span class="hs-identifier hs-var">displayError</span></a></span><span> </span><span class="annot"><span class="annottext">ByronProtocolInstantiationError
+</span><a href="#local-6989586621679451565"><span class="hs-identifier hs-var">err</span></a></span><span>
+</span><span id="line-286"></span><span>  </span><span class="annot"><a href="../file:///home/runner/work/cardano-node/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.7/cardano-api-1.31.0/noopt/doc/html/cardano-api/src"><span class="hs-identifier hs-var">displayError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Cardano.Node.Protocol.Cardano.html#CardanoProtocolInstantiationShelleyGenesisReadError"><span class="hs-identifier hs-type">CardanoProtocolInstantiationShelleyGenesisReadError</span></a></span><span> </span><span id="local-6989586621679451564"><span class="annot"><span class="annottext">GenesisReadError
+</span><a href="#local-6989586621679451564"><span class="hs-identifier hs-var">err</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-287"></span><span>    </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Shelley related: &quot;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; ShowS
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-operator hs-var">&lt;&gt;</span></a></span><span> </span><span class="annot"><span class="annottext">GenesisReadError -&gt; String
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-operator hs-var">&lt;&gt;</span></a></span><span> </span><span class="annot"><span class="annottext">GenesisReadError -&gt; String
 forall e. Error e =&gt; e -&gt; String
-</span><a href="../file:///home/runner/work/cardano-node/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.4/cardano-api-1.30.0/noopt/doc/html/cardano-api/src"><span class="hs-identifier hs-var">displayError</span></a></span><span> </span><span class="annot"><span class="annottext">GenesisReadError
-</span><a href="#local-6989586621679423558"><span class="hs-identifier hs-var">err</span></a></span><span>
-</span><span id="line-288"></span><span>  </span><span class="annot"><a href="../file:///home/runner/work/cardano-node/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.4/cardano-api-1.30.0/noopt/doc/html/cardano-api/src"><span class="hs-identifier hs-var">displayError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Cardano.Node.Protocol.Cardano.html#CardanoProtocolInstantiationAlonzoGenesisReadError"><span class="hs-identifier hs-type">CardanoProtocolInstantiationAlonzoGenesisReadError</span></a></span><span> </span><span id="local-6989586621679423557"><span class="annot"><span class="annottext">GenesisReadError
-</span><a href="#local-6989586621679423557"><span class="hs-identifier hs-var">err</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="../file:///home/runner/work/cardano-node/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.7/cardano-api-1.31.0/noopt/doc/html/cardano-api/src"><span class="hs-identifier hs-var">displayError</span></a></span><span> </span><span class="annot"><span class="annottext">GenesisReadError
+</span><a href="#local-6989586621679451564"><span class="hs-identifier hs-var">err</span></a></span><span>
+</span><span id="line-288"></span><span>  </span><span class="annot"><a href="../file:///home/runner/work/cardano-node/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.7/cardano-api-1.31.0/noopt/doc/html/cardano-api/src"><span class="hs-identifier hs-var">displayError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Cardano.Node.Protocol.Cardano.html#CardanoProtocolInstantiationAlonzoGenesisReadError"><span class="hs-identifier hs-type">CardanoProtocolInstantiationAlonzoGenesisReadError</span></a></span><span> </span><span id="local-6989586621679451563"><span class="annot"><span class="annottext">GenesisReadError
+</span><a href="#local-6989586621679451563"><span class="hs-identifier hs-var">err</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-289"></span><span>    </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Alonzo related: &quot;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; ShowS
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-operator hs-var">&lt;&gt;</span></a></span><span> </span><span class="annot"><span class="annottext">GenesisReadError -&gt; String
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-operator hs-var">&lt;&gt;</span></a></span><span> </span><span class="annot"><span class="annottext">GenesisReadError -&gt; String
 forall e. Error e =&gt; e -&gt; String
-</span><a href="../file:///home/runner/work/cardano-node/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.4/cardano-api-1.30.0/noopt/doc/html/cardano-api/src"><span class="hs-identifier hs-var">displayError</span></a></span><span> </span><span class="annot"><span class="annottext">GenesisReadError
-</span><a href="#local-6989586621679423557"><span class="hs-identifier hs-var">err</span></a></span><span>
-</span><span id="line-290"></span><span>  </span><span class="annot"><a href="../file:///home/runner/work/cardano-node/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.4/cardano-api-1.30.0/noopt/doc/html/cardano-api/src"><span class="hs-identifier hs-var">displayError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Cardano.Node.Protocol.Cardano.html#CardanoProtocolInstantiationPraosLeaderCredentialsError"><span class="hs-identifier hs-type">CardanoProtocolInstantiationPraosLeaderCredentialsError</span></a></span><span> </span><span id="local-6989586621679423556"><span class="annot"><span class="annottext">PraosLeaderCredentialsError
-</span><a href="#local-6989586621679423556"><span class="hs-identifier hs-var">err</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="../file:///home/runner/work/cardano-node/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.7/cardano-api-1.31.0/noopt/doc/html/cardano-api/src"><span class="hs-identifier hs-var">displayError</span></a></span><span> </span><span class="annot"><span class="annottext">GenesisReadError
+</span><a href="#local-6989586621679451563"><span class="hs-identifier hs-var">err</span></a></span><span>
+</span><span id="line-290"></span><span>  </span><span class="annot"><a href="../file:///home/runner/work/cardano-node/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.7/cardano-api-1.31.0/noopt/doc/html/cardano-api/src"><span class="hs-identifier hs-var">displayError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Cardano.Node.Protocol.Cardano.html#CardanoProtocolInstantiationPraosLeaderCredentialsError"><span class="hs-identifier hs-type">CardanoProtocolInstantiationPraosLeaderCredentialsError</span></a></span><span> </span><span id="local-6989586621679451562"><span class="annot"><span class="annottext">PraosLeaderCredentialsError
+</span><a href="#local-6989586621679451562"><span class="hs-identifier hs-var">err</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-291"></span><span>    </span><span class="annot"><span class="annottext">PraosLeaderCredentialsError -&gt; String
 forall e. Error e =&gt; e -&gt; String
-</span><a href="../file:///home/runner/work/cardano-node/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.4/cardano-api-1.30.0/noopt/doc/html/cardano-api/src"><span class="hs-identifier hs-var">displayError</span></a></span><span> </span><span class="annot"><span class="annottext">PraosLeaderCredentialsError
-</span><a href="#local-6989586621679423556"><span class="hs-identifier hs-var">err</span></a></span><span>
-</span><span id="line-292"></span><span>  </span><span class="annot"><a href="../file:///home/runner/work/cardano-node/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.4/cardano-api-1.30.0/noopt/doc/html/cardano-api/src"><span class="hs-identifier hs-var">displayError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Cardano.Node.Protocol.Cardano.html#CardanoProtocolInstantiationErrorAlonzo"><span class="hs-identifier hs-type">CardanoProtocolInstantiationErrorAlonzo</span></a></span><span> </span><span id="local-6989586621679423555"><span class="annot"><span class="annottext">AlonzoProtocolInstantiationError
-</span><a href="#local-6989586621679423555"><span class="hs-identifier hs-var">err</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="../file:///home/runner/work/cardano-node/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.7/cardano-api-1.31.0/noopt/doc/html/cardano-api/src"><span class="hs-identifier hs-var">displayError</span></a></span><span> </span><span class="annot"><span class="annottext">PraosLeaderCredentialsError
+</span><a href="#local-6989586621679451562"><span class="hs-identifier hs-var">err</span></a></span><span>
+</span><span id="line-292"></span><span>  </span><span class="annot"><a href="../file:///home/runner/work/cardano-node/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.7/cardano-api-1.31.0/noopt/doc/html/cardano-api/src"><span class="hs-identifier hs-var">displayError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Cardano.Node.Protocol.Cardano.html#CardanoProtocolInstantiationErrorAlonzo"><span class="hs-identifier hs-type">CardanoProtocolInstantiationErrorAlonzo</span></a></span><span> </span><span id="local-6989586621679451561"><span class="annot"><span class="annottext">AlonzoProtocolInstantiationError
+</span><a href="#local-6989586621679451561"><span class="hs-identifier hs-var">err</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-293"></span><span>    </span><span class="annot"><span class="annottext">AlonzoProtocolInstantiationError -&gt; String
 forall e. Error e =&gt; e -&gt; String
-</span><a href="../file:///home/runner/work/cardano-node/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.4/cardano-api-1.30.0/noopt/doc/html/cardano-api/src"><span class="hs-identifier hs-var">displayError</span></a></span><span> </span><span class="annot"><span class="annottext">AlonzoProtocolInstantiationError
-</span><a href="#local-6989586621679423555"><span class="hs-identifier hs-var">err</span></a></span><span>
+</span><a href="../file:///home/runner/work/cardano-node/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.7/cardano-api-1.31.0/noopt/doc/html/cardano-api/src"><span class="hs-identifier hs-var">displayError</span></a></span><span> </span><span class="annot"><span class="annottext">AlonzoProtocolInstantiationError
+</span><a href="#local-6989586621679451561"><span class="hs-identifier hs-var">err</span></a></span><span>
 </span><span id="line-294"></span></pre></body></html>

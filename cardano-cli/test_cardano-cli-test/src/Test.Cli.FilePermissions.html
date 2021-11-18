@@ -8,7 +8,7 @@
 </span><span id="line-8"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><span class="hs-identifier">Cardano.Prelude</span></span><span>
 </span><span id="line-9"></span><span>
 </span><span id="line-10"></span><span>
-</span><span id="line-11"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><a href="../file:///home/runner/work/cardano-node/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.4/cardano-node-1.30.0/noopt/doc/html/cardano-node/src"><span class="hs-identifier">Cardano.Node.Run</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="../file:///home/runner/work/cardano-node/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.4/cardano-node-1.30.0/noopt/doc/html/cardano-node/src"><span class="hs-identifier">checkVRFFilePermissions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-11"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><a href="../file:///home/runner/work/cardano-node/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.7/cardano-node-1.31.0/noopt/doc/html/cardano-node/src"><span class="hs-identifier">Cardano.Node.Run</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="../file:///home/runner/work/cardano-node/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.7/cardano-node-1.31.0/noopt/doc/html/cardano-node/src"><span class="hs-identifier">checkVRFFilePermissions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-12"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><span class="hs-identifier">Hedgehog</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier">Property</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier">discover</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier">success</span></span><span class="hs-special">)</span><span>
 </span><span id="line-13"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Hedgehog</span></span><span>
 </span><span id="line-14"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Hedgehog.Extras.Test.Base</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">H</span></span><span>
@@ -34,7 +34,7 @@ PropertyT (ReaderT IntegrationState (ResourceT IO)) () -&gt; Property
 forall k (cat :: k -&gt; k -&gt; *) (b :: k) (c :: k) (a :: k).
 Category cat =&gt;
 cat b c -&gt; cat a b -&gt; cat a c
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-operator hs-var">.</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-operator hs-var">.</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
 -&gt; (FilePath
     -&gt; PropertyT (ReaderT IntegrationState (ResourceT IO)) ())
 -&gt; PropertyT (ReaderT IntegrationState (ResourceT IO)) ()
@@ -49,41 +49,41 @@ FilePath -&gt; (FilePath -&gt; m ()) -&gt; m ()
     -&gt; PropertyT (ReaderT IntegrationState (ResourceT IO)) ())
 -&gt; Property
 forall a b. (a -&gt; b) -&gt; a -&gt; b
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-operator hs-var">$</span></a></span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679222035"><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679222035"><span class="hs-identifier hs-var">tempDir</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-keyword">do</span><span>
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-operator hs-var">$</span></a></span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679225977"><span class="annot"><span class="annottext">FilePath
+</span><a href="#local-6989586621679225977"><span class="hs-identifier hs-var">tempDir</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-keyword">do</span><span>
 </span><span id="line-23"></span><span>    </span><span class="hs-comment">-- Key filepaths</span><span>
-</span><span id="line-24"></span><span>    </span><span id="local-6989586621679222034"><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679222034"><span class="hs-identifier hs-var">vrfVerKey</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">FilePath
+</span><span id="line-24"></span><span>    </span><span id="local-6989586621679225976"><span class="annot"><span class="annottext">FilePath
+</span><a href="#local-6989586621679225976"><span class="hs-identifier hs-var">vrfVerKey</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">FilePath
 -&gt; FilePath
 -&gt; PropertyT (ReaderT IntegrationState (ResourceT IO)) FilePath
 forall (m :: * -&gt; *).
 (MonadTest m, HasCallStack) =&gt;
 FilePath -&gt; FilePath -&gt; m FilePath
 </span><span class="hs-identifier hs-var">H.noteTempFile</span></span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679222035"><span class="hs-identifier hs-var">tempDir</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
+</span><a href="#local-6989586621679225977"><span class="hs-identifier hs-var">tempDir</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;VRF-verification-key-file&quot;</span></span><span>
 </span><span id="line-25"></span><span>
-</span><span id="line-26"></span><span>    </span><span id="local-6989586621679222032"><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679222032"><span class="hs-identifier hs-var">vrfSignKey</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">FilePath
+</span><span id="line-26"></span><span>    </span><span id="local-6989586621679225974"><span class="annot"><span class="annottext">FilePath
+</span><a href="#local-6989586621679225974"><span class="hs-identifier hs-var">vrfSignKey</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">FilePath
 -&gt; FilePath
 -&gt; PropertyT (ReaderT IntegrationState (ResourceT IO)) FilePath
 forall (m :: * -&gt; *).
 (MonadTest m, HasCallStack) =&gt;
 FilePath -&gt; FilePath -&gt; m FilePath
 </span><span class="hs-identifier hs-var">H.noteTempFile</span></span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679222035"><span class="hs-identifier hs-var">tempDir</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
+</span><a href="#local-6989586621679225977"><span class="hs-identifier hs-var">tempDir</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;VRF-signing-key-file&quot;</span></span><span>
 </span><span id="line-27"></span><span>
 </span><span id="line-28"></span><span>    </span><span class="hs-comment">-- Create VRF key pair</span><span>
 </span><span id="line-29"></span><span>    </span><span class="annot"><span class="annottext">PropertyT (ReaderT IntegrationState (ResourceT IO)) FilePath
 -&gt; PropertyT (ReaderT IntegrationState (ResourceT IO)) ()
 forall (f :: * -&gt; *) a. Functor f =&gt; f a -&gt; f ()
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-identifier hs-var">void</span></a></span><span> </span><span class="annot"><span class="annottext">(PropertyT (ReaderT IntegrationState (ResourceT IO)) FilePath
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-identifier hs-var">void</span></a></span><span> </span><span class="annot"><span class="annottext">(PropertyT (ReaderT IntegrationState (ResourceT IO)) FilePath
  -&gt; PropertyT (ReaderT IntegrationState (ResourceT IO)) ())
 -&gt; PropertyT (ReaderT IntegrationState (ResourceT IO)) FilePath
 -&gt; PropertyT (ReaderT IntegrationState (ResourceT IO)) ()
 forall a b. (a -&gt; b) -&gt; a -&gt; b
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-operator hs-var">$</span></a></span><span> </span><span class="annot"><span class="annottext">[FilePath]
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-operator hs-var">$</span></a></span><span> </span><span class="annot"><span class="annottext">[FilePath]
 -&gt; PropertyT (ReaderT IntegrationState (ResourceT IO)) FilePath
 forall (m :: * -&gt; *).
 (MonadTest m, MonadCatch m, MonadIO m, HasCallStack) =&gt;
@@ -94,19 +94,19 @@ forall (m :: * -&gt; *).
 </span><span class="hs-string">&quot;key-gen-VRF&quot;</span></span><span>
 </span><span id="line-31"></span><span>      </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;--verification-key-file&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679222034"><span class="hs-identifier hs-var">vrfVerKey</span></a></span><span>
+</span><a href="#local-6989586621679225976"><span class="hs-identifier hs-var">vrfVerKey</span></a></span><span>
 </span><span id="line-32"></span><span>      </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;--signing-key-file&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679222032"><span class="hs-identifier hs-var">vrfSignKey</span></a></span><span>
+</span><a href="#local-6989586621679225974"><span class="hs-identifier hs-var">vrfSignKey</span></a></span><span>
 </span><span id="line-33"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span>    </span><span id="local-6989586621679222030"><span class="annot"><span class="annottext">Either VRFPrivateKeyFilePermissionError ()
-</span><a href="#local-6989586621679222030"><span class="hs-identifier hs-var">result</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">IO (Either VRFPrivateKeyFilePermissionError ())
+</span><span id="line-35"></span><span>    </span><span id="local-6989586621679225972"><span class="annot"><span class="annottext">Either VRFPrivateKeyFilePermissionError ()
+</span><a href="#local-6989586621679225972"><span class="hs-identifier hs-var">result</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">IO (Either VRFPrivateKeyFilePermissionError ())
 -&gt; PropertyT
      (ReaderT IntegrationState (ResourceT IO))
      (Either VRFPrivateKeyFilePermissionError ())
 forall (m :: * -&gt; *) a. MonadIO m =&gt; IO a -&gt; m a
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-identifier hs-var">liftIO</span></a></span><span> </span><span class="annot"><span class="annottext">(IO (Either VRFPrivateKeyFilePermissionError ())
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-identifier hs-var">liftIO</span></a></span><span> </span><span class="annot"><span class="annottext">(IO (Either VRFPrivateKeyFilePermissionError ())
  -&gt; PropertyT
       (ReaderT IntegrationState (ResourceT IO))
       (Either VRFPrivateKeyFilePermissionError ()))
@@ -119,10 +119,10 @@ forall (m :: * -&gt; *) a. MonadIO m =&gt; IO a -&gt; m a
 forall k (cat :: k -&gt; k -&gt; *) (b :: k) (c :: k) (a :: k).
 Category cat =&gt;
 cat b c -&gt; cat a b -&gt; cat a c
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-operator hs-var">.</span></a></span><span> </span><span class="annot"><span class="annottext">ExceptT VRFPrivateKeyFilePermissionError IO ()
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-operator hs-var">.</span></a></span><span> </span><span class="annot"><span class="annottext">ExceptT VRFPrivateKeyFilePermissionError IO ()
 -&gt; IO (Either VRFPrivateKeyFilePermissionError ())
 forall e (m :: * -&gt; *) a. ExceptT e m a -&gt; m (Either e a)
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/transformers-0.5.6.2/src"><span class="hs-identifier hs-var">runExceptT</span></a></span><span> </span><span class="annot"><span class="annottext">(ExceptT VRFPrivateKeyFilePermissionError IO ()
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/transformers-0.5.6.2/src"><span class="hs-identifier hs-var">runExceptT</span></a></span><span> </span><span class="annot"><span class="annottext">(ExceptT VRFPrivateKeyFilePermissionError IO ()
  -&gt; PropertyT
       (ReaderT IntegrationState (ResourceT IO))
       (Either VRFPrivateKeyFilePermissionError ()))
@@ -131,13 +131,13 @@ forall e (m :: * -&gt; *) a. ExceptT e m a -&gt; m (Either e a)
      (ReaderT IntegrationState (ResourceT IO))
      (Either VRFPrivateKeyFilePermissionError ())
 forall a b. (a -&gt; b) -&gt; a -&gt; b
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-operator hs-var">$</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; ExceptT VRFPrivateKeyFilePermissionError IO ()
-</span><a href="../file:///home/runner/work/cardano-node/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.4/cardano-node-1.30.0/noopt/doc/html/cardano-node/src"><span class="hs-identifier hs-var">checkVRFFilePermissions</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
-</span><a href="#local-6989586621679222032"><span class="hs-identifier hs-var">vrfSignKey</span></a></span><span>
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-operator hs-var">$</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; ExceptT VRFPrivateKeyFilePermissionError IO ()
+</span><a href="../file:///home/runner/work/cardano-node/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.7/cardano-node-1.31.0/noopt/doc/html/cardano-node/src"><span class="hs-identifier hs-var">checkVRFFilePermissions</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
+</span><a href="#local-6989586621679225974"><span class="hs-identifier hs-var">vrfSignKey</span></a></span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-keyword">case</span><span> </span><span class="annot"><span class="annottext">Either VRFPrivateKeyFilePermissionError ()
-</span><a href="#local-6989586621679222030"><span class="hs-identifier hs-var">result</span></a></span><span> </span><span class="hs-keyword">of</span><span>
-</span><span id="line-37"></span><span>      </span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-identifier hs-type">Left</span></a></span><span> </span><span id="local-6989586621679222027"><span class="annot"><span class="annottext">VRFPrivateKeyFilePermissionError
-</span><a href="#local-6989586621679222027"><span class="hs-identifier hs-var">err</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><a href="#local-6989586621679225972"><span class="hs-identifier hs-var">result</span></a></span><span> </span><span class="hs-keyword">of</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-identifier hs-type">Left</span></a></span><span> </span><span id="local-6989586621679225969"><span class="annot"><span class="annottext">VRFPrivateKeyFilePermissionError
+</span><a href="#local-6989586621679225969"><span class="hs-identifier hs-var">err</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-38"></span><span>        </span><span class="annot"><span class="annottext">Maybe Diff
 -&gt; FilePath
 -&gt; PropertyT (ReaderT IntegrationState (ResourceT IO)) ()
@@ -146,27 +146,27 @@ forall (m :: * -&gt; *) a.
 Maybe Diff -&gt; FilePath -&gt; m a
 </span><span class="hs-identifier hs-var">failWith</span></span><span> </span><span class="annot"><span class="annottext">Maybe Diff
 forall a. Maybe a
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-identifier hs-var">Nothing</span></a></span><span>
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-identifier hs-var">Nothing</span></a></span><span>
 </span><span id="line-39"></span><span>          </span><span class="annot"><span class="annottext">(FilePath
  -&gt; PropertyT (ReaderT IntegrationState (ResourceT IO)) ())
 -&gt; FilePath
 -&gt; PropertyT (ReaderT IntegrationState (ResourceT IO)) ()
 forall a b. (a -&gt; b) -&gt; a -&gt; b
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-operator hs-var">$</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-operator hs-var">$</span></a></span><span> </span><span class="annot"><span class="annottext">FilePath
 </span><span class="hs-string">&quot;key-gen-VRF cli command created a VRF signing key \
             \file with the wrong permissions: &quot;</span></span><span> </span><span class="annot"><span class="annottext">FilePath -&gt; FilePath -&gt; FilePath
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-operator hs-var">&lt;&gt;</span></a></span><span> </span><span class="annot"><span class="annottext">VRFPrivateKeyFilePermissionError -&gt; FilePath
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-operator hs-var">&lt;&gt;</span></a></span><span> </span><span class="annot"><span class="annottext">VRFPrivateKeyFilePermissionError -&gt; FilePath
 forall a b. (Show a, ConvertText FilePath b) =&gt; a -&gt; b
 </span><span class="hs-identifier hs-var">show</span></span><span> </span><span class="annot"><span class="annottext">VRFPrivateKeyFilePermissionError
-</span><a href="#local-6989586621679222027"><span class="hs-identifier hs-var">err</span></a></span><span>
-</span><span id="line-41"></span><span>      </span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-identifier hs-type">Right</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PropertyT (ReaderT IntegrationState (ResourceT IO)) ()
+</span><a href="#local-6989586621679225969"><span class="hs-identifier hs-var">err</span></a></span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-identifier hs-type">Right</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PropertyT (ReaderT IntegrationState (ResourceT IO)) ()
 forall (m :: * -&gt; *). MonadTest m =&gt; m ()
 </span><span class="hs-identifier hs-var">success</span></span><span>
 </span><span id="line-42"></span><span>
 </span><span id="line-43"></span><span class="hs-comment">-- -----------------------------------------------------------------------------</span><span>
 </span><span id="line-44"></span><span>
-</span><span id="line-45"></span><span class="annot"><a href="Test.Cli.FilePermissions.html#tests"><span class="hs-identifier hs-type">tests</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/ghc-prim-0.6.1/src"><span class="hs-identifier hs-type">IO</span></a></span><span> </span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/ghc-prim-0.6.1/src"><span class="hs-identifier hs-type">Bool</span></a></span><span>
+</span><span id="line-45"></span><span class="annot"><a href="Test.Cli.FilePermissions.html#tests"><span class="hs-identifier hs-type">tests</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/ghc-prim-0.6.1/src"><span class="hs-identifier hs-type">IO</span></a></span><span> </span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/ghc-prim-0.6.1/src"><span class="hs-identifier hs-type">Bool</span></a></span><span>
 </span><span id="line-46"></span><span id="tests"><span class="annot"><span class="annottext">tests :: IO Bool
 </span><a href="Test.Cli.FilePermissions.html#tests"><span class="hs-identifier hs-var hs-var">tests</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-47"></span><span>  </span><span class="annot"><span class="annottext">Group -&gt; IO Bool

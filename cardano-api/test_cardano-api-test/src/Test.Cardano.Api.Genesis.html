@@ -9,10 +9,10 @@
 </span><span id="line-9"></span><span>
 </span><span id="line-10"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><span class="hs-identifier">Cardano.Prelude</span></span><span>
 </span><span id="line-11"></span><span>
-</span><span id="line-12"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><a href="../file:///home/runner/work/cardano-node/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.4/cardano-api-1.30.0/noopt/doc/html/cardano-api/src"><span class="hs-identifier">Cardano.Api.Shelley</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier">ShelleyGenesis</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-12"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><a href="../file:///home/runner/work/cardano-node/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.7/cardano-api-1.31.0/noopt/doc/html/cardano-api/src"><span class="hs-identifier">Cardano.Api.Shelley</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier">ShelleyGenesis</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-13"></span><span>
-</span><span id="line-14"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/containers-0.6.2.1/src"><span class="hs-identifier">Data.Map.Strict</span></a></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Map</span></span><span>
-</span><span id="line-15"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/time-1.9.3/src"><span class="hs-identifier">Data.Time.Clock.POSIX</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/time-1.9.3/src"><span class="hs-identifier">posixSecondsToUTCTime</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-14"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/containers-0.6.5.1/src"><span class="hs-identifier">Data.Map.Strict</span></a></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Map</span></span><span>
+</span><span id="line-15"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/time-1.9.3/src"><span class="hs-identifier">Data.Time.Clock.POSIX</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/time-1.9.3/src"><span class="hs-identifier">posixSecondsToUTCTime</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-16"></span><span>
 </span><span id="line-17"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><span class="hs-identifier">Cardano.Slotting.Slot</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier">EpochSize</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-18"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><span class="hs-identifier">Ouroboros.Consensus.Shelley.Eras</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier">StandardCrypto</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier">StandardShelley</span></span><span class="hs-special">)</span><span>
@@ -26,9 +26,9 @@
 </span><span id="line-26"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><span class="hs-identifier">Cardano.Ledger.Coin</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier">Coin</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-27"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><span class="hs-identifier">Cardano.Ledger.Keys</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier">GenDelegPair</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier">Hash</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier">KeyHash</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier">KeyRole</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-28"></span><span>                   </span><span class="annot"><span class="hs-identifier">VerKeyVRF</span></span><span class="hs-special">)</span><span>
-</span><span id="line-29"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><span class="hs-identifier">Shelley.Spec.Ledger.PParams</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier">PParams'</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier">emptyPParams</span></span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><span class="hs-identifier">Cardano.Ledger.Shelley.PParams</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier">PParams'</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier">emptyPParams</span></span><span class="hs-special">)</span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><span class="hs-identifier">Test.Shelley.Spec.Ledger.Utils</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier">unsafeBoundRational</span></span><span class="hs-special">)</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span>           </span><span class="annot"><span class="hs-identifier">Test.Cardano.Ledger.Shelley.Utils</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier">unsafeBoundRational</span></span><span class="hs-special">)</span><span>
 </span><span id="line-32"></span><span>
 </span><span id="line-33"></span><span class="annot"><a href="Test.Cardano.Api.Genesis.html#exampleShelleyGenesis"><span class="hs-identifier hs-type">exampleShelleyGenesis</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">ShelleyGenesis</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">StandardShelley</span></span><span>
 </span><span id="line-34"></span><span id="exampleShelleyGenesis"><span class="annot"><span class="annottext">exampleShelleyGenesis :: ShelleyGenesis StandardShelley
@@ -53,12 +53,12 @@ UTCTime
 </span><span class="hs-identifier hs-type">ShelleyGenesis</span></span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">sgSystemStart :: UTCTime
 </span><span class="hs-identifier hs-var">sgSystemStart</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NominalDiffTime -&gt; UTCTime
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/time-1.9.3/src"><span class="hs-identifier hs-var">posixSecondsToUTCTime</span></a></span><span> </span><span class="annot"><span class="annottext">(NominalDiffTime -&gt; UTCTime) -&gt; NominalDiffTime -&gt; UTCTime
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/time-1.9.3/src"><span class="hs-identifier hs-var">posixSecondsToUTCTime</span></a></span><span> </span><span class="annot"><span class="annottext">(NominalDiffTime -&gt; UTCTime) -&gt; NominalDiffTime -&gt; UTCTime
 forall a b. (a -&gt; b) -&gt; a -&gt; b
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-operator hs-var">$</span></a></span><span> </span><span class="annot"><span class="annottext">Integer -&gt; NominalDiffTime
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-operator hs-var">$</span></a></span><span> </span><span class="annot"><span class="annottext">Integer -&gt; NominalDiffTime
 forall a b. (Real a, Fractional b) =&gt; a -&gt; b
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-identifier hs-var">realToFrac</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Integer
-</span><span class="hs-number">1234566789</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/integer-gmp-1.0.3.0/src"><span class="hs-identifier hs-type">Integer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-identifier hs-var">realToFrac</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Integer
+</span><span class="hs-number">1234566789</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/integer-gmp-1.0.3.0/src"><span class="hs-identifier hs-type">Integer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">sgNetworkMagic :: Word32
 </span><span class="hs-identifier hs-var">sgNetworkMagic</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Word32
 </span><span class="hs-number">4036000900</span></span><span>
@@ -116,9 +116,9 @@ forall r. (HasCallStack, BoundedRational r) =&gt; Rational -&gt; r
 -&gt; Map
      (KeyHash 'Genesis StandardCrypto) (GenDelegPair StandardCrypto)
 forall k a. Ord k =&gt; [(k, a)] -&gt; Map k a
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/containers-0.6.2.1/src"><span class="hs-identifier hs-var">Map.fromList</span></a></span><span>
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/containers-0.6.5.1/src"><span class="hs-identifier hs-var">Map.fromList</span></a></span><span>
 </span><span id="line-53"></span><span>                      </span><span class="hs-special">[</span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">KeyHash 'Genesis StandardCrypto
-</span><a href="#local-6989586621679250374"><span class="hs-identifier hs-var">genesisVerKeyHash</span></a></span><span>
+</span><a href="#local-6989586621679272652"><span class="hs-identifier hs-var">genesisVerKeyHash</span></a></span><span>
 </span><span id="line-54"></span><span>                       </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">KeyHash 'GenesisDelegate StandardCrypto
 -&gt; Hash StandardCrypto (VerKeyVRF StandardCrypto)
 -&gt; GenDelegPair StandardCrypto
@@ -126,15 +126,15 @@ forall crypto.
 KeyHash 'GenesisDelegate crypto
 -&gt; Hash crypto (VerKeyVRF crypto) -&gt; GenDelegPair crypto
 </span><span class="hs-identifier hs-var">GenDelegPair</span></span><span> </span><span class="annot"><span class="annottext">KeyHash 'GenesisDelegate StandardCrypto
-</span><a href="#local-6989586621679250372"><span class="hs-identifier hs-var">delegVerKeyHash</span></a></span><span> </span><span class="annot"><span class="annottext">Hash StandardCrypto (VerKeyVRF StandardCrypto)
-</span><a href="#local-6989586621679250371"><span class="hs-identifier hs-var">delegVrfKeyHash</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679272650"><span class="hs-identifier hs-var">delegVerKeyHash</span></a></span><span> </span><span class="annot"><span class="annottext">Hash StandardCrypto (VerKeyVRF StandardCrypto)
+</span><a href="#local-6989586621679272649"><span class="hs-identifier hs-var">delegVrfKeyHash</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-55"></span><span>                      </span><span class="hs-special">]</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">sgInitialFunds :: Map (Addr (Crypto StandardShelley)) Coin
 </span><span class="hs-identifier hs-var">sgInitialFunds</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[(Addr StandardCrypto, Coin)] -&gt; Map (Addr StandardCrypto) Coin
 forall k a. Ord k =&gt; [(k, a)] -&gt; Map k a
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/containers-0.6.2.1/src"><span class="hs-identifier hs-var">Map.fromList</span></a></span><span> </span><span class="hs-special">[</span><span class="hs-special">(</span><span class="annot"><span class="annottext">Addr StandardCrypto
-</span><a href="#local-6989586621679250369"><span class="hs-identifier hs-var">initialFundedAddress</span></a></span><span class="hs-special">,</span><span class="annot"><span class="annottext">Coin
-</span><a href="#local-6989586621679250368"><span class="hs-identifier hs-var">initialFunds</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/containers-0.6.5.1/src"><span class="hs-identifier hs-var">Map.fromList</span></a></span><span> </span><span class="hs-special">[</span><span class="hs-special">(</span><span class="annot"><span class="annottext">Addr StandardCrypto
+</span><a href="#local-6989586621679272647"><span class="hs-identifier hs-var">initialFundedAddress</span></a></span><span class="hs-special">,</span><span class="annot"><span class="annottext">Coin
+</span><a href="#local-6989586621679272646"><span class="hs-identifier hs-var">initialFunds</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">sgStaking :: ShelleyGenesisStaking (Crypto StandardShelley)
 </span><span class="hs-identifier hs-var">sgStaking</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ShelleyGenesisStaking (Crypto StandardShelley)
 forall crypto. ShelleyGenesisStaking crypto
@@ -142,9 +142,9 @@ forall crypto. ShelleyGenesisStaking crypto
 </span><span id="line-58"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-59"></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-comment">-- hash of the genesis verification key</span><span>
-</span><span id="line-61"></span><span>  </span><span class="annot"><a href="#local-6989586621679250374"><span class="hs-identifier hs-type">genesisVerKeyHash</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">KeyHash</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Genesis</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">StandardCrypto</span></span><span>
-</span><span id="line-62"></span><span>  </span><span id="local-6989586621679250374"><span class="annot"><span class="annottext">genesisVerKeyHash :: KeyHash 'Genesis StandardCrypto
-</span><a href="#local-6989586621679250374"><span class="hs-identifier hs-var hs-var">genesisVerKeyHash</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Hash (ADDRHASH StandardCrypto) (VerKeyDSIGN (DSIGN StandardCrypto))
+</span><span id="line-61"></span><span>  </span><span class="annot"><a href="#local-6989586621679272652"><span class="hs-identifier hs-type">genesisVerKeyHash</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">KeyHash</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Genesis</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">StandardCrypto</span></span><span>
+</span><span id="line-62"></span><span>  </span><span id="local-6989586621679272652"><span class="annot"><span class="annottext">genesisVerKeyHash :: KeyHash 'Genesis StandardCrypto
+</span><a href="#local-6989586621679272652"><span class="hs-identifier hs-var hs-var">genesisVerKeyHash</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Hash (ADDRHASH StandardCrypto) (VerKeyDSIGN (DSIGN StandardCrypto))
 -&gt; KeyHash 'Genesis StandardCrypto
 forall (discriminator :: KeyRole) crypto.
 Hash (ADDRHASH crypto) (VerKeyDSIGN (DSIGN crypto))
@@ -152,22 +152,22 @@ Hash (ADDRHASH crypto) (VerKeyDSIGN (DSIGN crypto))
 </span><span class="hs-identifier hs-var">KeyHash</span></span><span> </span><span class="annot"><span class="annottext">Hash (ADDRHASH StandardCrypto) (VerKeyDSIGN (DSIGN StandardCrypto))
 </span><span class="hs-string">&quot;23d51e91ae5adc7ae801e9de4cd54175fb7464ec2680b25686bbb194&quot;</span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-comment">-- hash of the delegators verification key</span><span>
-</span><span id="line-64"></span><span>  </span><span class="annot"><a href="#local-6989586621679250372"><span class="hs-identifier hs-type">delegVerKeyHash</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">KeyHash</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">GenesisDelegate</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">StandardCrypto</span></span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679250372"><span class="annot"><span class="annottext">delegVerKeyHash :: KeyHash 'GenesisDelegate StandardCrypto
-</span><a href="#local-6989586621679250372"><span class="hs-identifier hs-var hs-var">delegVerKeyHash</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Hash (ADDRHASH StandardCrypto) (VerKeyDSIGN (DSIGN StandardCrypto))
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="#local-6989586621679272650"><span class="hs-identifier hs-type">delegVerKeyHash</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">KeyHash</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">GenesisDelegate</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">StandardCrypto</span></span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679272650"><span class="annot"><span class="annottext">delegVerKeyHash :: KeyHash 'GenesisDelegate StandardCrypto
+</span><a href="#local-6989586621679272650"><span class="hs-identifier hs-var hs-var">delegVerKeyHash</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Hash (ADDRHASH StandardCrypto) (VerKeyDSIGN (DSIGN StandardCrypto))
 -&gt; KeyHash 'GenesisDelegate StandardCrypto
 forall (discriminator :: KeyRole) crypto.
 Hash (ADDRHASH crypto) (VerKeyDSIGN (DSIGN crypto))
 -&gt; KeyHash discriminator crypto
 </span><span class="hs-identifier hs-var">KeyHash</span></span><span> </span><span class="annot"><span class="annottext">Hash (ADDRHASH StandardCrypto) (VerKeyDSIGN (DSIGN StandardCrypto))
 </span><span class="hs-string">&quot;839b047f56e50654bdb504832186dc1ee0c73c8de2daec7ae6273827&quot;</span></span><span>
-</span><span id="line-66"></span><span>  </span><span class="annot"><a href="#local-6989586621679250371"><span class="hs-identifier hs-type">delegVrfKeyHash</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Hash</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">StandardCrypto</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">VerKeyVRF</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">StandardCrypto</span></span><span class="hs-special">)</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679250371"><span class="annot"><span class="annottext">delegVrfKeyHash :: Hash StandardCrypto (VerKeyVRF StandardCrypto)
-</span><a href="#local-6989586621679250371"><span class="hs-identifier hs-var hs-var">delegVrfKeyHash</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Hash StandardCrypto (VerKeyVRF StandardCrypto)
+</span><span id="line-66"></span><span>  </span><span class="annot"><a href="#local-6989586621679272649"><span class="hs-identifier hs-type">delegVrfKeyHash</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Hash</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">StandardCrypto</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">VerKeyVRF</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">StandardCrypto</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679272649"><span class="annot"><span class="annottext">delegVrfKeyHash :: Hash StandardCrypto (VerKeyVRF StandardCrypto)
+</span><a href="#local-6989586621679272649"><span class="hs-identifier hs-var hs-var">delegVrfKeyHash</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Hash StandardCrypto (VerKeyVRF StandardCrypto)
 </span><span class="hs-string">&quot;231391e7ec1c450a8518134cf6fad1a8e0ed7ffd66d740f8e8271347a6de7bf2&quot;</span></span><span>
-</span><span id="line-68"></span><span>  </span><span class="annot"><a href="#local-6989586621679250369"><span class="hs-identifier hs-type">initialFundedAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Addr</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">StandardCrypto</span></span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679250369"><span class="annot"><span class="annottext">initialFundedAddress :: Addr StandardCrypto
-</span><a href="#local-6989586621679250369"><span class="hs-identifier hs-var hs-var">initialFundedAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Network
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="#local-6989586621679272647"><span class="hs-identifier hs-type">initialFundedAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Addr</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">StandardCrypto</span></span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679272647"><span class="annot"><span class="annottext">initialFundedAddress :: Addr StandardCrypto
+</span><a href="#local-6989586621679272647"><span class="hs-identifier hs-var hs-var">initialFundedAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Network
 -&gt; PaymentCredential StandardCrypto
 -&gt; StakeReference StandardCrypto
 -&gt; Addr StandardCrypto
@@ -176,14 +176,14 @@ Network
 -&gt; PaymentCredential crypto -&gt; StakeReference crypto -&gt; Addr crypto
 </span><span class="hs-identifier hs-var">Addr</span></span><span> </span><span class="annot"><span class="annottext">Network
 </span><span class="hs-identifier hs-var">Testnet</span></span><span> </span><span class="annot"><span class="annottext">PaymentCredential StandardCrypto
-</span><a href="#local-6989586621679250364"><span class="hs-identifier hs-var">paymentCredential</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">StakeCredential StandardCrypto -&gt; StakeReference StandardCrypto
+</span><a href="#local-6989586621679272642"><span class="hs-identifier hs-var">paymentCredential</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">StakeCredential StandardCrypto -&gt; StakeReference StandardCrypto
 forall crypto. StakeCredential crypto -&gt; StakeReference crypto
 </span><span class="hs-identifier hs-var">StakeRefBase</span></span><span> </span><span class="annot"><span class="annottext">StakeCredential StandardCrypto
-</span><a href="#local-6989586621679250362"><span class="hs-identifier hs-var">stakingCredential</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679272640"><span class="hs-identifier hs-var">stakingCredential</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>      </span><span class="annot"><a href="#local-6989586621679250364"><span class="hs-identifier hs-type">paymentCredential</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">PaymentCredential</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">StandardCrypto</span></span><span>
-</span><span id="line-72"></span><span>      </span><span id="local-6989586621679250364"><span class="annot"><span class="annottext">paymentCredential :: PaymentCredential StandardCrypto
-</span><a href="#local-6989586621679250364"><span class="hs-identifier hs-var hs-var">paymentCredential</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><a href="#local-6989586621679272642"><span class="hs-identifier hs-type">paymentCredential</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">PaymentCredential</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">StandardCrypto</span></span><span>
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679272642"><span class="annot"><span class="annottext">paymentCredential :: PaymentCredential StandardCrypto
+</span><a href="#local-6989586621679272642"><span class="hs-identifier hs-var hs-var">paymentCredential</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>        </span><span class="annot"><span class="annottext">KeyHash 'Payment StandardCrypto -&gt; PaymentCredential StandardCrypto
 forall (kr :: KeyRole) crypto.
 KeyHash kr crypto -&gt; Credential kr crypto
@@ -192,7 +192,7 @@ KeyHash kr crypto -&gt; Credential kr crypto
 -&gt; KeyHash 'Payment StandardCrypto
 -&gt; PaymentCredential StandardCrypto
 forall a b. (a -&gt; b) -&gt; a -&gt; b
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-operator hs-var">$</span></a></span><span> </span><span class="annot"><span class="annottext">Hash (ADDRHASH StandardCrypto) (VerKeyDSIGN (DSIGN StandardCrypto))
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-operator hs-var">$</span></a></span><span> </span><span class="annot"><span class="annottext">Hash (ADDRHASH StandardCrypto) (VerKeyDSIGN (DSIGN StandardCrypto))
 -&gt; KeyHash 'Payment StandardCrypto
 forall (discriminator :: KeyRole) crypto.
 Hash (ADDRHASH crypto) (VerKeyDSIGN (DSIGN crypto))
@@ -201,9 +201,9 @@ Hash (ADDRHASH crypto) (VerKeyDSIGN (DSIGN crypto))
 </span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Hash (ADDRHASH StandardCrypto) (VerKeyDSIGN (DSIGN StandardCrypto))
 </span><span class="hs-string">&quot;1c14ee8e58fbcbd48dc7367c95a63fd1d937ba989820015db16ac7e5&quot;</span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span>      </span><span class="annot"><a href="#local-6989586621679250362"><span class="hs-identifier hs-type">stakingCredential</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">StakeCredential</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">StandardCrypto</span></span><span>
-</span><span id="line-77"></span><span>      </span><span id="local-6989586621679250362"><span class="annot"><span class="annottext">stakingCredential :: StakeCredential StandardCrypto
-</span><a href="#local-6989586621679250362"><span class="hs-identifier hs-var hs-var">stakingCredential</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><a href="#local-6989586621679272640"><span class="hs-identifier hs-type">stakingCredential</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">StakeCredential</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">StandardCrypto</span></span><span>
+</span><span id="line-77"></span><span>      </span><span id="local-6989586621679272640"><span class="annot"><span class="annottext">stakingCredential :: StakeCredential StandardCrypto
+</span><a href="#local-6989586621679272640"><span class="hs-identifier hs-var hs-var">stakingCredential</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>        </span><span class="annot"><span class="annottext">KeyHash 'Staking StandardCrypto -&gt; StakeCredential StandardCrypto
 forall (kr :: KeyRole) crypto.
 KeyHash kr crypto -&gt; Credential kr crypto
@@ -211,7 +211,7 @@ KeyHash kr crypto -&gt; Credential kr crypto
 -&gt; KeyHash 'Staking StandardCrypto
 -&gt; StakeCredential StandardCrypto
 forall a b. (a -&gt; b) -&gt; a -&gt; b
-</span><a href="../file:///home/runner/.ghcup/ghc/8.10.4/share/doc/ghc-8.10.4/html/libraries/base-4.14.1.0/src"><span class="hs-operator hs-var">$</span></a></span><span> </span><span class="annot"><span class="annottext">Hash (ADDRHASH StandardCrypto) (VerKeyDSIGN (DSIGN StandardCrypto))
+</span><a href="../file:///home/runner/.ghcup/ghc/8.10.7/share/doc/ghc-8.10.7/html/libraries/base-4.14.3.0/src"><span class="hs-operator hs-var">$</span></a></span><span> </span><span class="annot"><span class="annottext">Hash (ADDRHASH StandardCrypto) (VerKeyDSIGN (DSIGN StandardCrypto))
 -&gt; KeyHash 'Staking StandardCrypto
 forall (discriminator :: KeyRole) crypto.
 Hash (ADDRHASH crypto) (VerKeyDSIGN (DSIGN crypto))
@@ -220,9 +220,9 @@ Hash (ADDRHASH crypto) (VerKeyDSIGN (DSIGN crypto))
 </span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Hash (ADDRHASH StandardCrypto) (VerKeyDSIGN (DSIGN StandardCrypto))
 </span><span class="hs-string">&quot;e37a65ea2f9bcefb645de4312cf13d8ac12ae61cf242a9aa2973c9ee&quot;</span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span>  </span><span class="annot"><a href="#local-6989586621679250368"><span class="hs-identifier hs-type">initialFunds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Coin</span></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679250368"><span class="annot"><span class="annottext">initialFunds :: Coin
-</span><a href="#local-6989586621679250368"><span class="hs-identifier hs-var hs-var">initialFunds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer -&gt; Coin
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="#local-6989586621679272646"><span class="hs-identifier hs-type">initialFunds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Coin</span></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679272646"><span class="annot"><span class="annottext">initialFunds :: Coin
+</span><a href="#local-6989586621679272646"><span class="hs-identifier hs-var hs-var">initialFunds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer -&gt; Coin
 </span><span class="hs-identifier hs-var">Coin</span></span><span> </span><span class="annot"><span class="annottext">Integer
 </span><span class="hs-number">12157196</span></span><span>
 </span><span id="line-83"></span></pre></body></html>
